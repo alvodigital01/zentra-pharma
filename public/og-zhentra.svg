@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="180" y1="40" x2="1040" y2="610" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10294E"/>
+      <stop offset="1" stop-color="#06101F"/>
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1E56A8"/>
+      <stop offset="1" stop-color="#DCE8F8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(904 58) rotate(123.55) scale(613.311 949.745)">
+      <stop stop-color="#3F72BE" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#3F72BE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="82" y="82" width="1036" height="466" rx="42" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.12"/>
+  <path d="M193.675 181H384.52C400.32 181 407.953 200.008 396.547 211.868L267.31 346.228H408.554C424.961 346.228 432.339 366.373 419.443 378.793L364.236 432H192.764C177.449 432 169.737 413.572 181.034 401.688L316.703 259.044H194.329C177.596 259.044 170.124 238.278 183.336 225.804L242.759 181Z" fill="url(#logoGradient)"/>
+  <circle cx="387.18" cy="162.092" r="28.908" fill="url(#logoGradient)"/>
+  <path d="M365.377 200.269C381.524 212.377 390.832 230.347 390.832 252.278V303.876" stroke="url(#logoGradient)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M330.058 185.437C340.066 211.117 359.769 231.246 386.17 242.693" stroke="url(#logoGradient)" stroke-width="16" stroke-linecap="round"/>
+  <text x="478" y="290" fill="white" font-size="112" font-family="Arial, sans-serif" font-weight="700" letter-spacing="8">ZENTHRA</text>
+  <text x="607" y="364" fill="#DCE8F8" font-size="58" font-family="Arial, sans-serif" font-weight="600" letter-spacing="16">PHARMA</text>
+  <text x="114" y="514" fill="#DCE8F8" font-size="34" font-family="Arial, sans-serif" font-weight="500" letter-spacing="8">Performance, controle e resultado com padrão internacional.</text>
+</svg>
