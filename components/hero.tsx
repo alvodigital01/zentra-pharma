@@ -71,7 +71,7 @@ export function Hero() {
           <div>
             <Reveal>
               <span className="inline-flex rounded-full border border-[#D9E1EC] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
-                Zenthra Pharma
+                Produtos de extrema pureza
               </span>
             </Reveal>
 
@@ -79,14 +79,14 @@ export function Hero() {
               <h1 className="mt-8 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#0F1720] sm:text-5xl lg:text-[4.35rem]">
                 Zenthra Pharma.
                 <br />
-                Qualidade em cada detalhe.
+                Produtos de extrema pureza.
               </h1>
             </Reveal>
 
             <Reveal delay={0.14}>
               <p className="mt-6 max-w-2xl text-base leading-8 text-[#5B6575] sm:text-lg">
-                Uma marca guiada por credibilidade, sofisticacao e atendimento proximo,
-                criada para quem reconhece valor, cuidado e excelencia.
+                Sofisticacao, confianca e atendimento humanizado em uma marca
+                pensada para quem prioriza cuidado, seguranca e excelencia.
               </p>
             </Reveal>
 
