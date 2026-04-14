@@ -14,12 +14,10 @@ export function FloatingWhatsApp() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.7, duration: 0.5 }}
-      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full border border-[#D9E1EC] bg-white/96 px-4 py-3 text-[#0E2A47] shadow-soft backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-medium"
+      aria-label="Abrir contato"
+      className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#0E2A47]/10 bg-[#0E2A47] text-white shadow-medium transition hover:-translate-y-0.5 hover:bg-[#153B63] hover:shadow-dark"
     >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E2A47] text-white">
-        <WhatsAppIcon className="h-5 w-5" />
-      </span>
-      <span className="hidden text-sm font-medium sm:block">WhatsApp</span>
+      <WhatsAppIcon className="h-6 w-6" />
     </motion.a>
   );
 }

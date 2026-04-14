@@ -22,17 +22,17 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Zenthra Pharma | Presenca institucional premium com padrao pharma",
+    default: "Zenthra Pharma | Sofisticacao, confianca e presenca",
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Site institucional da Zenthra Pharma com identidade premium, apresentacao organizada e geracao de leads via WhatsApp.",
+    "Conheca a Zenthra Pharma e descubra uma marca orientada por excelencia, confianca e atendimento direto.",
   keywords: [
     "Zenthra Pharma",
     "marca pharma premium",
     "site institucional pharma",
     "apresentacao premium",
-    "estrutura profissional",
+    "atendimento premium",
     "WhatsApp",
   ],
   applicationName: siteConfig.name,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: "Zenthra Pharma",
     description:
-      "Uma presenca digital premium, criada para transmitir credibilidade, organizacao e alto padrao visual.",
+      "Uma marca orientada por excelencia, confianca e sofisticacao.",
     images: [
       {
         url: "/og-zhentra.svg",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Zenthra Pharma",
-    description: "Excelencia, confianca e apresentacao premium para uma marca pharma.",
+    description: "Sofisticacao, confianca e presenca para uma marca de alto padrao.",
     images: ["/og-zhentra.svg"],
   },
 };

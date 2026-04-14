@@ -10,10 +10,9 @@ export function Footer() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.55fr_0.55fr_0.8fr]">
           <div>
-            <Logo light />
+            <Logo light fillMark />
             <p className="mt-6 max-w-md text-sm leading-7 text-white/58">
-              Presenca institucional premium para uma marca que precisa comunicar seriedade,
-              organizacao e alto padrao com mais clareza.
+              Zenthra Pharma. Qualidade, confianca e excelencia em cada detalhe.
             </p>
           </div>
 
@@ -70,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-sm text-white/45">
-          © {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
+          Copyright {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
         </div>
       </Container>
     </footer>

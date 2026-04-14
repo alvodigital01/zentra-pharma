@@ -19,14 +19,13 @@ export function FinalCta() {
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <span className="inline-flex rounded-full border border-white/12 bg-white/8 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/74">
-                  CTA final
+                  Atendimento Zenthra
                 </span>
                 <h2 className="mt-6 max-w-3xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-[3.2rem]">
-                  Pronto para apresentar a Zenthra com mais autoridade e consistencia?
+                  Fale com a Zenthra Pharma.
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                  Um bloco final objetivo, elegante e preparado para transformar interesse em
-                  conversa de forma direta.
+                  Estamos prontos para apresentar nossas linhas e oferecer um atendimento claro, proximo e confiavel.
                 </p>
               </div>
 
@@ -39,8 +38,7 @@ export function FinalCta() {
                   Falar no WhatsApp agora
                 </CtaButton>
                 <p className="max-w-sm text-sm leading-7 text-white/58 lg:text-right">
-                  Canal direto, leitura clara e experiencia alinhada ao novo posicionamento
-                  visual da marca.
+                  Um canal direto para esclarecer duvidas e conhecer melhor a marca.
                 </p>
               </div>
             </div>

@@ -28,8 +28,8 @@ export function HowItWorks() {
         <Reveal>
           <SectionHeading
             eyebrow="Como funciona"
-            title="Uma jornada simples, elegante e objetiva para levar interesse ate o contato."
-            description="O fluxo foi mantido enxuto para reforcar organizacao, leitura rapida e clareza na tomada de decisao."
+            title="Um atendimento simples, atencioso e personalizado."
+            description="Da primeira conversa ao direcionamento ideal, cada etapa acontece com clareza e proximidade."
             align="center"
           />
         </Reveal>

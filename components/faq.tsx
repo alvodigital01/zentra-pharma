@@ -21,8 +21,8 @@ export function Faq() {
           <Reveal>
             <SectionHeading
               eyebrow="FAQ"
-              title="Perguntas essenciais respondidas com clareza e sem excesso de informacao."
-              description="A proposta aqui e eliminar duvidas de forma rapida, mantendo o visual leve e institucional."
+              title="Tire suas duvidas com rapidez e clareza."
+              description="Selecionamos as perguntas mais comuns para facilitar seu primeiro contato com a marca."
             />
 
             <div className="mt-8 rounded-[32px] border border-[#D9E1EC] bg-[#FAFBFD] p-6 shadow-soft">
@@ -30,8 +30,8 @@ export function Faq() {
                 Atendimento direto
               </div>
               <p className="mt-4 text-lg leading-8 text-[#5B6575]">
-                Quando a duvida exigir contexto, a transicao para o WhatsApp continua simples,
-                direta e coerente com a proposta premium do site.
+                Se preferir, fale conosco pelo WhatsApp e receba um atendimento direto,
+                atencioso e personalizado.
               </p>
               <div className="mt-6">
                 <CtaButton href={whatsappUrl} variant="ghost">

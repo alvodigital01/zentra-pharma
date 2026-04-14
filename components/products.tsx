@@ -22,8 +22,8 @@ export function Products() {
         <Reveal>
           <SectionHeading
             eyebrow="Produtos"
-            title="Cards desenhados para apresentar produto com clareza, proporcao elegante e aparencia institucional."
-            description="A secao prioriza imagem, nome e descricao curta, mantendo uma leitura premium e distante da linguagem de e-commerce."
+            title="Linhas pensadas para acompanhar diferentes objetivos com qualidade e equilibrio."
+            description="Uma selecao que valoriza bem-estar, performance e uma experiencia alinhada ao posicionamento da marca."
           />
         </Reveal>
 
@@ -35,7 +35,11 @@ export function Products() {
                 transition={{ type: "spring", stiffness: 240, damping: 24 }}
                 className="group relative h-full overflow-hidden rounded-[30px] border border-[#D9E1EC] bg-white p-4 shadow-soft"
               >
-                <ProductMockup accentClassName={product.accentClassName} label={product.name} />
+                <ProductMockup
+                  accentClassName={product.accentClassName}
+                  images={product.images}
+                  label={product.name}
+                />
 
                 <div className="px-2 pb-3 pt-6">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">

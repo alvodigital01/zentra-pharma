@@ -2,12 +2,12 @@ export const siteConfig = {
   name: "Zenthra Pharma",
   url: "https://zenthrapharma.com.br",
   email: "contato@zenthrapharma.com.br",
-  location: "Atendimento digital com estrutura nacional",
+  location: "Atendimento digital em todo o Brasil",
   whatsappDisplay: "(11) 99999-9999",
   whatsappNumber:
     (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5511999999999").replace(/\D/g, "") ||
     "5511999999999",
-  defaultWhatsAppMessage: "Olá, quero conhecer a estrutura da Zenthra Pharma.",
+  defaultWhatsAppMessage: "Ola, gostaria de conhecer a Zenthra Pharma.",
 };
 
 export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
@@ -20,34 +20,34 @@ export const navLinks = [
   { label: "Sobre", href: "/#sobre" },
   { label: "Produtos", href: "/#produtos" },
   { label: "Diferenciais", href: "/#diferenciais" },
-  { label: "Estrutura", href: "/#como-funciona" },
+  { label: "Atendimento", href: "/#como-funciona" },
   { label: "FAQ", href: "/#faq" },
 ];
 
 export const trustBadges = [
-  "Identidade premium",
-  "Estrutura profissional",
-  "Design responsivo",
+  "Confianca",
+  "Sofisticacao",
+  "Atendimento direto",
 ];
 
 export const aboutHighlights = [
   {
-    label: "Apresentacao",
-    title: "Imagem institucional com leitura limpa e segura.",
+    label: "Identidade",
+    title: "Presenca visual marcada por elegancia e confianca.",
     description:
-      "Cada bloco foi redesenhado para reforcar credibilidade, organizacao e alto padrao visual.",
+      "Uma comunicacao institucional desenhada para transmitir seriedade, clareza e alto padrao.",
   },
   {
     label: "Consistencia",
-    title: "Paleta, tipografia e espacamento trabalhando na mesma direcao.",
+    title: "Linguagem visual coerente em cada ponto de contato.",
     description:
-      "O site foi ajustado para parecer mais pharma, mais internacional e menos proximo de uma landing genérica.",
+      "Tipografia, paleta e composicao trabalham em harmonia para fortalecer a identidade da marca.",
   },
   {
     label: "Percepcao",
-    title: "Uma presenca premium ja no primeiro scroll.",
+    title: "Uma experiencia que valoriza a marca desde o primeiro olhar.",
     description:
-      "Hero, produtos e CTA final agora priorizam impacto visual com menos ruido e mais confianca.",
+      "Cada secao foi pensada para ampliar a percepcao de qualidade, proximidade e credibilidade.",
   },
 ];
 
@@ -56,56 +56,60 @@ export const performanceLines = [
     icon: "weight",
     title: "Controle de peso",
     description:
-      "Soluções posicionadas para quem busca organização, constância e uma narrativa mais estratégica de evolução.",
+      "Solucoes desenvolvidas para quem busca leveza, constancia e uma rotina orientada a resultados.",
   },
   {
     icon: "performance",
     title: "Performance corporal",
     description:
-      "Uma frente criada para comunicar energia, foco e construção de rotina com leitura premium e direta.",
+      "Uma linha pensada para acompanhar objetivos de energia, constancia e performance com equilibrio.",
   },
   {
     icon: "composition",
-    title: "Definição e composição",
+    title: "Definicao e composicao",
     description:
-      "Card para reforçar objetivo visual, percepção de refinamento e clareza sobre transformações mais específicas.",
+      "Propostas voltadas para quem valoriza definicao, cuidado estetico e evolucao com clareza.",
   },
   {
     icon: "wellbeing",
     title: "Bem-estar e rotina",
     description:
-      "Abordagem mais equilibrada para sustentar constância, conveniência e sensação de acompanhamento próximo.",
+      "Uma abordagem equilibrada para promover conforto, praticidade e harmonia no dia a dia.",
   },
 ] as const;
 
 export const products = [
   {
-    category: "Apresentacao institucional",
+    category: "Controle de peso",
     name: "Zenthra Lean",
     description:
-      "Card desenhado para destacar imagem, nome e proposta com leitura direta e acabamento premium.",
+      "Uma linha voltada para quem busca leveza, equilibrio e uma rotina orientada a resultados consistentes.",
     accentClassName: "bg-[#E9EEF5]",
+    images: ["/products/zenthra-lean/foto1.jpeg", "/products/zenthra-lean/foto2.jpeg"],
   },
   {
     category: "Linha performance",
     name: "Zenthra Core",
     description:
-      "Estrutura elegante para apresentacao de produtos com foco em credibilidade e organizacao visual.",
+      "Desenvolvido para acompanhar intensidade, foco e performance com uma proposta clara e contemporanea.",
     accentClassName: "bg-[#EDF2F8]",
+    images: ["/products/zenthra-core/foto1.jpeg", "/products/zenthra-core/foto2.jpeg"],
   },
   {
-    category: "Composicao visual",
+    category: "Definicao corporal",
     name: "Zenthra Shape",
     description:
-      "Espaco preparado para imagens reais, com proporcao refinada e informacao suficiente sem excesso.",
+      "Uma proposta direcionada para quem valoriza definicao, cuidado estetico e bem-estar em cada etapa.",
     accentClassName: "bg-[#F1F4F9]",
+    images: ["/products/zenthra-shape/foto1.jpeg", "/products/zenthra-shape/foto2.jpeg"],
   },
   {
     category: "Rotina e bem-estar",
     name: "Zenthra Balance",
     description:
-      "Uma apresentacao clara, sofisticada e pronta para receber novos ativos visuais da marca.",
+      "Uma linha voltada ao equilibrio, ao bem-estar e a uma rotina mais leve.",
     accentClassName: "bg-[#F4F6FA]",
+    images: ["/products/zenthra-balance/foto1.jpeg", "/products/zenthra-balance/foto2.jpeg"],
   },
 ];
 
@@ -115,105 +119,105 @@ export const howItWorksSteps = [
     icon: "contact",
     title: "Contato",
     description:
-      "O lead entra pelo WhatsApp com um CTA forte, sem fricção e com promessa de atendimento direto.",
+      "O primeiro contato acontece de forma simples e direta, pelo canal mais conveniente para voce.",
   },
   {
     number: 2,
     icon: "objective",
     title: "Entendimento do objetivo",
     description:
-      "A conversa aprofunda contexto, expectativa e momento do usuário para tornar o fluxo realmente consultivo.",
+      "Nossa equipe entende sua necessidade para orientar cada conversa com mais clareza e precisao.",
   },
   {
     number: 3,
     icon: "direction",
     title: "Direcionamento personalizado",
     description:
-      "Com base no objetivo, a comunicação avança com mais precisão, confiança e percepção de exclusividade.",
+      "Com base no seu perfil e objetivo, apresentamos a linha mais adequada com atencao individualizada.",
   },
   {
     number: 4,
     icon: "followup",
     title: "Acompanhamento",
     description:
-      "A experiência continua com proximidade, reforçando valor percebido, cuidado e consistência de marca.",
+      "Seguimos presentes com atencao, cuidado e proximidade em cada etapa.",
   },
 ] as const;
 
 export const differentials = [
   {
     icon: "premium",
-    title: "Apresentacao premium",
+    title: "Identidade premium",
     description:
-      "Visual limpo, proporcao elegante e acabamento mais coerente com uma marca pharma.",
+      "Uma presenca visual sofisticada, pensada para refletir exclusividade e alto padrao.",
   },
   {
     icon: "structure",
-    title: "Estrutura profissional",
+    title: "Confianca institucional",
     description:
-      "Hierarquia clara, seções objetivas e leitura organizada do hero ao rodape.",
+      "Uma comunicacao clara e segura, alinhada a uma marca que valoriza credibilidade em cada detalhe.",
   },
   {
     icon: "direct",
     title: "Atendimento direto",
     description:
-      "CTAs posicionados com naturalidade para conduzir o interesse ao WhatsApp sem agressividade.",
+      "Um canal proximo e acessivel para esclarecer duvidas e apresentar a marca com agilidade.",
   },
   {
     icon: "optimized",
-    title: "Experiencia organizada",
+    title: "Experiencia responsiva",
     description:
-      "Fluxo enxuto, responsivo e desenhado para manter confianca em qualquer tela.",
+      "Uma navegacao fluida e elegante, preparada para manter qualidade e clareza em qualquer dispositivo.",
   },
 ] as const;
 
 export const proofMetrics = [
   {
-    value: "4 blocos",
-    label: "Estrutura enxuta",
-    description: "Uma narrativa mais objetiva, com menos excesso e leitura mais precisa.",
+    value: "Atendimento direto",
+    label: "Canal dedicado",
+    description: "Uma experiencia mais proxima para apresentar a marca com agilidade e clareza.",
   },
   {
-    value: "Visual limpo",
-    label: "Paleta revista",
-    description: "Navy, branco e cinzas suaves assumem a identidade do site com mais sobriedade.",
+    value: "Identidade premium",
+    label: "Presenca marcante",
+    description: "Uma comunicacao visual elegante e segura para refletir o posicionamento da marca.",
   },
   {
-    value: "WhatsApp",
-    label: "Conversao direta",
-    description: "A jornada foi organizada para levar o usuario ao contato com mais naturalidade.",
+    value: "Experiencia fluida",
+    label: "Navegacao responsiva",
+    description: "Conteudo organizado para oferecer clareza, conforto e consistencia em qualquer tela.",
   },
 ];
 
 export const testimonials = [
   {
-    name: "Percepcao de marca",
-    role: "Leitura institucional",
+    name: "Confianca",
+    role: "Credibilidade",
     quote:
-      "A apresentacao transmite mais confianca, mais ordem visual e uma assinatura muito mais proxima do universo pharma.",
+      "Uma comunicacao clara e sofisticada fortalece a relacao com quem busca qualidade e credibilidade.",
   },
   {
-    name: "Experiencia do usuario",
-    role: "Fluxo de contato",
+    name: "Proximidade",
+    role: "Atendimento direto",
     quote:
-      "A navegacao ficou mais clara, mais objetiva e muito menos carregada do que a versao anterior.",
+      "Cada contato reforca uma experiencia mais leve, intuitiva e acolhedora.",
   },
 ];
 
 export const faqs = [
   {
-    question: "O site foi pensado para venda direta?",
+    question: "A Zenthra Pharma realiza atendimento pelo WhatsApp?",
     answer:
-      "Nao. A proposta e institucional. O foco esta em apresentar a marca e conduzir o interesse para um contato via WhatsApp.",
+      "Sim. O WhatsApp e o principal canal de atendimento para apresentar a marca, esclarecer duvidas e orientar cada necessidade.",
   },
   {
-    question: "A experiencia ficou otimizada para mobile?",
+    question: "Posso entrar em contato de qualquer lugar do Brasil?",
     answer:
-      "Sim. Hero, cards, tipografia e espacamentos foram ajustados para manter leitura premium tambem no celular.",
+      "Sim. O atendimento e realizado de forma digital, com praticidade e conveniencia para clientes em todo o Brasil.",
   },
   {
-    question: "Os cards de produto aceitam imagens reais depois?",
+    question: "Como funciona o atendimento da marca?",
     answer:
-      "Sim. A area visual foi deixada preparada para substituir os placeholders por fotos oficiais sem refazer o layout.",
+      "O processo comeca pelo contato direto, segue com o entendimento da sua necessidade e evolui com orientacao personalizada.",
   },
 ];

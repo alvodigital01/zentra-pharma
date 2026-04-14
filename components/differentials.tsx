@@ -33,8 +33,8 @@ export function Differentials() {
         <Reveal>
           <SectionHeading
             eyebrow="Diferenciais"
-            title="Quatro pilares visuais e estruturais para reforcar seriedade, clareza e organizacao."
-            description="A manutencao reduziu excessos e concentrou a experiencia nos elementos que realmente melhoram a percepcao da marca."
+            title="Diferenciais que reforcam a identidade e a confianca da Zenthra Pharma."
+            description="Uma experiencia de marca marcada por sofisticacao, clareza e proximidade."
             align="center"
           />
         </Reveal>
