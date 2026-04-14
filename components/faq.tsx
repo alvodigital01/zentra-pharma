@@ -13,7 +13,7 @@ export function Faq() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="faq" className="section-divider section-padding relative overflow-hidden bg-white">
+    <section id="faq" className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]">
       <div className="absolute inset-0 light-grid opacity-15" />
 
       <Container className="relative">
@@ -21,7 +21,7 @@ export function Faq() {
           <Reveal>
             <SectionHeading
               eyebrow="FAQ"
-              title="Tire suas duvidas com rapidez e clareza."
+              title="Tire suas dúvidas com rapidez e clareza."
               description="Selecionamos as perguntas mais comuns para facilitar seu primeiro contato com a marca."
             />
 

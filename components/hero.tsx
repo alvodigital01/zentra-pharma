@@ -2,14 +2,33 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { Container } from "@/components/container";
 import { CtaButton } from "@/components/cta-button";
-import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 import { whatsappUrl } from "@/lib/content";
 
 function HeroVisual() {
+  const images = ["/foto1.jpeg", "/foto2.jpeg"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  function showPreviousImage() {
+    setCurrentIndex((current) => (current === 0 ? images.length - 1 : current - 1));
+  }
+
+  function showNextImage() {
+    setCurrentIndex((current) => (current === images.length - 1 ? 0 : current + 1));
+  }
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentIndex((current) => (current === images.length - 1 ? 0 : current + 1));
+    }, 3500);
+
+    return () => window.clearInterval(interval);
+  }, [images.length]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -22,31 +41,49 @@ function HeroVisual() {
       <div className="relative overflow-hidden rounded-[36px] border border-[#D9E1EC] bg-white p-5 shadow-medium sm:p-7">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#153B63]/18 to-transparent" />
 
-        <div className="flex items-center justify-between gap-4 border-b border-[#D9E1EC] pb-5">
-          <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#5B6575]">
-              Zenthra Pharma
+        <div>
+          <div className="relative min-h-[24rem] overflow-hidden rounded-[28px] shadow-soft">
+            <div className="absolute inset-0">
+              <Image
+                src={images[currentIndex]}
+                alt="Produto Zenthra Pharma"
+                fill
+                sizes="(min-width: 1024px) 480px, 90vw"
+                className="object-cover object-center"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/12 via-transparent to-white/10" />
             </div>
-            <div className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[#0F1720]">
-              Presenca que traduz confianca.
-            </div>
-          </div>
-          <Logo compact />
-        </div>
 
-        <div className="mt-6">
-          <div className="rounded-[30px] border border-[#D9E1EC] bg-[#F8FAFD] p-4">
-            <div className="relative flex min-h-[20rem] items-center justify-center overflow-hidden rounded-[24px] border border-[#D9E1EC] bg-white">
-              <div className="absolute inset-x-3 bottom-3 top-3 overflow-hidden rounded-[30px] border border-[#D9E1EC] bg-white shadow-soft">
-                <Image
-                  src="/foto1.jpeg"
-                  alt="Produto Zenthra Pharma"
-                  fill
-                  sizes="(min-width: 1024px) 480px, 90vw"
-                  className="object-cover object-center"
-                  priority
+            <button
+              type="button"
+              onClick={showPreviousImage}
+              aria-label="Ver imagem anterior do hero"
+              className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+            >
+              &#8249;
+            </button>
+
+            <button
+              type="button"
+              onClick={showNextImage}
+              aria-label="Ver próxima imagem do hero"
+              className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+            >
+              &#8250;
+            </button>
+
+            <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#0F1720]/28 px-3 py-2 backdrop-blur-sm">
+              {images.map((image, index) => (
+                <span
+                  key={`${image}-${index}`}
+                  className={
+                    index === currentIndex
+                      ? "h-1.5 w-5 rounded-full bg-white"
+                      : "h-1.5 w-1.5 rounded-full bg-white/60"
+                  }
                 />
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -71,7 +108,7 @@ export function Hero() {
           <div>
             <Reveal>
               <span className="inline-flex rounded-full border border-[#D9E1EC] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
-                Produtos de extrema pureza
+                Produtos de extrema qualidade
               </span>
             </Reveal>
 
@@ -85,8 +122,8 @@ export function Hero() {
 
             <Reveal delay={0.14}>
               <p className="mt-6 max-w-2xl text-base leading-8 text-[#5B6575] sm:text-lg">
-                Sofisticacao, confianca e atendimento humanizado em uma marca
-                pensada para quem prioriza cuidado, seguranca e excelencia.
+                Sofisticação, confiança e atendimento humanizado em uma marca
+                pensada para quem prioriza cuidado, segurança e excelência.
               </p>
             </Reveal>
 

@@ -17,13 +17,13 @@ export function About() {
           <Reveal>
             <SectionHeading
               eyebrow="Sobre a marca"
-              title="Uma marca que une credibilidade, elegancia e presenca."
-              description="A Zenthra Pharma expressa uma visao contemporanea de cuidado, qualidade e confianca."
+              title="Uma marca que une credibilidade, elegância e presença."
+              description="A Zenthra Pharma expressa uma visão contemporânea de cuidado, qualidade e confiança."
             />
 
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#5B6575]">
-              Nossa comunicacao valoriza clareza, refinamento e consistencia para transmitir
-              a forca de uma marca que se posiciona com seriedade e alto padrao.
+              Nossa comunicação valoriza clareza, refinamento e consistência para transmitir
+              a força de uma marca que se posiciona com seriedade e alto padrão.
             </p>
           </Reveal>
 

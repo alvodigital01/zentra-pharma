@@ -25,7 +25,7 @@ export function FinalCta() {
                   Fale com a Zenthra Pharma.
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                  Estamos prontos para apresentar nossas linhas e oferecer um atendimento claro, proximo e confiavel.
+                  Estamos prontos para apresentar nossas linhas e oferecer um atendimento claro, próximo e confiável.
                 </p>
               </div>
 
@@ -38,7 +38,7 @@ export function FinalCta() {
                   Falar no WhatsApp agora
                 </CtaButton>
                 <p className="max-w-sm text-sm leading-7 text-white/58 lg:text-right">
-                  Um canal direto para esclarecer duvidas e conhecer melhor a marca.
+                  Um canal direto para esclarecer dúvidas e conhecer melhor a marca.
                 </p>
               </div>
             </div>

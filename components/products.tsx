@@ -13,7 +13,7 @@ export function Products() {
   return (
     <section
       id="produtos"
-      className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]"
+      className="section-divider section-padding relative overflow-hidden bg-white"
     >
       <div className="absolute inset-0 light-grid opacity-20" />
       <div className="absolute right-0 top-20 h-56 w-56 rounded-full bg-[#153B63]/[0.05] blur-3xl" />
@@ -22,8 +22,8 @@ export function Products() {
         <Reveal>
           <SectionHeading
             eyebrow="Produtos"
-            title="Linhas pensadas para acompanhar diferentes objetivos com qualidade e equilibrio."
-            description="Uma selecao que valoriza bem-estar, performance e uma experiencia alinhada ao posicionamento da marca."
+            title="Linhas pensadas para acompanhar diferentes objetivos com qualidade e equilíbrio."
+            description="Uma seleção que valoriza bem-estar, performance e uma experiência alinhada ao posicionamento da marca."
           />
         </Reveal>
 
@@ -39,6 +39,7 @@ export function Products() {
                   accentClassName={product.accentClassName}
                   images={product.images}
                   label={product.name}
+                  clean={index === 0}
                 />
 
                 <div className="px-2 pb-3 pt-6">
@@ -52,7 +53,7 @@ export function Products() {
 
                   <div className="mt-6">
                     <CtaButton
-                      href={createWhatsAppUrl(`Ola, quero saber mais sobre ${product.name}.`)}
+                      href={createWhatsAppUrl(`Olá, quero saber mais sobre ${product.name}.`)}
                       variant="ghost"
                       className="w-full justify-center"
                     >

@@ -7,7 +7,7 @@ export const siteConfig = {
   whatsappNumber:
     (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5511999999999").replace(/\D/g, "") ||
     "5511999999999",
-  defaultWhatsAppMessage: "Ola, gostaria de conhecer a Zenthra Pharma.",
+  defaultWhatsAppMessage: "Olá, gostaria de conhecer a Zenthra Pharma.",
 };
 
 export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
@@ -17,7 +17,6 @@ export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
 export const whatsappUrl = createWhatsAppUrl();
 
 export const navLinks = [
-  { label: "Sobre", href: "/#sobre" },
   { label: "Produtos", href: "/#produtos" },
   { label: "Diferenciais", href: "/#diferenciais" },
   { label: "Atendimento", href: "/#como-funciona" },
@@ -25,29 +24,29 @@ export const navLinks = [
 ];
 
 export const trustBadges = [
-  "Confianca",
-  "Sofisticacao",
+  "Confiança",
+  "Sofisticação",
   "Atendimento direto",
 ];
 
 export const aboutHighlights = [
   {
     label: "Identidade",
-    title: "Presenca visual marcada por elegancia e confianca.",
+    title: "Presença visual marcada por elegância e confiança.",
     description:
-      "Uma comunicacao institucional desenhada para transmitir seriedade, clareza e alto padrao.",
+      "Uma comunicação institucional desenhada para transmitir seriedade, clareza e alto padrão.",
   },
   {
-    label: "Consistencia",
+    label: "Consistência",
     title: "Linguagem visual coerente em cada ponto de contato.",
     description:
-      "Tipografia, paleta e composicao trabalham em harmonia para fortalecer a identidade da marca.",
+      "Tipografia, paleta e composição trabalham em harmonia para fortalecer a identidade da marca.",
   },
   {
-    label: "Percepcao",
-    title: "Uma experiencia que valoriza a marca desde o primeiro olhar.",
+    label: "Percepção",
+    title: "Uma experiência que valoriza a marca desde o primeiro olhar.",
     description:
-      "Cada secao foi pensada para ampliar a percepcao de qualidade, proximidade e credibilidade.",
+      "Cada seção foi pensada para ampliar a percepção de qualidade, proximidade e credibilidade.",
   },
 ];
 
@@ -56,19 +55,19 @@ export const performanceLines = [
     icon: "weight",
     title: "Controle de peso",
     description:
-      "Solucoes desenvolvidas para quem busca leveza, constancia e uma rotina orientada a resultados.",
+      "Soluções desenvolvidas para quem busca leveza, constância e uma rotina orientada a resultados.",
   },
   {
     icon: "performance",
     title: "Performance corporal",
     description:
-      "Uma linha pensada para acompanhar objetivos de energia, constancia e performance com equilibrio.",
+      "Uma linha pensada para acompanhar objetivos de energia, constância e performance com equilíbrio.",
   },
   {
     icon: "composition",
-    title: "Definicao e composicao",
+    title: "Definição e composição",
     description:
-      "Propostas voltadas para quem valoriza definicao, cuidado estetico e evolucao com clareza.",
+      "Propostas voltadas para quem valoriza definição, cuidado estético e evolução com clareza.",
   },
   {
     icon: "wellbeing",
@@ -83,23 +82,23 @@ export const products = [
     category: "Controle de peso",
     name: "Zenthra Lean",
     description:
-      "Uma linha voltada para quem busca leveza, equilibrio e uma rotina orientada a resultados consistentes.",
+      "Uma linha voltada para quem busca leveza, equilíbrio e uma rotina orientada a resultados consistentes.",
     accentClassName: "bg-[#E9EEF5]",
-    images: ["/products/zenthra-lean/foto1.jpeg", "/products/zenthra-lean/foto2.jpeg"],
+    images: ["/reta.jpeg"],
   },
   {
     category: "Linha performance",
     name: "Zenthra Core",
     description:
-      "Desenvolvido para acompanhar intensidade, foco e performance com uma proposta clara e contemporanea.",
+      "Desenvolvido para acompanhar intensidade, foco e performance com uma proposta clara e contemporânea.",
     accentClassName: "bg-[#EDF2F8]",
     images: ["/products/zenthra-core/foto1.jpeg", "/products/zenthra-core/foto2.jpeg"],
   },
   {
-    category: "Definicao corporal",
+    category: "Definição corporal",
     name: "Zenthra Shape",
     description:
-      "Uma proposta direcionada para quem valoriza definicao, cuidado estetico e bem-estar em cada etapa.",
+      "Uma proposta direcionada para quem valoriza definição, cuidado estético e bem-estar em cada etapa.",
     accentClassName: "bg-[#F1F4F9]",
     images: ["/products/zenthra-shape/foto1.jpeg", "/products/zenthra-shape/foto2.jpeg"],
   },
@@ -107,7 +106,7 @@ export const products = [
     category: "Rotina e bem-estar",
     name: "Zenthra Balance",
     description:
-      "Uma linha voltada ao equilibrio, ao bem-estar e a uma rotina mais leve.",
+      "Uma linha voltada ao equilíbrio, ao bem-estar e a uma rotina mais leve.",
     accentClassName: "bg-[#F4F6FA]",
     images: ["/products/zenthra-balance/foto1.jpeg", "/products/zenthra-balance/foto2.jpeg"],
   },
@@ -119,28 +118,28 @@ export const howItWorksSteps = [
     icon: "contact",
     title: "Contato",
     description:
-      "O primeiro contato acontece de forma simples e direta, pelo canal mais conveniente para voce.",
+      "O primeiro contato acontece de forma simples e direta, pelo canal mais conveniente para você.",
   },
   {
     number: 2,
     icon: "objective",
     title: "Entendimento do objetivo",
     description:
-      "Nossa equipe entende sua necessidade para orientar cada conversa com mais clareza e precisao.",
+      "Nossa equipe entende sua necessidade para orientar cada conversa com mais clareza e precisão.",
   },
   {
     number: 3,
     icon: "direction",
     title: "Direcionamento personalizado",
     description:
-      "Com base no seu perfil e objetivo, apresentamos a linha mais adequada com atencao individualizada.",
+      "Com base no seu perfil e objetivo, apresentamos a linha mais adequada com atenção individualizada.",
   },
   {
     number: 4,
     icon: "followup",
     title: "Acompanhamento",
     description:
-      "Seguimos presentes com atencao, cuidado e proximidade em cada etapa.",
+      "Seguimos presentes com atenção, cuidado e proximidade em cada etapa.",
   },
 ] as const;
 
@@ -149,25 +148,25 @@ export const differentials = [
     icon: "premium",
     title: "Identidade premium",
     description:
-      "Uma presenca visual sofisticada, pensada para refletir exclusividade e alto padrao.",
+      "Uma presença visual sofisticada, pensada para refletir exclusividade e alto padrão.",
   },
   {
     icon: "structure",
-    title: "Confianca institucional",
+    title: "Confiança institucional",
     description:
-      "Uma comunicacao clara e segura, alinhada a uma marca que valoriza credibilidade em cada detalhe.",
+      "Uma comunicação clara e segura, alinhada a uma marca que valoriza credibilidade em cada detalhe.",
   },
   {
     icon: "direct",
     title: "Atendimento direto",
     description:
-      "Um canal proximo e acessivel para esclarecer duvidas e apresentar a marca com agilidade.",
+      "Um canal próximo e acessível para esclarecer dúvidas e apresentar a marca com agilidade.",
   },
   {
     icon: "optimized",
-    title: "Experiencia responsiva",
+    title: "Experiência responsiva",
     description:
-      "Uma navegacao fluida e elegante, preparada para manter qualidade e clareza em qualquer dispositivo.",
+      "Uma navegação fluida e elegante, preparada para manter qualidade e clareza em qualquer dispositivo.",
   },
 ] as const;
 
@@ -175,32 +174,32 @@ export const proofMetrics = [
   {
     value: "Atendimento direto",
     label: "Canal dedicado",
-    description: "Uma experiencia mais proxima para apresentar a marca com agilidade e clareza.",
+    description: "Uma experiência mais próxima para apresentar a marca com agilidade e clareza.",
   },
   {
     value: "Identidade premium",
-    label: "Presenca marcante",
-    description: "Uma comunicacao visual elegante e segura para refletir o posicionamento da marca.",
+    label: "Presença marcante",
+    description: "Uma comunicação visual elegante e segura para refletir o posicionamento da marca.",
   },
   {
-    value: "Experiencia fluida",
-    label: "Navegacao responsiva",
-    description: "Conteudo organizado para oferecer clareza, conforto e consistencia em qualquer tela.",
+    value: "Experiência fluida",
+    label: "Navegação responsiva",
+    description: "Conteúdo organizado para oferecer clareza, conforto e consistência em qualquer tela.",
   },
 ];
 
 export const testimonials = [
   {
-    name: "Confianca",
+    name: "Confiança",
     role: "Credibilidade",
     quote:
-      "Uma comunicacao clara e sofisticada fortalece a relacao com quem busca qualidade e credibilidade.",
+      "Uma comunicação clara e sofisticada fortalece a relação com quem busca qualidade e credibilidade.",
   },
   {
     name: "Proximidade",
     role: "Atendimento direto",
     quote:
-      "Cada contato reforca uma experiencia mais leve, intuitiva e acolhedora.",
+      "Cada contato reforça uma experiência mais leve, intuitiva e acolhedora.",
   },
 ];
 
@@ -208,16 +207,16 @@ export const faqs = [
   {
     question: "A Zenthra Pharma realiza atendimento pelo WhatsApp?",
     answer:
-      "Sim. O WhatsApp e o principal canal de atendimento para apresentar a marca, esclarecer duvidas e orientar cada necessidade.",
+      "Sim. O WhatsApp é o principal canal de atendimento para apresentar a marca, esclarecer dúvidas e orientar cada necessidade.",
   },
   {
     question: "Posso entrar em contato de qualquer lugar do Brasil?",
     answer:
-      "Sim. O atendimento e realizado de forma digital, com praticidade e conveniencia para clientes em todo o Brasil.",
+      "Sim. O atendimento é realizado de forma digital, com praticidade e conveniência para clientes em todo o Brasil.",
   },
   {
     question: "Como funciona o atendimento da marca?",
     answer:
-      "O processo comeca pelo contato direto, segue com o entendimento da sua necessidade e evolui com orientacao personalizada.",
+      "O processo começa pelo contato direto, segue com o entendimento da sua necessidade e evolui com orientação personalizada.",
   },
 ];

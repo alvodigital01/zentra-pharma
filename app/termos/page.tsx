@@ -48,7 +48,7 @@ export default function TermsPage() {
               Termos
             </span>
             <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.03em] text-[#0F1720] sm:text-5xl">
-              Diretrizes claras para uma experiencia segura e consistente.
+              Diretrizes claras para uma experiência segura e consistente.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[#5B6575] sm:text-lg">
               Estes termos organizam a relação entre o visitante e a {siteConfig.name},

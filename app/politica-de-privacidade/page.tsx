@@ -48,7 +48,7 @@ export default function PrivacyPage() {
               Privacidade
             </span>
             <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.03em] text-[#0F1720] sm:text-5xl">
-              Transparencia e cuidado em cada ponto de contato.
+              Transparência e cuidado em cada ponto de contato.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[#5B6575] sm:text-lg">
               Esta política descreve, de forma objetiva, como a {siteConfig.name} trata

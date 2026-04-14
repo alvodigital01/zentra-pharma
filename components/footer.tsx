@@ -12,12 +12,12 @@ export function Footer() {
           <div>
             <Logo light fillMark />
             <p className="mt-6 max-w-md text-sm leading-7 text-white/58">
-              Zenthra Pharma. Qualidade, confianca e excelencia em cada detalhe.
+              Zenthra Pharma. Qualidade, confiança e excelência em cada detalhe.
             </p>
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-[0.28em] text-white/38">Navegacao</div>
+            <div className="text-[11px] uppercase tracking-[0.28em] text-white/38">Navegação</div>
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -34,7 +34,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               <li>
                 <Link href="/politica-de-privacidade" className="transition hover:text-white">
-                  Politica de privacidade
+                  Política de privacidade
                 </Link>
               </li>
               <li>

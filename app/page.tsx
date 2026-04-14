@@ -1,4 +1,3 @@
-import { About } from "@/components/about";
 import { Differentials } from "@/components/differentials";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <main className="overflow-x-clip">
       <Hero />
-      <About />
       <Products />
       <Differentials />
       <HowItWorks />

@@ -26,15 +26,15 @@ const icons = {
 
 export function Differentials() {
   return (
-    <section id="diferenciais" className="section-divider section-padding relative overflow-hidden bg-white">
+    <section id="diferenciais" className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]">
       <div className="absolute inset-0 light-grid opacity-15" />
 
       <Container className="relative">
         <Reveal>
           <SectionHeading
             eyebrow="Diferenciais"
-            title="Diferenciais que reforcam a identidade e a confianca da Zenthra Pharma."
-            description="Uma experiencia de marca marcada por sofisticacao, clareza e proximidade."
+            title="Diferenciais que reforçam a identidade e a confiança da Zenthra Pharma."
+            description="Uma experiência de marca marcada por sofisticação, clareza e proximidade."
             align="center"
           />
         </Reveal>

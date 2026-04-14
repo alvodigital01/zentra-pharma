@@ -9,10 +9,12 @@ export function ProductMockup({
   accentClassName,
   images,
   label,
+  clean = false,
 }: {
   accentClassName: string;
   images: string[];
   label: string;
+  clean?: boolean;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const hasMultipleImages = images.length > 1;
@@ -36,11 +38,23 @@ export function ProductMockup({
       />
 
       <div className="relative h-full rounded-[24px] border border-[#D9E1EC] bg-white">
-        <div className="absolute inset-x-5 top-5 h-8 rounded-full bg-[#F2F5F9]" />
-        <div className="absolute inset-x-7 top-16 h-[1px] bg-[#D9E1EC]" />
+        {!clean ? <div className="absolute inset-x-5 top-5 h-8 rounded-full bg-[#F2F5F9]" /> : null}
+        {!clean ? <div className="absolute inset-x-7 top-16 h-[1px] bg-[#D9E1EC]" /> : null}
 
-        <div className="absolute inset-x-6 top-24 bottom-24 overflow-hidden rounded-[30px] border border-[#D9E1EC] bg-gradient-to-b from-white to-[#F4F7FB] shadow-soft">
-          <div className="absolute inset-3 overflow-hidden rounded-[24px] bg-[#F8FAFD]">
+        <div
+          className={cn(
+            "overflow-hidden shadow-soft",
+            clean
+              ? "absolute inset-0 rounded-[24px]"
+              : "absolute inset-x-6 top-24 bottom-24 rounded-[30px] border border-[#D9E1EC] bg-gradient-to-b from-white to-[#F4F7FB]",
+          )}
+        >
+          <div
+            className={cn(
+              "absolute overflow-hidden",
+              clean ? "inset-0" : "inset-3 rounded-[24px] bg-[#F8FAFD]",
+            )}
+          >
             <Image
               src={images[currentIndex]}
               alt={label}
@@ -48,7 +62,9 @@ export function ProductMockup({
               sizes="(min-width: 1280px) 220px, (min-width: 768px) 40vw, 90vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/18 via-transparent to-white/16" />
+            {!clean ? (
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/18 via-transparent to-white/16" />
+            ) : null}
           </div>
 
           {hasMultipleImages ? (
@@ -64,7 +80,7 @@ export function ProductMockup({
               <button
                 type="button"
                 onClick={showNextImage}
-                aria-label={`Ver proxima imagem de ${label}`}
+                aria-label={`Ver próxima imagem de ${label}`}
                 className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/88 text-[#0E2A47] shadow-soft transition hover:bg-white"
               >
                 &#8250;
@@ -85,17 +101,19 @@ export function ProductMockup({
           ) : null}
         </div>
 
-        <div className="absolute bottom-16 left-1/2 w-40 -translate-x-1/2 text-center">
-          <div className="text-[10px] uppercase tracking-[0.34em] text-[#5B6575]">
-            Zenthra Pharma
+        {!clean ? (
+          <div className="absolute bottom-16 left-1/2 w-40 -translate-x-1/2 text-center">
+            <div className="text-[10px] uppercase tracking-[0.34em] text-[#5B6575]">
+              Zenthra Pharma
+            </div>
+            <div className="mt-3 text-lg font-semibold tracking-[-0.03em] text-[#0E2A47]">
+              {label}
+            </div>
+            <div className="mt-2 text-xs leading-6 text-[#5B6575]">
+              Qualidade, presença e identidade visual premium.
+            </div>
           </div>
-          <div className="mt-3 text-lg font-semibold tracking-[-0.03em] text-[#0E2A47]">
-            {label}
-          </div>
-          <div className="mt-2 text-xs leading-6 text-[#5B6575]">
-            Qualidade, presenca e identidade visual premium.
-          </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );
