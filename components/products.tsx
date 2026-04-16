@@ -22,7 +22,7 @@ export function Products() {
         <Reveal>
           <SectionHeading
             eyebrow="Produtos"
-            title="Linhas pensadas para acompanhar diferentes objetivos com qualidade e equilíbrio."
+            title="Produtos de qualidade com extrema pureza."
             description="Uma seleção que valoriza bem-estar, performance e uma experiência alinhada ao posicionamento da marca."
           />
         </Reveal>
@@ -53,11 +53,10 @@ export function Products() {
 
                   <div className="mt-6 pt-2">
                     <CtaButton
-                      href={createWhatsAppUrl(`Olá, quero saber mais sobre ${product.name}.`)}
-                      variant="ghost"
+                      href={createWhatsAppUrl(`Olá, tenho interesse no produto ${product.name}.`)}
                       className="w-full justify-center"
                     >
-                      Saiba mais
+                      Quero esse produto
                     </CtaButton>
                   </div>
                 </div>

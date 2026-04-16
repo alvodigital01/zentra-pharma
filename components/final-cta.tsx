@@ -21,13 +21,13 @@ export function FinalCta() {
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
               <div>
                 <span className="inline-flex rounded-full border border-white/12 bg-white/8 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/74">
-                  Atendimento direto
+                  Peça pelo WhatsApp
                 </span>
                 <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[4rem]">
-                  Atendimento discreto, ágil e pessoal.
+                  Escolha seu produto e fale direto com a gente.
                 </h2>
                 <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                  Nossa equipe está pronta para orientar seu atendimento com clareza, atenção e praticidade, da primeira conversa à entrega pessoal em Londrina e região.
+                  Atendimento rápido, discreto e sem enrolação para você tirar dúvidas, confirmar disponibilidade e fazer seu pedido com mais segurança.
                 </p>
               </div>
 
@@ -37,7 +37,7 @@ export function FinalCta() {
                   variant="secondary"
                   className="w-full justify-center text-base sm:w-auto sm:min-w-[19rem] sm:px-9 sm:py-4"
                 >
-                  Falar no WhatsApp
+                  Quero meu produto
                 </CtaButton>
               </div>
             </div>

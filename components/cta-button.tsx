@@ -17,15 +17,15 @@ export function CtaButton({
   external,
 }: CtaButtonProps) {
   const shared =
-    "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold tracking-wide transition duration-300";
+    "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300";
 
   const variants = {
     primary:
-      "bg-[#0E2A47] text-white shadow-soft hover:-translate-y-0.5 hover:bg-[#153B63] hover:shadow-medium",
+      "bg-[#0E2A47] text-white shadow-soft hover:-translate-y-0.5 hover:bg-[#123454] hover:shadow-[0_16px_34px_rgba(14,42,71,0.18)]",
     secondary:
-      "border border-[#D9E1EC] bg-white text-[#0E2A47] shadow-soft hover:-translate-y-0.5 hover:border-[#0E2A47]/18 hover:shadow-soft",
+      "border border-[#D9E1EC] bg-white text-[#0E2A47] shadow-soft hover:-translate-y-0.5 hover:border-[#C5D0DD] hover:bg-[#F7FAFC] hover:shadow-[0_12px_28px_rgba(15,23,32,0.08)]",
     ghost:
-      "border border-[#D9E1EC] bg-[#FAFBFD] text-[#153B63] hover:-translate-y-0.5 hover:border-[#153B63]/18 hover:bg-white hover:shadow-soft",
+      "border border-[#D9E1EC] bg-[#FAFBFD] text-[#153B63] shadow-soft hover:-translate-y-0.5 hover:border-[#C9D4E0] hover:bg-[#FFFFFF] hover:text-[#0E2A47] hover:shadow-[0_12px_28px_rgba(15,23,32,0.08)]",
   } as const;
 
   const isExternal = external ?? href.startsWith("http");
