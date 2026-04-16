@@ -1,7 +1,8 @@
 "use client";
 
+import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -18,6 +19,8 @@ export function ProductMockup({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const hasMultipleImages = images.length > 1;
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(containerRef, { amount: 0.55 });
 
   function showPreviousImage() {
     setCurrentIndex((current) => (current === 0 ? images.length - 1 : current - 1));
@@ -27,8 +30,23 @@ export function ProductMockup({
     setCurrentIndex((current) => (current === images.length - 1 ? 0 : current + 1));
   }
 
+  useEffect(() => {
+    if (!hasMultipleImages || !isInView) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setCurrentIndex((current) => (current === images.length - 1 ? 0 : current + 1));
+    }, 3200);
+
+    return () => window.clearInterval(interval);
+  }, [hasMultipleImages, images.length, isInView]);
+
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-[#D9E1EC] bg-[#FAFBFD] p-5">
+    <div
+      ref={containerRef}
+      className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-[#D9E1EC] bg-[#FAFBFD] p-5"
+    >
       <div className="absolute -left-8 top-5 h-24 w-24 rounded-full bg-[#EEF2F7] blur-3xl" />
       <div
         className={cn(
@@ -55,17 +73,20 @@ export function ProductMockup({
               clean ? "inset-0" : "inset-3 rounded-[24px] bg-[#F8FAFD]",
             )}
           >
-            <Image
-              src={images[currentIndex]}
-              alt={label}
-              fill
-              sizes="(min-width: 1280px) 360px, (min-width: 768px) 42vw, 92vw"
-              unoptimized
-              className={cn(
-                "object-contain",
-                clean ? "p-3 sm:p-4" : "p-4 sm:p-5",
-              )}
-            />
+            <div className="flex h-full w-full items-center justify-center">
+              <Image
+                src={images[currentIndex]}
+                alt={label}
+                width={1200}
+                height={1200}
+                sizes="(min-width: 1280px) 360px, (min-width: 768px) 42vw, 92vw"
+                unoptimized
+                className={cn(
+                  "h-full w-full object-contain",
+                  clean ? "p-3 sm:p-4" : "p-4 sm:p-5",
+                )}
+              />
+            </div>
             {!clean ? (
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/18 via-transparent to-white/16" />
             ) : null}
