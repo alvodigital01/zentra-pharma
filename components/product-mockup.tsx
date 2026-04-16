@@ -59,8 +59,12 @@ export function ProductMockup({
               src={images[currentIndex]}
               alt={label}
               fill
-              sizes="(min-width: 1280px) 220px, (min-width: 768px) 40vw, 90vw"
-              className="object-cover"
+              sizes="(min-width: 1280px) 360px, (min-width: 768px) 42vw, 92vw"
+              unoptimized
+              className={cn(
+                "object-contain",
+                clean ? "p-3 sm:p-4" : "p-4 sm:p-5",
+              )}
             />
             {!clean ? (
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/18 via-transparent to-white/16" />

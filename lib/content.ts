@@ -2,11 +2,11 @@ export const siteConfig = {
   name: "Zenthra Pharma",
   url: "https://zenthrapharma.com.br",
   email: "contato@zenthrapharma.com.br",
-  location: "Atendimento digital em todo o Brasil",
-  whatsappDisplay: "(11) 99999-9999",
+  location: "Atendimento e entrega pessoal em Londrina e região",
+  whatsappDisplay: "+55 43 9677-6474",
   whatsappNumber:
-    (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5511999999999").replace(/\D/g, "") ||
-    "5511999999999",
+    (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "554396776474").replace(/\D/g, "") ||
+    "554396776474",
   defaultWhatsAppMessage: "Olá, gostaria de conhecer a Zenthra Pharma.",
 };
 
@@ -79,28 +79,28 @@ export const performanceLines = [
 
 export const products = [
   {
-    category: "Controle de peso",
-    name: "Zenthra Lean",
+    category: "Controle de apetite",
+    name: "Retatrutide",
     description:
-      "Uma linha voltada para quem busca leveza, equilíbrio e uma rotina orientada a resultados consistentes.",
+      "A retatrutida é uma molécula de ação tripla sobre os receptores de GLP-1, GIP e glucagon, desenvolvida para atuar no controle metabólico. Em estudos clínicos, tem demonstrado potencial para promover redução de peso, melhora do controle glicêmico e benefícios em marcadores cardiometabólico.",
     accentClassName: "bg-[#E9EEF5]",
-    images: ["/reta.jpeg"],
+    images: ["/reta.png"],
   },
   {
-    category: "Linha performance",
-    name: "Zenthra Core",
+    category: "Controle de apetite",
+    name: "Tizerpatide",
     description:
-      "Desenvolvido para acompanhar intensidade, foco e performance com uma proposta clara e contemporânea.",
+      "A tirzepatida é um fármaco de ação dual sobre os receptores de GIP e GLP-1, desenvolvido para atuar no controle metabólico. Em contexto clínico, destaca-se por seu potencial na melhora do controle glicêmico, no manejo do peso corporal e no apoio a uma abordagem terapêutica mais completa.",
     accentClassName: "bg-[#EDF2F8]",
-    images: ["/products/zenthra-core/foto1.jpeg", "/products/zenthra-core/foto2.jpeg"],
+    images: ["/tizerpatide.png", "/tg.png", "/tirzec151.png", "/tirzec150.png", "/lipoless.png"],
   },
   {
-    category: "Definição corporal",
-    name: "Zenthra Shape",
+    category: "Poderoso peptidio",
+    name: "Glow Blend",
     description:
-      "Uma proposta direcionada para quem valoriza definição, cuidado estético e bem-estar em cada etapa.",
+      "O Glow Blend é uma formulação peptídica com BPC-157, TB-500 e GHK-Cu, desenvolvida com foco em suporte a processos de reparo tecidual e regeneração cutânea. Seus componentes são associados à cicatrização, remodelação da matriz extracelular, manutenção da qualidade da pele e apoio ao cuidado integrativo.",
     accentClassName: "bg-[#F1F4F9]",
-    images: ["/products/zenthra-shape/foto1.jpeg", "/products/zenthra-shape/foto2.jpeg"],
+    images: ["/glow.png"],
   },
   {
     category: "Rotina e bem-estar",
@@ -118,55 +118,55 @@ export const howItWorksSteps = [
     icon: "contact",
     title: "Contato",
     description:
-      "O primeiro contato acontece de forma simples e direta, pelo canal mais conveniente para você.",
+      "O atendimento começa de forma simples e direta, por um canal rápido e conveniente para você.",
   },
   {
     number: 2,
     icon: "objective",
-    title: "Entendimento do objetivo",
+    title: "Alinhamento do pedido",
     description:
-      "Nossa equipe entende sua necessidade para orientar cada conversa com mais clareza e precisão.",
+      "Entendemos sua necessidade com clareza para orientar o pedido com atenção e organização.",
   },
   {
     number: 3,
     icon: "direction",
-    title: "Direcionamento personalizado",
+    title: "Confirmação e preparo",
     description:
-      "Com base no seu perfil e objetivo, apresentamos a linha mais adequada com atenção individualizada.",
+      "Após a confirmação, organizamos tudo com discrição e cuidado para manter uma experiência segura e profissional.",
   },
   {
     number: 4,
     icon: "followup",
-    title: "Acompanhamento",
+    title: "Entrega pessoal",
     description:
-      "Seguimos presentes com atenção, cuidado e proximidade em cada etapa.",
+      "Realizamos a entrega pessoalmente em Londrina e região, com praticidade, discrição e proximidade.",
   },
 ] as const;
 
 export const differentials = [
   {
     icon: "premium",
-    title: "Identidade premium",
+    title: "Procedência confiável",
     description:
-      "Uma presença visual sofisticada, pensada para refletir exclusividade e alto padrão.",
+      "Trabalhamos com produtos selecionados, apresentação cuidadosa e foco em confiança em cada detalhe.",
   },
   {
     icon: "structure",
-    title: "Confiança institucional",
+    title: "Qualidade e segurança",
     description:
-      "Uma comunicação clara e segura, alinhada a uma marca que valoriza credibilidade em cada detalhe.",
+      "Nossa operação prioriza organização, clareza nas informações e um padrão visual alinhado ao setor farmacêutico.",
   },
   {
     icon: "direct",
-    title: "Atendimento direto",
+    title: "Atendimento especializado",
     description:
-      "Um canal próximo e acessível para esclarecer dúvidas e apresentar a marca com agilidade.",
+      "Oferecemos um atendimento próximo e ágil para orientar, esclarecer dúvidas e facilitar sua experiência.",
   },
   {
     icon: "optimized",
-    title: "Experiência responsiva",
+    title: "Envio discreto e eficiente",
     description:
-      "Uma navegação fluida e elegante, preparada para manter qualidade e clareza em qualquer dispositivo.",
+      "Cuidamos do processo com agilidade, discrição e atenção para garantir mais comodidade no seu pedido.",
   },
 ] as const;
 
@@ -205,18 +205,28 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "A Zenthra Pharma realiza atendimento pelo WhatsApp?",
+    question: "Como funciona o atendimento?",
     answer:
-      "Sim. O WhatsApp é o principal canal de atendimento para apresentar a marca, esclarecer dúvidas e orientar cada necessidade.",
+      "Nosso atendimento acontece de forma direta e organizada, com foco em clareza, discrição e agilidade em cada etapa.",
   },
   {
-    question: "Posso entrar em contato de qualquer lugar do Brasil?",
+    question: "Vocês realizam entrega?",
     answer:
-      "Sim. O atendimento é realizado de forma digital, com praticidade e conveniência para clientes em todo o Brasil.",
+      "Sim. Realizamos entrega pessoal em Londrina e região, com praticidade, discrição e atenção ao atendimento.",
   },
   {
-    question: "Como funciona o atendimento da marca?",
+    question: "Como posso tirar dúvidas antes de fazer o pedido?",
     answer:
-      "O processo começa pelo contato direto, segue com o entendimento da sua necessidade e evolui com orientação personalizada.",
+      "Você pode entrar em contato pelo canal de atendimento para esclarecer dúvidas e receber orientações de forma rápida e objetiva.",
+  },
+  {
+    question: "Os produtos são apresentados com discrição?",
+    answer:
+      "Sim. Priorizamos uma experiência discreta, organizada e alinhada a um atendimento profissional.",
+  },
+  {
+    question: "O atendimento é personalizado?",
+    answer:
+      "Sim. Buscamos entender cada necessidade com atenção para conduzir o atendimento com mais clareza e cuidado.",
   },
 ];

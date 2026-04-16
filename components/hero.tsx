@@ -10,8 +10,16 @@ import { Reveal } from "@/components/reveal";
 import { whatsappUrl } from "@/lib/content";
 
 function HeroVisual() {
-  const images = ["/foto1.jpeg", "/foto2.jpeg"];
+  const images = [
+    { src: "/tirzec151.png", position: "object-center" },
+    { src: "/tizerpatide.png", position: "object-center" },
+    { src: "/reta.png", position: "object-center" },
+    { src: "/lipoless.png", position: "object-center" },
+    { src: "/tg.png", position: "object-center" },
+    { src: "/glow.png", position: "object-center" },
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cacheBust, setCacheBust] = useState("");
 
   function showPreviousImage() {
     setCurrentIndex((current) => (current === 0 ? images.length - 1 : current - 1));
@@ -29,6 +37,10 @@ function HeroVisual() {
     return () => window.clearInterval(interval);
   }, [images.length]);
 
+  useEffect(() => {
+    setCacheBust(`?v=${Date.now()}`);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -42,14 +54,15 @@ function HeroVisual() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#153B63]/18 to-transparent" />
 
         <div>
-          <div className="relative min-h-[24rem] overflow-hidden rounded-[28px] shadow-soft">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-soft sm:min-h-[24rem] sm:aspect-auto">
             <div className="absolute inset-0">
               <Image
-                src={images[currentIndex]}
+                src={`${images[currentIndex].src}${cacheBust}`}
                 alt="Produto Zenthra Pharma"
                 fill
                 sizes="(min-width: 1024px) 480px, 90vw"
-                className="object-cover object-center"
+                unoptimized
+                className={`object-cover ${images[currentIndex].position}`}
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/12 via-transparent to-white/10" />
@@ -76,7 +89,7 @@ function HeroVisual() {
             <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#0F1720]/28 px-3 py-2 backdrop-blur-sm">
               {images.map((image, index) => (
                 <span
-                  key={`${image}-${index}`}
+                  key={`${image.src}-${index}`}
                   className={
                     index === currentIndex
                       ? "h-1.5 w-5 rounded-full bg-white"

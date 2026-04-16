@@ -27,22 +27,22 @@ export function Products() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {products.map((product, index) => (
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {products.slice(0, 3).map((product, index) => (
             <Reveal key={product.name} delay={0.08 + index * 0.05}>
               <motion.article
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 240, damping: 24 }}
-                className="group relative h-full overflow-hidden rounded-[30px] border border-[#D9E1EC] bg-white p-4 shadow-soft"
+                className="group relative flex h-full flex-col overflow-hidden rounded-[30px] border border-[#D9E1EC] bg-white p-4 shadow-soft"
               >
                 <ProductMockup
                   accentClassName={product.accentClassName}
                   images={product.images}
                   label={product.name}
-                  clean={index === 0}
+                  clean
                 />
 
-                <div className="px-2 pb-3 pt-6">
+                <div className="flex flex-1 flex-col px-2 pb-3 pt-6">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
                     {product.category}
                   </div>
@@ -51,7 +51,7 @@ export function Products() {
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[#5B6575]">{product.description}</p>
 
-                  <div className="mt-6">
+                  <div className="mt-6 pt-2">
                     <CtaButton
                       href={createWhatsAppUrl(`Olá, quero saber mais sobre ${product.name}.`)}
                       variant="ghost"

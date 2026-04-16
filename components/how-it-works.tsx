@@ -28,8 +28,8 @@ export function HowItWorks() {
         <Reveal>
           <SectionHeading
             eyebrow="Como funciona"
-            title="Um atendimento simples, atencioso e personalizado."
-            description="Da primeira conversa ao direcionamento ideal, cada etapa acontece com clareza e proximidade."
+            title="Um atendimento direto, discreto e organizado."
+            description="Do primeiro contato à entrega pessoal em Londrina e região, cada etapa acontece com clareza, agilidade e atenção."
             align="center"
           />
         </Reveal>
@@ -48,18 +48,20 @@ export function HowItWorks() {
                     transition={{ type: "spring", stiffness: 240, damping: 24 }}
                     className="relative h-full rounded-[30px] border border-[#D9E1EC] bg-white p-6 shadow-soft"
                   >
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D9E1EC] bg-[#FAFBFD] text-[#153B63]">
-                        <Icon className="h-6 w-6" />
-                      </div>
+                    <div className="flex items-start justify-between gap-4">
                       <div className="text-xs uppercase tracking-[0.4em] text-[#5B6575]">
                         0{step.number}
                       </div>
                     </div>
 
-                    <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-[#0F1720]">
-                      {step.title}
-                    </h3>
+                    <div className="mt-6 flex items-start gap-4">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#D9E1EC] bg-[#FAFBFD] text-[#153B63]">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="pt-1 text-2xl font-semibold tracking-[-0.03em] text-[#0F1720]">
+                        {step.title}
+                      </h3>
+                    </div>
                     <p className="mt-4 text-sm leading-7 text-[#5B6575]">{step.description}</p>
                   </motion.article>
                 </Reveal>

@@ -9,11 +9,8 @@ export function Footer() {
     <footer className="bg-[#0F1720] pb-10 pt-14 text-white">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.55fr_0.55fr_0.8fr]">
-          <div>
+          <div className="flex items-start">
             <Logo light fillMark />
-            <p className="mt-6 max-w-md text-sm leading-7 text-white/58">
-              Zenthra Pharma. Qualidade, confiança e excelência em cada detalhe.
-            </p>
           </div>
 
           <div>
@@ -58,18 +55,13 @@ export function Footer() {
                   {siteConfig.whatsappDisplay}
                 </a>
               </li>
-              <li>
-                <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white">
-                  {siteConfig.email}
-                </a>
-              </li>
               <li>{siteConfig.location}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-white/45">
-          Copyright {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
+        <div className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-white/45">
+          Copyright {new Date().getFullYear()} {siteConfig.name}. Desenvolvido por Nicolas Dev.
         </div>
       </Container>
     </footer>

@@ -4,10 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 import { Container } from "@/components/container";
-import { CtaButton } from "@/components/cta-button";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { faqs, whatsappUrl } from "@/lib/content";
+import { faqs } from "@/lib/content";
 
 export function Faq() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,51 +14,50 @@ export function Faq() {
   return (
     <section id="faq" className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]">
       <div className="absolute inset-0 light-grid opacity-15" />
+      <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[#153B63]/[0.04] blur-3xl" />
 
       <Container className="relative">
-        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+        <div className="mx-auto max-w-5xl">
           <Reveal>
             <SectionHeading
               eyebrow="FAQ"
-              title="Tire suas dúvidas com rapidez e clareza."
-              description="Selecionamos as perguntas mais comuns para facilitar seu primeiro contato com a marca."
+              title="Dúvidas frequentes, respondidas com clareza."
+              description="Reunimos as perguntas mais comuns para tornar sua experiência mais simples, direta e segura."
+              align="center"
             />
-
-            <div className="mt-8 rounded-[32px] border border-[#D9E1EC] bg-[#FAFBFD] p-6 shadow-soft">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
-                Atendimento direto
-              </div>
-              <p className="mt-4 text-lg leading-8 text-[#5B6575]">
-                Se preferir, fale conosco pelo WhatsApp e receba um atendimento direto,
-                atencioso e personalizado.
-              </p>
-              <div className="mt-6">
-                <CtaButton href={whatsappUrl} variant="ghost">
-                  Falar no WhatsApp
-                </CtaButton>
-              </div>
-            </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
-            <div className="space-y-4">
+          <Reveal delay={0.1}>
+            <div className="mt-12 space-y-4">
               {faqs.map((item, index) => {
                 const isOpen = activeIndex === index;
 
                 return (
                   <div
                     key={item.question}
-                    className="overflow-hidden rounded-[28px] border border-[#D9E1EC] bg-[#FAFBFD] shadow-soft"
+                    className={`overflow-hidden rounded-[30px] border bg-white shadow-soft transition-all duration-300 ${
+                      isOpen
+                        ? "border-[#153B63]/18 shadow-[0_24px_54px_rgba(14,42,71,0.12)]"
+                        : "border-[#D9E1EC] hover:border-[#153B63]/16 hover:shadow-[0_22px_48px_rgba(14,42,71,0.10)]"
+                    }`}
                   >
                     <button
                       type="button"
                       onClick={() => setActiveIndex(isOpen ? -1 : index)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                      className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left"
                     >
-                      <span className="pr-4 text-lg font-semibold tracking-[-0.02em] text-[#0F1720]">
+                      <span className="pr-4 text-[1.15rem] font-semibold leading-8 tracking-[-0.02em] text-[#0F1720]">
                         {item.question}
                       </span>
-                      <span className="text-2xl text-[#153B63]">{isOpen ? "-" : "+"}</span>
+                      <span
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-[#153B63] transition-all duration-300 ${
+                          isOpen
+                            ? "border-[#153B63]/18 bg-[#F5F7FB] rotate-45"
+                            : "border-[#D9E1EC] bg-[#FAFBFD]"
+                        }`}
+                      >
+                        <span className="text-2xl leading-none">+</span>
+                      </span>
                     </button>
 
                     <AnimatePresence initial={false}>
@@ -70,7 +68,7 @@ export function Faq() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.28, ease: "easeOut" }}
                         >
-                          <div className="border-t border-[#D9E1EC] px-6 pb-6 pt-1 text-sm leading-7 text-[#5B6575]">
+                          <div className="border-t border-[#D9E1EC] px-7 pb-7 pt-4 text-base leading-8 text-[#5B6575]">
                             {item.answer}
                           </div>
                         </motion.div>

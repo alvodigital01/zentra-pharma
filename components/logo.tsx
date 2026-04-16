@@ -14,7 +14,7 @@ function BrandMark({
     <div
       className={cn(
         "relative flex items-center justify-center overflow-hidden rounded-2xl",
-        fill ? "h-14 w-14" : "h-12 w-12",
+        fill ? "h-16 w-16" : "h-12 w-12",
         light
           ? "bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]"
           : "bg-gradient-to-br from-[#F8FAFD] to-white shadow-soft",
@@ -30,7 +30,7 @@ function BrandMark({
         src="/logozenthra.PNG"
         alt="Logo Zenthra Pharma"
         fill
-        sizes={fill ? "56px" : "48px"}
+        sizes={fill ? "64px" : "48px"}
         className={cn("relative object-contain", fill ? "p-0" : "p-1")}
         priority
       />

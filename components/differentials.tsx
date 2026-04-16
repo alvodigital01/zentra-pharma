@@ -33,8 +33,8 @@ export function Differentials() {
         <Reveal>
           <SectionHeading
             eyebrow="Diferenciais"
-            title="Diferenciais que reforçam a identidade e a confiança da Zenthra Pharma."
-            description="Uma experiência de marca marcada por sofisticação, clareza e proximidade."
+            title="Confiança, segurança e credibilidade."
+            description="Uma experiência pensada para unir procedência, atendimento ágil e apresentação profissional."
             align="center"
           />
         </Reveal>
