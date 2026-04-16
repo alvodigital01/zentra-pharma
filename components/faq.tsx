@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { Container } from "@/components/container";
@@ -60,20 +60,21 @@ export function Faq() {
                       </span>
                     </button>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen ? (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.28, ease: "easeOut" }}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div
+                          className={`border-t border-[#D9E1EC] px-7 text-base leading-8 text-[#5B6575] transition-all duration-300 ${
+                            isOpen ? "pb-7 pt-4 opacity-100" : "pb-0 pt-0 opacity-0"
+                          }`}
                         >
-                          <div className="border-t border-[#D9E1EC] px-7 pb-7 pt-4 text-base leading-8 text-[#5B6575]">
-                            {item.answer}
-                          </div>
-                        </motion.div>
-                      ) : null}
-                    </AnimatePresence>
+                          {item.answer}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
