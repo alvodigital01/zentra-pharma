@@ -23,7 +23,7 @@ export function Products() {
           <SectionHeading
             eyebrow="Produtos"
             title="Produtos de qualidade com extrema pureza."
-            description="Uma seleção que valoriza bem-estar, performance e uma experiência alinhada ao posicionamento da marca."
+            description="Qualidade, performance e pureza em cada produto."
           />
         </Reveal>
 

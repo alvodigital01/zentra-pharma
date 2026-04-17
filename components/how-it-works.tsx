@@ -28,8 +28,8 @@ export function HowItWorks() {
         <Reveal>
           <SectionHeading
             eyebrow="Como funciona"
-            title="Um atendimento direto, discreto e organizado."
-            description="Do primeiro contato à entrega pessoal em Londrina e região, cada etapa acontece com clareza, agilidade e atenção."
+            title="Atendimento direto e rápido."
+            description="Do primeiro contato à entrega pessoal em Londrina e região."
             align="center"
           />
         </Reveal>

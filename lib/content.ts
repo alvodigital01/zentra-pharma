@@ -205,11 +205,6 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "Como funciona o atendimento?",
-    answer:
-      "Nosso atendimento acontece de forma direta e organizada, com foco em clareza, discrição e agilidade em cada etapa.",
-  },
-  {
     question: "Vocês realizam entrega?",
     answer:
       "Sim. Realizamos entrega pessoal em Londrina e região, com praticidade, discrição e atenção ao atendimento.",
