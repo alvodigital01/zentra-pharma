@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Zenthra Pharma",
   url: "https://zenthrapharma.com.br",
   email: "contato@zenthrapharma.com.br",
-  location: "Atendimento e entrega pessoal em Londrina e região",
+  location: "Atendimento e entregas para todo o Brasil",
   whatsappDisplay: "+55 43 9677-6474",
   whatsappNumber:
     (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "554396776474").replace(/\D/g, "") ||
@@ -137,9 +137,9 @@ export const howItWorksSteps = [
   {
     number: 4,
     icon: "followup",
-    title: "Entrega pessoal",
+    title: "Entrega",
     description:
-      "Realizamos a entrega pessoalmente em Londrina e região, com praticidade, discrição e proximidade.",
+      "Realizamos entregas para todo o Brasil, com praticidade, discrição e atenção em cada pedido.",
   },
 ] as const;
 
@@ -207,7 +207,7 @@ export const faqs = [
   {
     question: "Vocês realizam entrega?",
     answer:
-      "Sim. Realizamos entrega pessoal em Londrina e região, com praticidade, discrição e atenção ao atendimento.",
+      "Sim. Realizamos entregas para todo o Brasil, com praticidade, discrição e atenção ao atendimento.",
   },
   {
     question: "Como posso tirar dúvidas antes de fazer o pedido?",

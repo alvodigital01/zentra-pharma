@@ -29,7 +29,7 @@ export function HowItWorks() {
           <SectionHeading
             eyebrow="Como funciona"
             title="Atendimento direto e rápido."
-            description="Do primeiro contato à entrega pessoal em Londrina e região."
+            description="Do primeiro contato à entrega para todo o Brasil."
             align="center"
           />
         </Reveal>
