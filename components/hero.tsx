@@ -131,15 +131,16 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="mt-8 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#0F1720] sm:text-5xl lg:text-[4.35rem]">
-                Zenthra Pharma.
-                <br />
+              <h1 className="mx-auto mt-8 max-w-3xl text-center font-body text-[3.15rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0F1720] sm:text-5xl lg:mx-0 lg:text-left lg:text-[4.35rem]">
+                <span className="whitespace-nowrap">Zenthra Pharma.</span>
+                <br className="hidden sm:block" />
+                <span className="block sm:inline"> </span>
                 Produtos de extrema pureza.
               </h1>
             </Reveal>
 
             <Reveal delay={0.14}>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[#5B6575] sm:text-lg">
+              <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-8 text-[#5B6575] sm:text-lg lg:mx-0 lg:text-left">
                 Sofisticação, confiança e atendimento humanizado em uma marca
                 pensada para quem prioriza cuidado, segurança e excelência.
               </p>

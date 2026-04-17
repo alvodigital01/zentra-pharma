@@ -1,5 +1,11 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+import { useInView } from "framer-motion";
+
 import { Container } from "@/components/container";
-import { CheckBadgeIcon, PackageIcon, TruckIcon } from "@/components/icons";
+import { CheckBadgeIcon, PackageIcon, PlayIcon, TruckIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -12,7 +18,7 @@ const highlights = [
     icon: PackageIcon,
   },
   {
-    title: "Segurança",
+    title: "Discrição",
     description: "Um cuidado pensado para transmitir mais confiança.",
     icon: CheckBadgeIcon,
   },
@@ -22,6 +28,91 @@ const highlights = [
     icon: TruckIcon,
   },
 ];
+
+function VideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(wrapperRef, { amount: 0.45 });
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    const updateDesktop = () => setIsDesktop(mediaQuery.matches);
+
+    updateDesktop();
+    mediaQuery.addEventListener("change", updateDesktop);
+
+    return () => mediaQuery.removeEventListener("change", updateDesktop);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !isDesktop) {
+      return;
+    }
+
+    if (isInView) {
+      video.muted = true;
+      void video.play().then(() => setHasStarted(true)).catch(() => {});
+      return;
+    }
+
+    video.pause();
+  }, [isDesktop, isInView]);
+
+  function handlePlay() {
+    const video = videoRef.current;
+    if (!video) {
+      return;
+    }
+
+    video.muted = false;
+    void video.play().then(() => setHasStarted(true)).catch(() => {});
+  }
+
+  const showOverlay = !hasStarted && !isDesktop;
+
+  return (
+    <div ref={wrapperRef} className="relative overflow-hidden rounded-[26px] border border-[#D9E1EC] bg-white">
+      <div className="flex aspect-video items-center justify-center bg-[#EAF0F6]">
+        <video
+          ref={videoRef}
+          className="h-full w-full object-cover"
+          controls={hasStarted}
+          playsInline
+          preload="metadata"
+        >
+          <source src={videoPublicPath} type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+      </div>
+
+      {showOverlay ? (
+        <button
+          type="button"
+          onClick={handlePlay}
+          className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,rgba(10,28,46,0.12)_0%,rgba(10,28,46,0.48)_100%)] text-white transition hover:bg-[linear-gradient(180deg,rgba(10,28,46,0.16)_0%,rgba(10,28,46,0.55)_100%)]"
+          aria-label="Iniciar vídeo de entrega"
+        >
+          <div className="flex flex-col items-center gap-4">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#153B63] shadow-[0_16px_34px_rgba(3,10,22,0.24)]">
+              <PlayIcon className="ml-1 h-6 w-6" />
+            </span>
+            <div className="text-center">
+              <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white/84">
+                Assistir vídeo
+              </div>
+              <div className="mt-2 text-sm text-white/82">
+                Toque para ver como o pedido chega até você
+              </div>
+            </div>
+          </div>
+        </button>
+      ) : null}
+    </div>
+  );
+}
 
 export function UnboxingVideo() {
   return (
@@ -76,19 +167,7 @@ export function UnboxingVideo() {
                 <div className="absolute -left-8 top-10 h-24 w-24 rounded-full bg-white/80 blur-3xl" />
                 <div className="absolute -right-8 bottom-8 h-28 w-28 rounded-full bg-[#153B63]/[0.08] blur-3xl" />
 
-                <div className="relative overflow-hidden rounded-[26px] border border-[#D9E1EC] bg-white">
-                  <div className="flex aspect-video items-center justify-center bg-[#EAF0F6]">
-                    <video
-                      className="h-full w-full object-cover"
-                      controls
-                      playsInline
-                      preload="metadata"
-                    >
-                      <source src={videoPublicPath} type="video/mp4" />
-                      Seu navegador não suporta vídeo.
-                    </video>
-                  </div>
-                </div>
+                <VideoPlayer />
               </div>
             </div>
           </Reveal>

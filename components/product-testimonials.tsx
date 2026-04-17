@@ -6,20 +6,22 @@ import { SectionHeading } from "@/components/section-heading";
 
 const testimonialSlots = [
   {
-    title: "Depoimento 01",
-    file: "/depoimentos/depoimento1.PNG",
-    image: "/depoimentos/depoimento1.PNG",
-    caption: "Cliente mostrando a experiência com o pedido",
+    title: "Cliente 01",
+    file: "/depoimento01.png",
+    image: "/depoimento01.png",
+    caption: "Experiência real de compra e atendimento.",
   },
   {
-    title: "Depoimento 02",
-    file: "/depoimentos/whatsapp-02.png",
-    caption: "Espaço para mais um print real do WhatsApp",
+    title: "Cliente 02",
+    file: "/depoimento2.png",
+    image: "/depoimento2.png",
+    caption: "Mais um relato real enviado pelo WhatsApp.",
   },
   {
-    title: "Depoimento 03",
-    file: "/depoimentos/whatsapp-03.png",
-    caption: "Espaço para reforçar confiança com outro depoimento",
+    title: "Cliente 03",
+    file: "/depoimento3.png",
+    image: "/depoimento3.png",
+    caption: "Outro feedback real de quem já pediu.",
   },
 ];
 
@@ -36,8 +38,18 @@ export function ProductTestimonials() {
         <Reveal>
           <SectionHeading
             eyebrow="Depoimentos"
-            title="Confiança de quem já pediu."
-            description="Depoimentos reais para gerar mais segurança na compra."
+            title={
+              <>
+                Confiança de quem
+                <span className="block sm:inline"> já pediu.</span>
+              </>
+            }
+            description={
+              <>
+                Depoimentos reais para gerar
+                <span className="block sm:inline"> mais segurança na compra.</span>
+              </>
+            }
             align="center"
           />
         </Reveal>
@@ -57,7 +69,7 @@ export function ProductTestimonials() {
                 <div className="absolute -right-6 top-6 h-28 w-28 rounded-full bg-[#153B63]/[0.05] blur-3xl" />
                 <div className="absolute -left-8 bottom-8 h-24 w-24 rounded-full bg-white/80 blur-3xl" />
 
-                <div className="relative p-5 sm:p-6">
+                <div className="relative min-h-[8.5rem] p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
@@ -74,42 +86,31 @@ export function ProductTestimonials() {
                 </div>
 
                 <div className="px-5 pb-5 sm:px-6 sm:pb-6">
-                  <div className="mx-auto max-w-[20rem] rounded-[30px] border border-[#D9E1EC] bg-[#E9F0F7] p-2 shadow-[0_22px_50px_rgba(15,23,32,0.10)]">
-                    <div className="overflow-hidden rounded-[24px] border border-[#D9E1EC] bg-white">
-                      <div className="flex items-center gap-2 border-b border-[#E5EBF2] bg-[#F8FBFE] px-4 py-3">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#D7E1EC]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#D7E1EC]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#D7E1EC]" />
-                        <div className="ml-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#153B63]">
-                          WhatsApp
-                        </div>
+                  {slot.image ? (
+                    <div className="relative overflow-hidden rounded-[24px] border border-[#D9E1EC] bg-white shadow-[0_22px_50px_rgba(15,23,32,0.10)]">
+                      <div className="relative aspect-[9/16] w-full bg-[#EEF3F8]">
+                        <Image
+                          src={slot.image}
+                          alt={slot.title}
+                          fill
+                          sizes="(min-width: 1280px) 300px, (min-width: 768px) 42vw, 92vw"
+                          unoptimized
+                          className="object-contain object-top"
+                        />
                       </div>
-
-                      {slot.image ? (
-                        <div className="relative aspect-[9/16] w-full bg-[#EEF3F8]">
-                          <Image
-                            src={slot.image}
-                            alt={slot.title}
-                            fill
-                            sizes="(min-width: 1280px) 300px, (min-width: 768px) 42vw, 92vw"
-                            unoptimized
-                            className="object-contain object-top"
-                          />
-                        </div>
-                      ) : (
-                        <div className="flex aspect-[9/16] items-center justify-center bg-[linear-gradient(180deg,#FDFEFF_0%,#F1F6FB_100%)] p-6 text-center">
-                          <div className="max-w-[14rem]">
-                            <div className="text-base font-semibold tracking-[-0.02em] text-[#0F1720]">
-                              Reserve este espaço para um print real
-                            </div>
-                            <p className="mt-3 text-sm leading-7 text-[#5B6575]">
-                              Use o arquivo <strong>{slot.file}</strong>
-                            </p>
-                          </div>
-                        </div>
-                      )}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex aspect-[9/16] items-center justify-center rounded-[24px] border border-[#D9E1EC] bg-[linear-gradient(180deg,#FDFEFF_0%,#F1F6FB_100%)] p-6 text-center shadow-[0_22px_50px_rgba(15,23,32,0.08)]">
+                      <div className="max-w-[14rem]">
+                        <div className="text-base font-semibold tracking-[-0.02em] text-[#0F1720]">
+                          Reserve este espaço para um print real
+                        </div>
+                        <p className="mt-3 text-sm leading-7 text-[#5B6575]">
+                          Use o arquivo <strong>{slot.file}</strong>
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

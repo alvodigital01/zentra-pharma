@@ -38,6 +38,19 @@ export function ArrowUpRightIcon({ className }: IconProps) {
   );
 }
 
+export function PlayIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={cn("h-5 w-5", className)}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M8 6.8c0-1 1.1-1.6 2-.9l8.2 5.2c.8.5.8 1.7 0 2.2L10 18.5c-.9.6-2-.1-2-1V6.8Z" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className }: IconProps) {
   return (
     <svg

@@ -22,8 +22,19 @@ export function Products() {
         <Reveal>
           <SectionHeading
             eyebrow="Produtos"
-            title="Produtos de qualidade com extrema pureza."
-            description="Qualidade, performance e pureza em cada produto."
+            title={
+              <>
+                Produtos de qualidade
+                <span className="block"> com extrema pureza.</span>
+              </>
+            }
+            description={
+              <>
+                Qualidade, performance e pureza
+                <span className="block sm:inline"> em cada produto.</span>
+              </>
+            }
+            align="center"
           />
         </Reveal>
 

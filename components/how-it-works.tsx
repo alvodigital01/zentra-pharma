@@ -28,8 +28,18 @@ export function HowItWorks() {
         <Reveal>
           <SectionHeading
             eyebrow="Como funciona"
-            title="Atendimento direto e rápido."
-            description="Do primeiro contato à entrega para todo o Brasil."
+            title={
+              <>
+                Atendimento
+                <span className="block sm:inline"> rápido e direto.</span>
+              </>
+            }
+            description={
+              <>
+                Do primeiro contato à entrega
+                <span className="block sm:inline"> para todo o Brasil.</span>
+              </>
+            }
             align="center"
           />
         </Reveal>

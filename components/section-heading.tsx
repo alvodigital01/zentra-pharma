@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
   eyebrow: string;
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
   align?: "left" | "center";
   inverse?: boolean;
 };
@@ -29,7 +29,7 @@ export function SectionHeading({
       </span>
       <h2
         className={cn(
-          "mt-6 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl lg:text-[2.8rem]",
+          "mt-6 font-body text-3xl font-semibold tracking-[-0.045em] sm:text-4xl lg:text-[2.8rem]",
           inverse ? "text-white" : "text-[#0F1720]",
         )}
       >
