@@ -149,8 +149,8 @@ export function Hero() {
             <Reveal delay={0.18}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <CtaButton href={whatsappUrl}>Falar no WhatsApp</CtaButton>
-                <CtaButton href="/#sobre" variant="secondary" external={false}>
-                  Conhecer a marca
+                <CtaButton href="/#produtos" variant="secondary" external={false}>
+                  Ver produtos
                 </CtaButton>
               </div>
             </Reveal>
