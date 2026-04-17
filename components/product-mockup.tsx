@@ -46,10 +46,10 @@ export function ProductMockup({
     <div
       ref={containerRef}
       className={cn(
-        "relative overflow-hidden border border-[#D9E1EC]",
+        "relative overflow-hidden",
         clean
-          ? "aspect-[5/4] rounded-[24px] bg-[linear-gradient(180deg,#FCFDFE_0%,#F3F6FA_100%)] p-3 sm:p-4"
-          : "aspect-[4/5] rounded-[28px] bg-[#FAFBFD] p-5",
+          ? "aspect-[4/3] rounded-[22px]"
+          : "rounded-[28px] border border-[#D9E1EC] bg-[#FAFBFD] p-5 aspect-[4/5]",
       )}
     >
       <div
@@ -61,15 +61,17 @@ export function ProductMockup({
       <div
         className={cn(
           "pointer-events-none absolute rounded-full blur-3xl",
-          clean ? "-right-8 bottom-6 h-24 w-24 opacity-80" : "-right-10 bottom-10 h-28 w-28",
+          clean ? "-right-6 bottom-4 h-20 w-20 opacity-70" : "-right-10 bottom-10 h-28 w-28",
           accentClassName,
         )}
       />
 
       <div
         className={cn(
-          "relative h-full border border-[#D9E1EC] bg-white",
-          clean ? "rounded-[20px] shadow-[0_18px_50px_rgba(15,23,32,0.08)]" : "rounded-[24px]",
+          "relative h-full bg-white",
+          clean
+            ? "rounded-[22px]"
+            : "rounded-[24px] border border-[#D9E1EC]",
         )}
       >
         {!clean ? <div className="absolute inset-x-5 top-5 h-8 rounded-full bg-[#F2F5F9]" /> : null}
@@ -79,7 +81,7 @@ export function ProductMockup({
           className={cn(
             "overflow-hidden",
             clean
-              ? "absolute inset-[10px] rounded-[18px] border border-white/70 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),rgba(240,244,249,0.92)_55%,rgba(229,235,243,0.96)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
+              ? "absolute inset-0 rounded-[22px] bg-[linear-gradient(180deg,#FBFDFF_0%,#EEF3F8_100%)]"
               : "absolute inset-x-6 top-24 bottom-24 rounded-[30px] border border-[#D9E1EC] bg-gradient-to-b from-white to-[#F4F7FB]",
           )}
         >
@@ -87,15 +89,14 @@ export function ProductMockup({
             className={cn(
               "pointer-events-none absolute overflow-hidden",
               clean
-                ? "inset-0 rounded-[18px]"
+                ? "inset-0 rounded-[22px]"
                 : "inset-3 rounded-[24px] bg-[#F8FAFD]",
             )}
           >
             {clean ? (
               <>
-                <div className="pointer-events-none absolute inset-x-[14%] top-0 h-20 rounded-full bg-white/90 blur-3xl" />
-                <div className="pointer-events-none absolute inset-x-6 bottom-5 h-10 rounded-full bg-[#B6C2D2]/40 blur-2xl" />
-                <div className="pointer-events-none absolute inset-x-5 bottom-4 h-px bg-gradient-to-r from-transparent via-[#C8D2DE] to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-white/80 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#DDE6F0]/70 to-transparent" />
               </>
             ) : null}
             <div className="flex h-full w-full items-center justify-center">
@@ -107,9 +108,9 @@ export function ProductMockup({
                 sizes="(min-width: 1280px) 360px, (min-width: 768px) 42vw, 92vw"
                 unoptimized
                 className={cn(
-                  "h-full w-full object-contain object-center",
+                  "h-full w-full object-center",
                   clean
-                    ? "relative z-10 scale-[1.02] p-5 drop-shadow-[0_28px_26px_rgba(15,23,32,0.16)] sm:p-6"
+                    ? "relative z-10 object-cover"
                     : "p-4 sm:p-5",
                 )}
               />
@@ -125,7 +126,7 @@ export function ProductMockup({
                 type="button"
                 onClick={showPreviousImage}
                 aria-label={`Ver imagem anterior de ${label}`}
-                className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/88 text-[#0E2A47] shadow-soft transition hover:bg-white"
+                className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
               >
                 &#8249;
               </button>
@@ -133,18 +134,18 @@ export function ProductMockup({
                 type="button"
                 onClick={showNextImage}
                 aria-label={`Ver próxima imagem de ${label}`}
-                className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/88 text-[#0E2A47] shadow-soft transition hover:bg-white"
+                className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
               >
                 &#8250;
               </button>
 
-              <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
+              <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#0F1720]/26 px-3 py-2 backdrop-blur-sm">
                 {images.map((image, index) => (
                   <span
                     key={`${image}-${index}`}
                     className={cn(
                       "h-1.5 rounded-full transition-all",
-                      index === currentIndex ? "w-5 bg-white" : "w-1.5 bg-white/60",
+                      index === currentIndex ? "w-5 bg-white" : "w-1.5 bg-white/55",
                     )}
                   />
                 ))}

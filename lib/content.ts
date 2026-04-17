@@ -18,8 +18,9 @@ export const whatsappUrl = createWhatsAppUrl();
 
 export const navLinks = [
   { label: "Produtos", href: "/#produtos" },
-  { label: "Diferenciais", href: "/#diferenciais" },
   { label: "Atendimento", href: "/#como-funciona" },
+  { label: "Entrega", href: "/#entrega" },
+  { label: "Depoimentos", href: "/#depoimentos" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -84,7 +85,11 @@ export const products = [
     description:
       "A retatrutida é uma molécula de ação tripla sobre os receptores de GLP-1, GIP e glucagon, desenvolvida para atuar no controle metabólico. Em estudos clínicos, tem demonstrado potencial para promover redução de peso, melhora do controle glicêmico e benefícios em marcadores cardiometabólico.",
     accentClassName: "bg-[#E9EEF5]",
-    images: ["/reta.png"],
+    images: [
+      "/retratutide-veltrane-10mg-ml.jpg",
+      "/retratutidenexxus-40mg.jpg",
+      "/retratutideusa-40mg-2ml.jpg",
+    ],
   },
   {
     category: "Controle de apetite",
@@ -92,7 +97,15 @@ export const products = [
     description:
       "A tirzepatida é um fármaco de ação dual sobre os receptores de GIP e GLP-1, desenvolvido para atuar no controle metabólico. Em contexto clínico, destaca-se por seu potencial na melhora do controle glicêmico, no manejo do peso corporal e no apoio a uma abordagem terapêutica mais completa.",
     accentClassName: "bg-[#EDF2F8]",
-    images: ["/tizerpatide.png", "/tg.png", "/tirzec151.png", "/tirzec150.png", "/lipoless.png"],
+    images: [
+      "/tirzec-15mg-o.5ml.jpg",
+      "/tg15mg-0,5ml.jpg",
+      "/tirzepatide-veltrane-10mg-ml.jpg",
+      "/lipoless=15mg-0,5ml.jpg",
+      "/tirzec4-15mg-0,5ml.jpg",
+      "/lipoland-15mg-0,5ml.jpg",
+      "/tirzec2-15mg-o.5ml.jpg",
+    ],
   },
   {
     category: "Poderoso peptidio",
@@ -100,7 +113,7 @@ export const products = [
     description:
       "O Glow Blend é uma formulação peptídica com BPC-157, TB-500 e GHK-Cu, desenvolvida com foco em suporte a processos de reparo tecidual e regeneração cutânea. Seus componentes são associados à cicatrização, remodelação da matriz extracelular, manutenção da qualidade da pele e apoio ao cuidado integrativo.",
     accentClassName: "bg-[#F1F4F9]",
-    images: ["/glow.png"],
+    images: ["/glowblend.jpg"],
   },
   {
     category: "Rotina e bem-estar",

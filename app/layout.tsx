@@ -37,7 +37,9 @@ export const metadata: Metadata = {
   ],
   applicationName: siteConfig.name,
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logozenthra.PNG",
+    shortcut: "/logozenthra.PNG",
+    apple: "/logozenthra.PNG",
   },
   openGraph: {
     type: "website",

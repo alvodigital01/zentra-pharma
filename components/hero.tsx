@@ -11,12 +11,17 @@ import { whatsappUrl } from "@/lib/content";
 
 function HeroVisual() {
   const images = [
-    { src: "/tirzec151.png", position: "object-center" },
-    { src: "/tizerpatide.png", position: "object-center" },
-    { src: "/reta.png", position: "object-center" },
-    { src: "/lipoless.png", position: "object-center" },
-    { src: "/tg.png", position: "object-center" },
-    { src: "/glow.png", position: "object-center" },
+    "/retratutide-veltrane-10mg-ml.jpg",
+    "/tirzec-15mg-o.5ml.jpg",
+    "/tg15mg-0,5ml.jpg",
+    "/tirzepatide-veltrane-10mg-ml.jpg",
+    "/lipoless=15mg-0,5ml.jpg",
+    "/glowblend.jpg",
+    "/retratutidenexxus-40mg.jpg",
+    "/retratutideusa-40mg-2ml.jpg",
+    "/tirzec4-15mg-0,5ml.jpg",
+    "/lipoland-15mg-0,5ml.jpg",
+    "/tirzec2-15mg-o.5ml.jpg",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cacheBust, setCacheBust] = useState("");
@@ -57,15 +62,15 @@ function HeroVisual() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-soft sm:min-h-[24rem] sm:aspect-auto">
             <div className="absolute inset-0">
               <Image
-                src={`${images[currentIndex].src}${cacheBust}`}
+                src={`${images[currentIndex]}${cacheBust}`}
                 alt="Produto Zenthra Pharma"
                 fill
                 sizes="(min-width: 1024px) 480px, 90vw"
                 unoptimized
-                className={`object-cover ${images[currentIndex].position}`}
+                className="object-cover object-center"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/12 via-transparent to-white/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/8 via-transparent to-white/12" />
             </div>
 
             <button
@@ -89,7 +94,7 @@ function HeroVisual() {
             <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#0F1720]/28 px-3 py-2 backdrop-blur-sm">
               {images.map((image, index) => (
                 <span
-                  key={`${image.src}-${index}`}
+                  key={`${image}-${index}`}
                   className={
                     index === currentIndex
                       ? "h-1.5 w-5 rounded-full bg-white"

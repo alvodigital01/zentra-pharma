@@ -31,7 +31,10 @@ function BrandMark({
         alt="Logo Zenthra Pharma"
         fill
         sizes={fill ? "64px" : "48px"}
-        className={cn("relative object-contain", fill ? "p-0" : "p-1")}
+        className={cn(
+          "relative",
+          fill ? "scale-[1.07] object-contain p-0.5" : "object-contain p-1",
+        )}
         priority
       />
     </div>

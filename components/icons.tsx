@@ -146,11 +146,30 @@ export function TargetIcon({ className }: IconProps) {
   );
 }
 
+export function PenIcon({ className }: IconProps) {
+  return (
+    <SvgWrapper className={className}>
+      <path d="m4 20 4.2-1 9-9a2.1 2.1 0 0 0-3-3l-9 9L4 20Z" />
+      <path d="m12.8 6.2 3 3" />
+      <path d="M4 20h4.5" />
+    </SvgWrapper>
+  );
+}
+
 export function CompassIcon({ className }: IconProps) {
   return (
     <SvgWrapper className={className}>
       <circle cx="12" cy="12" r="8.5" />
       <path d="m14.8 9.2-2.2 5.6-3.4 1.4 2.2-5.6 3.4-1.4Z" />
+    </SvgWrapper>
+  );
+}
+
+export function CheckBadgeIcon({ className }: IconProps) {
+  return (
+    <SvgWrapper className={className}>
+      <path d="M12 3.8 14.5 5l2.8-.2 1.1 2.6 2 2-.9 2.7.4 2.8-2.3 1.7-1.3 2.5-2.8-.4L12 20.2l-2.5-1.2-2.8.4-1.3-2.5-2.3-1.7.4-2.8-.9-2.7 2-2L6.7 4.8 9.5 5 12 3.8Z" />
+      <path d="m8.7 12.2 2.1 2.1 4.6-4.8" />
     </SvgWrapper>
   );
 }
@@ -161,6 +180,28 @@ export function OrbitIcon({ className }: IconProps) {
       <circle cx="12" cy="12" r="2.2" />
       <path d="M6 12c0-4.4 2.7-8 6-8s6 3.6 6 8-2.7 8-6 8-6-3.6-6-8Z" />
       <path d="M4.8 9c3.7-2.3 8.2-2.2 10.1.8 1.8 2.9-.2 7.1-3.9 9.3" />
+    </SvgWrapper>
+  );
+}
+
+export function TruckIcon({ className }: IconProps) {
+  return (
+    <SvgWrapper className={className}>
+      <path d="M3 7.5h10.5v8H3z" />
+      <path d="M13.5 10h3.2l2.3 2.6v2.9h-5.5" />
+      <path d="M7 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z" />
+      <path d="M16.5 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z" />
+      <path d="M8.8 18.5h5.9" />
+    </SvgWrapper>
+  );
+}
+
+export function PackageIcon({ className }: IconProps) {
+  return (
+    <SvgWrapper className={className}>
+      <path d="m12 3 7 3.8v9L12 20l-7-4.2v-9L12 3Z" />
+      <path d="m5.2 7 6.8 4 6.8-4" />
+      <path d="M12 11v9" />
     </SvgWrapper>
   );
 }

@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 
 import { Container } from "@/components/container";
-import { CompassIcon, ContactIcon, OrbitIcon, TargetIcon } from "@/components/icons";
+import { CheckBadgeIcon, CompassIcon, PenIcon, TruckIcon, WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { howItWorksSteps } from "@/lib/content";
 
 const icons = {
-  contact: ContactIcon,
-  objective: TargetIcon,
-  direction: CompassIcon,
-  followup: OrbitIcon,
+  contact: WhatsAppIcon,
+  objective: PenIcon,
+  direction: CheckBadgeIcon,
+  followup: TruckIcon,
 };
 
 export function HowItWorks() {
