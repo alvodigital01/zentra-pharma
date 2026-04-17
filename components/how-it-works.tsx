@@ -19,7 +19,7 @@ export function HowItWorks() {
   return (
     <section
       id="como-funciona"
-      className="section-divider section-padding relative overflow-hidden bg-white"
+      className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]"
     >
       <div className="absolute inset-0 light-grid opacity-15" />
       <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-[#153B63]/[0.05] blur-3xl" />
