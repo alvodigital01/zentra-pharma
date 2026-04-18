@@ -38,6 +38,18 @@ export function ArrowUpRightIcon({ className }: IconProps) {
   );
 }
 
+export function BasketIcon({ className }: IconProps) {
+  return (
+    <SvgWrapper className={className}>
+      <path d="M5.5 9.5h13l-1 8.2a1.7 1.7 0 0 1-1.7 1.5H8.2a1.7 1.7 0 0 1-1.7-1.5L5.5 9.5Z" />
+      <path d="M9 9.5a3 3 0 0 1 6 0" />
+      <path d="M8.4 13.2h7.2" />
+      <path d="M10.1 6.7 8.7 8.2" />
+      <path d="m13.9 6.7 1.4 1.5" />
+    </SvgWrapper>
+  );
+}
+
 export function PlayIcon({ className }: IconProps) {
   return (
     <svg

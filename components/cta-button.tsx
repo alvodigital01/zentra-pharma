@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon } from "@/components/icons";
+import { ArrowUpRightIcon, BasketIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 type CtaButtonProps = {
@@ -7,6 +7,7 @@ type CtaButtonProps = {
   className?: string;
   variant?: "primary" | "secondary" | "ghost";
   external?: boolean;
+  icon?: "arrow" | "basket";
 };
 
 export function CtaButton({
@@ -15,6 +16,7 @@ export function CtaButton({
   className,
   variant = "primary",
   external,
+  icon = "arrow",
 }: CtaButtonProps) {
   const shared =
     "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300";
@@ -29,6 +31,11 @@ export function CtaButton({
   } as const;
 
   const isExternal = external ?? href.startsWith("http");
+  const Icon = icon === "basket" ? BasketIcon : ArrowUpRightIcon;
+  const iconClassName =
+    icon === "basket"
+      ? "h-4 w-4 transition duration-300 group-hover:scale-105"
+      : "h-4 w-4 transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5";
 
   return (
     <a
@@ -38,7 +45,7 @@ export function CtaButton({
       className={cn(shared, variants[variant], className)}
     >
       <span>{children}</span>
-      <ArrowUpRightIcon className="h-4 w-4 transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      <Icon className={iconClassName} />
     </a>
   );
 }

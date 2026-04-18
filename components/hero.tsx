@@ -19,6 +19,7 @@ function HeroVisual() {
     "/glowblend.jpg",
     "/retratutidenexxus-40mg.jpg",
     "/retratutideusa-40mg-2ml.jpg",
+    "/vetrane90mg.png",
     "/tirzec4-15mg-0,5ml.jpg",
     "/lipoland-15mg-0,5ml.jpg",
     "/tirzec2-15mg-o.5ml.jpg",
@@ -131,8 +132,8 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="mx-auto mt-8 max-w-3xl text-center font-body text-[3.15rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0F1720] sm:text-5xl lg:mx-0 lg:text-left lg:text-[4.35rem]">
-                <span className="whitespace-nowrap">Zenthra Pharma.</span>
+              <h1 className="mx-auto mt-8 max-w-3xl text-center font-body text-[2.5rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0F1720] sm:text-5xl lg:mx-0 lg:text-left lg:text-[4.35rem]">
+                <span className="sm:whitespace-nowrap">Zenthra Pharma.</span>
                 <br className="hidden sm:block" />
                 <span className="block sm:inline"> </span>
                 Produtos de extrema pureza.

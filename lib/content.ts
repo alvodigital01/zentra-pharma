@@ -14,10 +14,17 @@ export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
+export function createProductWhatsAppMessage(productName: string, details?: string) {
+  const productLabel = details ? `${productName} ${details}` : productName;
+
+  return `Olá, tenho interesse em ${productLabel} e gostaria de consultar a disponibilidade.`;
+}
+
 export const whatsappUrl = createWhatsAppUrl();
 
 export const navLinks = [
   { label: "Produtos", href: "/#produtos" },
+  { label: "Catálogo", href: "/#catalogo" },
   { label: "Atendimento", href: "/#como-funciona" },
   { label: "Entrega", href: "/#entrega" },
   { label: "Depoimentos", href: "/#depoimentos" },
@@ -81,7 +88,7 @@ export const performanceLines = [
 export const products = [
   {
     category: "Controle de apetite",
-    name: "Retatrutide",
+    name: "Retatrutida",
     description:
       "A retatrutida é uma molécula de ação tripla sobre os receptores de GLP-1, GIP e glucagon, desenvolvida para atuar no controle metabólico. Em estudos clínicos, tem demonstrado potencial para promover redução de peso, melhora do controle glicêmico e benefícios em marcadores cardiometabólico.",
     accentClassName: "bg-[#E9EEF5]",
@@ -93,7 +100,7 @@ export const products = [
   },
   {
     category: "Controle de apetite",
-    name: "Tizerpatide",
+    name: "Tizerpatida",
     description:
       "A tirzepatida é um fármaco de ação dual sobre os receptores de GIP e GLP-1, desenvolvido para atuar no controle metabólico. Em contexto clínico, destaca-se por seu potencial na melhora do controle glicêmico, no manejo do peso corporal e no apoio a uma abordagem terapêutica mais completa.",
     accentClassName: "bg-[#EDF2F8]",
@@ -108,7 +115,7 @@ export const products = [
     ],
   },
   {
-    category: "Poderoso peptidio",
+    category: "Poderoso peptídeo",
     name: "Glow Blend",
     description:
       "O Glow Blend é uma formulação peptídica com BPC-157, TB-500 e GHK-Cu, desenvolvida com foco em suporte a processos de reparo tecidual e regeneração cutânea. Seus componentes são associados à cicatrização, remodelação da matriz extracelular, manutenção da qualidade da pele e apoio ao cuidado integrativo.",
@@ -122,6 +129,104 @@ export const products = [
       "Uma linha voltada ao equilíbrio, ao bem-estar e a uma rotina mais leve.",
     accentClassName: "bg-[#F4F6FA]",
     images: ["/products/zenthra-balance/foto1.jpeg", "/products/zenthra-balance/foto2.jpeg"],
+  },
+];
+
+export const catalogProducts: ReadonlyArray<{
+  title: string;
+  presentation: string;
+  badge?: string;
+  pixPrice: number;
+  cardPrice: number;
+  image: string;
+}> = [
+  {
+    title: "Tizerpatida Veltrane",
+    presentation: "60 mg",
+    pixPrice: 990,
+    cardPrice: 1170,
+    image: "/tirzepatide-veltrane-10mg-ml.jpg",
+  },
+  {
+    title: "Tizerpatida USA Pep",
+    presentation: "60 mg",
+    pixPrice: 860,
+    cardPrice: 960,
+    image: "/tizerpatide-60mg-3ml.jpg",
+  },
+  {
+    title: "Tirzec",
+    presentation: "Ampola única",
+    badge: "15mg",
+    pixPrice: 1100,
+    cardPrice: 1170,
+    image: "/tirzec-15mg-o.5ml.jpg",
+  },
+  {
+    title: "Retatrutida Veltrane",
+    presentation: "60 mg",
+    pixPrice: 950,
+    cardPrice: 1100,
+    image: "/retratutide-veltrane-10mg-ml.jpg",
+  },
+  {
+    title: "Retatrutida Veltrane",
+    presentation: "90 mg",
+    pixPrice: 1050,
+    cardPrice: 1130,
+    image: "/vetrane90mg.png",
+  },
+  {
+    title: "Retatrutida USA Pep",
+    presentation: "40 mg",
+    pixPrice: 930,
+    cardPrice: 980,
+    image: "/retratutideusa-40mg-2ml.jpg",
+  },
+  {
+    title: "Retatrutida Nexus",
+    presentation: "40 mg",
+    pixPrice: 1200,
+    cardPrice: 1280,
+    image: "/retratutidenexxus-40mg.jpg",
+  },
+  {
+    title: "TG",
+    presentation: "Caixa com 4 ampolas",
+    pixPrice: 1250,
+    cardPrice: 1300,
+    image: "/tg15mg-0,5ml.jpg",
+  },
+  {
+    title: "Caneta GLOW",
+    presentation: "GHKU 50 mg + BPC-157 10 mg + TB-500 10 mg",
+    badge: "10mg",
+    pixPrice: 800,
+    cardPrice: 900,
+    image: "/glowblend.jpg",
+  },
+  {
+    title: "Lipolass",
+    presentation: "4 ampolas",
+    badge: "4 ampolas",
+    pixPrice: 1240,
+    cardPrice: 1280,
+    image: "/tirzec4-15mg-0,5ml.jpg",
+  },
+  {
+    title: "Lipolass MD",
+    presentation: "60 mg",
+    badge: "15mg",
+    pixPrice: 1000,
+    cardPrice: 1100,
+    image: "/lipoless=15mg-0,5ml.jpg",
+  },
+  {
+    title: "Lipoland",
+    presentation: "4 ampolas",
+    pixPrice: 1230,
+    cardPrice: 1270,
+    image: "/lipoland-15mg-0,5ml.jpg",
   },
 ];
 

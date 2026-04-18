@@ -1,3 +1,4 @@
+import { CatalogSection } from "@/components/catalog-section";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="overflow-x-clip">
       <Hero />
       <Products />
+      <CatalogSection />
       <HowItWorks />
       <UnboxingVideo />
       <ProductTestimonials />

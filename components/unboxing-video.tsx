@@ -118,7 +118,7 @@ export function UnboxingVideo() {
   return (
     <section
       id="entrega"
-      className="section-divider section-padding relative overflow-hidden bg-white"
+      className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]"
     >
       <div className="absolute inset-0 light-grid opacity-15" />
       <div className="absolute right-[10%] top-20 h-64 w-64 rounded-full bg-[#153B63]/[0.05] blur-3xl" />

@@ -12,7 +12,10 @@ export function Faq() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="faq" className="section-divider section-padding relative overflow-hidden bg-white">
+    <section
+      id="faq"
+      className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]"
+    >
       <div className="absolute inset-0 light-grid opacity-15" />
       <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[#153B63]/[0.04] blur-3xl" />
 

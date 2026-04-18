@@ -7,7 +7,7 @@ import { CtaButton } from "@/components/cta-button";
 import { ProductMockup } from "@/components/product-mockup";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { createWhatsAppUrl, products } from "@/lib/content";
+import { createProductWhatsAppMessage, createWhatsAppUrl, products } from "@/lib/content";
 
 export function Products() {
   return (
@@ -64,10 +64,11 @@ export function Products() {
 
                   <div className="mt-6 pt-2">
                     <CtaButton
-                      href={createWhatsAppUrl(`Olá, tenho interesse no produto ${product.name}.`)}
+                      href={createWhatsAppUrl(createProductWhatsAppMessage(product.name))}
+                      icon="basket"
                       className="w-full justify-center"
                     >
-                      Quero esse produto
+                      Consultar disponibilidade
                     </CtaButton>
                   </div>
                 </div>
