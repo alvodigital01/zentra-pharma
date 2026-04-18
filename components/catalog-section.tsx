@@ -13,16 +13,6 @@ import {
   createWhatsAppUrl,
 } from "@/lib/content";
 
-const currencyFormatter = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-  maximumFractionDigits: 0,
-});
-
-function formatPrice(value: number) {
-  return currencyFormatter.format(value);
-}
-
 export function CatalogSection() {
   return (
     <section
@@ -49,8 +39,6 @@ export function CatalogSection() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {catalogProducts.map((product, index) => {
-            const savings = product.cardPrice - product.pixPrice;
-
             return (
               <Reveal key={`${product.title}-${product.presentation}`} delay={0.08 + index * 0.03}>
                 <motion.article
@@ -89,30 +77,6 @@ export function CatalogSection() {
                     <h3 className="mt-3 break-words text-[1.45rem] font-semibold leading-[1.04] tracking-[-0.04em] text-[#0F1720] sm:text-[1.65rem]">
                       {product.title}
                     </h3>
-
-                    <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                      <div className="rounded-[24px] border border-[#0E2A47]/10 bg-[linear-gradient(180deg,#0E2238_0%,#173A61_100%)] px-4 py-4 text-white shadow-[0_18px_30px_rgba(14,42,71,0.16)]">
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/72">
-                          Pix
-                        </div>
-                        <div className="mt-2 text-[1.9rem] font-semibold leading-none tracking-[-0.055em] sm:text-[2.1rem]">
-                          {formatPrice(product.pixPrice)}
-                        </div>
-                      </div>
-
-                      <div className="rounded-[24px] border border-[#D9E1EC] bg-[linear-gradient(180deg,#FFFFFF_0%,#F9FBFE_100%)] px-4 py-4">
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#153B63]">
-                          Cartão até 5x
-                        </div>
-                        <div className="mt-2 text-[1.7rem] font-semibold leading-none tracking-[-0.05em] text-[#0F1720] sm:text-[1.85rem]">
-                          {formatPrice(product.cardPrice)}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mt-3 rounded-full border border-[#D9E1EC] bg-[#FAFBFD] px-4 py-2.5 text-sm text-[#5B6575]">
-                      Economize <span className="font-semibold text-[#0F1720]">{formatPrice(savings)}</span> no Pix
-                    </div>
 
                     <div className="mt-4">
                       <CtaButton

@@ -214,9 +214,9 @@ export const catalogProducts: ReadonlyArray<{
     image: "/tirzec4-15mg-0,5ml.jpg",
   },
   {
-    title: "Lipolass MD",
-    presentation: "60 mg",
-    badge: "15mg",
+    title: "Lipoless",
+    presentation: "4 ampolas",
+    badge: "4 ampolas",
     pixPrice: 1000,
     cardPrice: 1100,
     image: "/lipoless=15mg-0,5ml.jpg",
