@@ -126,7 +126,7 @@ export function ProductMockup({
                 type="button"
                 onClick={showPreviousImage}
                 aria-label={`Ver imagem anterior de ${label}`}
-                className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+                className="button-pulse-carousel absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-white/80 opacity-65 shadow-[0_6px_16px_rgba(14,42,71,0.1)] transition-all duration-300 hover:-translate-y-1/2 hover:opacity-100"
               >
                 &#8249;
               </button>
@@ -134,7 +134,7 @@ export function ProductMockup({
                 type="button"
                 onClick={showNextImage}
                 aria-label={`Ver próxima imagem de ${label}`}
-                className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+                className="button-pulse-carousel absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-white/80 opacity-65 shadow-[0_6px_16px_rgba(14,42,71,0.1)] transition-all duration-300 hover:-translate-y-1/2 hover:opacity-100"
               >
                 &#8250;
               </button>

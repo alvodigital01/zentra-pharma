@@ -53,10 +53,10 @@ export function Faq() {
                         {item.question}
                       </span>
                       <span
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-[#153B63] transition-all duration-300 ${
+                        className={`button-pulse button-pulse-surface flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#153B63] transition-all duration-300 ${
                           isOpen
-                            ? "border-[#153B63]/18 bg-[#F5F7FB] rotate-45"
-                            : "border-[#D9E1EC] bg-[#FAFBFD]"
+                            ? "rotate-45"
+                            : ""
                         }`}
                       >
                         <span className="text-2xl leading-none">+</span>

@@ -65,7 +65,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setOpen((current) => !current)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#D9E1EC] bg-white text-[#0E2A47] transition hover:border-[#0E2A47]/18 lg:hidden"
+                className="button-pulse button-pulse-surface inline-flex h-11 w-11 items-center justify-center rounded-full text-[#0E2A47] transition lg:hidden"
                 aria-label={open ? "Fechar menu" : "Abrir menu"}
               >
                 {open ? <CloseIcon /> : <MenuIcon />}

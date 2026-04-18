@@ -154,13 +154,13 @@ export default function PrivacyPage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#0E2A47] px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#123454]"
+                  className="button-pulse button-pulse-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5"
                 >
                   Falar no WhatsApp
                 </a>
                 <Link
                   href="/termos"
-                  className="inline-flex items-center justify-center rounded-full border border-[#D9E1EC] bg-[#FAFBFD] px-6 py-3.5 text-sm font-semibold text-[#0E2A47] shadow-soft transition hover:-translate-y-0.5 hover:bg-white"
+                  className="button-pulse button-pulse-surface inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-[#0E2A47] shadow-soft transition hover:-translate-y-0.5"
                 >
                   Ver termos de uso
                 </Link>

@@ -7,21 +7,24 @@ import { SectionHeading } from "@/components/section-heading";
 const testimonialSlots = [
   {
     title: "Cliente 01",
+    headline: "Compra e atendimento",
     file: "/depoimento01.png",
     image: "/depoimento01.png",
-    caption: "Experiência real de compra e atendimento.",
+    caption: "Experiência real compartilhada após o pedido.",
   },
   {
     title: "Cliente 02",
+    headline: "Relato via WhatsApp",
     file: "/depoimento2.png",
     image: "/depoimento2.png",
-    caption: "Mais um relato real enviado pelo WhatsApp.",
+    caption: "Retorno autêntico enviado direto no atendimento.",
   },
   {
     title: "Cliente 03",
+    headline: "Feedback de cliente",
     file: "/depoimento3.png",
     image: "/depoimento3.png",
-    caption: "Outro feedback real de quem já pediu.",
+    caption: "Percepção de quem já comprou com a marca.",
   },
 ];
 
@@ -69,17 +72,24 @@ export function ProductTestimonials() {
                 <div className="absolute -right-6 top-6 h-28 w-28 rounded-full bg-[#153B63]/[0.05] blur-3xl" />
                 <div className="absolute -left-8 bottom-8 h-24 w-24 rounded-full bg-white/80 blur-3xl" />
 
-                <div className="relative min-h-[8.5rem] p-5 sm:p-6">
+                <div className="relative min-h-[10rem] p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#153B63]">
+                    <div className="min-w-0">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-[#D9E1EC] bg-white/88 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#153B63] shadow-[0_10px_22px_rgba(15,23,32,0.05)]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#153B63]" />
+                        Depoimento real
+                      </div>
+                      <div className="mt-5 text-[10px] font-semibold uppercase tracking-[0.34em] text-[#7A8798]">
                         {slot.title}
                       </div>
-                      <div className="mt-3 max-w-[16rem] text-sm leading-7 text-[#5B6575]">
+                      <div className="mt-3 max-w-[17rem] text-[1.45rem] font-semibold leading-[1.12] tracking-[-0.045em] text-[#0F1720]">
+                        {slot.headline}
+                      </div>
+                      <div className="mt-3 max-w-[17rem] text-sm leading-6 text-[#5B6575]">
                         {slot.caption}
                       </div>
                     </div>
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D9E1EC] bg-white/90 text-[#153B63] shadow-[0_8px_18px_rgba(15,23,32,0.06)]">
+                    <div className="flex h-10 min-w-[3.25rem] shrink-0 items-center justify-center rounded-full border border-[#D9E1EC] bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(244,248,252,0.96)_100%)] px-4 text-sm font-semibold tracking-[0.18em] text-[#153B63] shadow-[0_10px_24px_rgba(15,23,32,0.05)]">
                       0{index + 1}
                     </div>
                   </div>

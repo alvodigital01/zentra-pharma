@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 import { Container } from "@/components/container";
-import { CheckBadgeIcon, PackageIcon, PlayIcon, TruckIcon } from "@/components/icons";
+import { PackageIcon, PlayIcon, TruckIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -14,17 +14,12 @@ const videoPublicPath = "/videos/entrega-zenthra.mp4";
 const highlights = [
   {
     title: "Embalagem",
-    description: "Apresentação organizada e alinhada ao padrão da marca.",
+    description: "Apresentacao organizada e alinhada ao padrao da marca.",
     icon: PackageIcon,
   },
   {
-    title: "Discrição",
-    description: "Um cuidado pensado para transmitir mais confiança.",
-    icon: CheckBadgeIcon,
-  },
-  {
     title: "Entrega",
-    description: "Mais clareza sobre como o pedido chega até você.",
+    description: "Mais clareza sobre como o pedido chega ate voce.",
     icon: TruckIcon,
   },
 ];
@@ -84,7 +79,7 @@ function VideoPlayer() {
           preload="metadata"
         >
           <source src={videoPublicPath} type="video/mp4" />
-          Seu navegador não suporta vídeo.
+          Seu navegador nao suporta video.
         </video>
       </div>
 
@@ -93,18 +88,18 @@ function VideoPlayer() {
           type="button"
           onClick={handlePlay}
           className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,rgba(10,28,46,0.12)_0%,rgba(10,28,46,0.48)_100%)] text-white transition hover:bg-[linear-gradient(180deg,rgba(10,28,46,0.16)_0%,rgba(10,28,46,0.55)_100%)]"
-          aria-label="Iniciar vídeo de entrega"
+          aria-label="Iniciar video de entrega"
         >
           <div className="flex flex-col items-center gap-4">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#153B63] shadow-[0_16px_34px_rgba(3,10,22,0.24)]">
+            <span className="button-pulse button-pulse-surface flex h-16 w-16 items-center justify-center rounded-full text-[#153B63] shadow-[0_16px_34px_rgba(3,10,22,0.24)]">
               <PlayIcon className="ml-1 h-6 w-6" />
             </span>
             <div className="text-center">
               <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white/84">
-                Assistir vídeo
+                Assistir video
               </div>
               <div className="mt-2 text-sm text-white/82">
-                Toque para ver como o pedido chega até você
+                Toque para ver como o pedido chega ate voce
               </div>
             </div>
           </div>
@@ -129,8 +124,8 @@ export function UnboxingVideo() {
             <div className="max-w-2xl">
               <SectionHeading
                 eyebrow="Como o produto chega"
-                title="Veja de perto como seu pedido chega até você."
-                description="Uma apresentação real da abertura do produto, da embalagem e da experiência de entrega para transmitir mais segurança antes do seu pedido."
+                title="Veja de perto como seu pedido chega ate voce."
+                description="Uma apresentacao real da abertura do produto, da embalagem e da experiencia de entrega para transmitir mais seguranca antes do seu pedido."
               />
 
               <div className="mt-8 grid gap-3">

@@ -55,6 +55,25 @@ body::before {
 }
 
 @layer components {
+  @keyframes button-glow-pulse {
+    0%,
+    100% {
+      box-shadow:
+        var(--button-shadow-rest, 0 10px 24px rgba(15, 23, 32, 0.08)),
+        0 0 0 0 rgba(0, 0, 0, 0);
+      filter: saturate(1);
+    }
+
+    50% {
+      box-shadow:
+        var(--button-shadow-peak, 0 18px 36px rgba(15, 23, 32, 0.14)),
+        0 0 0 3px var(--button-glow-ring, rgba(14, 42, 71, 0.12)),
+        0 0 24px var(--button-glow-soft, rgba(14, 42, 71, 0.2)),
+        0 0 42px var(--button-glow-strong, rgba(21, 59, 99, 0.16));
+      filter: saturate(1.03);
+    }
+  }
+
   .section-divider {
     position: relative;
   }
@@ -94,6 +113,143 @@ body::before {
   .section-padding {
     @apply py-20 sm:py-24 lg:py-28;
   }
+
+  .button-pulse {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    animation: button-glow-pulse 2.6s ease-in-out infinite;
+    will-change: box-shadow, filter;
+  }
+
+  .button-pulse::before {
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at top,
+      var(--button-inner-glow, rgba(255, 255, 255, 0.34)) 0%,
+      rgba(255, 255, 255, 0.14) 18%,
+      transparent 58%
+    );
+    content: "";
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .button-pulse::after {
+    position: absolute;
+    top: -38%;
+    left: -52%;
+    width: 36%;
+    height: 176%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--button-shimmer, rgba(255, 255, 255, 0.5)) 52%,
+      transparent 100%
+    );
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-180%) skewX(-18deg);
+    transition:
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 300ms ease;
+    z-index: 0;
+  }
+
+  .button-pulse:hover::after {
+    opacity: 1;
+    transform: translateX(360%) skewX(-18deg);
+  }
+
+  .button-pulse > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button-pulse-primary {
+    border: 1px solid rgba(94, 136, 180, 0.26);
+    background: linear-gradient(135deg, #0e2a47 0%, #153b63 100%);
+    --button-shadow-rest: 0 14px 28px rgba(14, 42, 71, 0.24);
+    --button-shadow-peak: 0 20px 40px rgba(14, 42, 71, 0.32);
+    --button-glow-ring: rgba(21, 59, 99, 0.14);
+    --button-glow-soft: rgba(21, 59, 99, 0.22);
+    --button-glow-strong: rgba(14, 42, 71, 0.2);
+    --button-inner-glow: rgba(255, 255, 255, 0.18);
+    --button-shimmer: rgba(255, 255, 255, 0.56);
+  }
+
+  .button-pulse-primary:hover {
+    background: linear-gradient(135deg, #123454 0%, #1a446f 100%);
+  }
+
+  .button-pulse-surface {
+    border: 1px solid rgba(201, 214, 228, 0.96);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(245, 249, 253, 0.96) 100%
+    );
+    --button-shadow-rest: 0 12px 24px rgba(15, 23, 32, 0.07);
+    --button-shadow-peak: 0 18px 34px rgba(15, 23, 32, 0.12);
+    --button-glow-ring: rgba(21, 59, 99, 0.1);
+    --button-glow-soft: rgba(21, 59, 99, 0.14);
+    --button-glow-strong: rgba(14, 42, 71, 0.1);
+    --button-inner-glow: rgba(255, 255, 255, 0.34);
+    --button-shimmer: rgba(255, 255, 255, 0.52);
+  }
+
+  .button-pulse-surface:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(247, 250, 252, 1) 100%
+    );
+  }
+
+  .button-pulse-green {
+    border: 1px solid rgba(94, 136, 180, 0.26);
+    background: linear-gradient(135deg, #0e2a47 0%, #153b63 100%);
+    --button-shadow-rest: 0 14px 28px rgba(14, 42, 71, 0.24);
+    --button-shadow-peak: 0 20px 40px rgba(14, 42, 71, 0.32);
+    --button-glow-ring: rgba(21, 59, 99, 0.14);
+    --button-glow-soft: rgba(21, 59, 99, 0.22);
+    --button-glow-strong: rgba(14, 42, 71, 0.2);
+    --button-inner-glow: rgba(255, 255, 255, 0.18);
+    --button-shimmer: rgba(255, 255, 255, 0.56);
+  }
+
+  .button-pulse-green:hover {
+    background: linear-gradient(135deg, #123454 0%, #1a446f 100%);
+  }
+
+  .button-pulse-carousel {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    --button-shadow-rest: 0 8px 18px rgba(14, 42, 71, 0.1);
+    --button-shadow-peak: 0 12px 24px rgba(14, 42, 71, 0.14);
+    --button-glow-ring: rgba(21, 59, 99, 0.14);
+    --button-glow-soft: rgba(21, 59, 99, 0.18);
+    --button-glow-strong: rgba(14, 42, 71, 0.14);
+    --button-inner-glow: rgba(255, 255, 255, 0.16);
+    --button-shimmer: rgba(255, 255, 255, 0.48);
+  }
+
+  .button-pulse-carousel:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  }
 }
 
 @layer utilities {
@@ -125,5 +281,11 @@ body::before {
     mask-composite: exclude;
     content: "";
     pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-pulse {
+    animation: none;
   }
 }

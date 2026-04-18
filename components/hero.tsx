@@ -78,7 +78,7 @@ function HeroVisual() {
               type="button"
               onClick={showPreviousImage}
               aria-label="Ver imagem anterior do hero"
-              className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+              className="button-pulse-carousel absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-white/80 opacity-70 shadow-[0_8px_20px_rgba(14,42,71,0.1)] transition-all duration-300 hover:-translate-y-1/2 hover:opacity-100"
             >
               &#8249;
             </button>
@@ -87,7 +87,7 @@ function HeroVisual() {
               type="button"
               onClick={showNextImage}
               aria-label="Ver próxima imagem do hero"
-              className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-[#0E2A47] shadow-soft transition hover:bg-white"
+              className="button-pulse-carousel absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-white/80 opacity-70 shadow-[0_8px_20px_rgba(14,42,71,0.1)] transition-all duration-300 hover:-translate-y-1/2 hover:opacity-100"
             >
               &#8250;
             </button>
