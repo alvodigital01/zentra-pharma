@@ -78,6 +78,27 @@ export function CatalogSection() {
                       {product.title}
                     </h3>
 
+                    <div className="mt-5 rounded-[20px] border border-[#D9E1EC] bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FBFE_100%)] px-4 py-3 shadow-[0_12px_24px_rgba(15,23,32,0.04)]">
+                      <div className="flex items-center gap-2.5">
+                        <motion.span
+                          animate={{ scale: [1, 1.28, 1], opacity: [0.72, 1, 0.72] }}
+                          transition={{
+                            duration: 2.1,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.12,
+                          }}
+                          className="relative flex h-2.5 w-2.5 items-center justify-center"
+                        >
+                          <span className="absolute inline-flex h-2.5 w-2.5 rounded-full bg-[#153B63]/18" />
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#153B63]" />
+                        </motion.span>
+                        <p className="text-sm font-medium leading-6 text-[#5B6575]">
+                          preço especial para varejistas
+                        </p>
+                      </div>
+                    </div>
+
                     <div className="mt-4">
                       <CtaButton
                         href={createWhatsAppUrl(
