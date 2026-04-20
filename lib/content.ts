@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zenthra Pharma",
-  url: "https://zenthrapharma.com.br",
-  email: "contato@zenthrapharma.com.br",
+  url: "https://www.zenthrapharma.com",
+  email: "contato@zenthrapharma.com",
   location: "Atendimento e entregas para todo o Brasil",
   whatsappDisplay: "+55 43 9677-6474",
   whatsappNumber:
