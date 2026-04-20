@@ -206,7 +206,7 @@ export const catalogProducts: ReadonlyArray<{
     image: "/glowblend.jpg",
   },
   {
-    title: "Lipolass",
+    title: "Tirzec",
     presentation: "4 ampolas",
     badge: "4 ampolas",
     pixPrice: 1240,
