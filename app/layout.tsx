@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Montserrat } from "next/font/google";
 
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/content";
 
@@ -18,6 +20,8 @@ const body = Inter({
   variable: "--font-body",
   weight: ["400", "500", "600", "700"],
 });
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -76,6 +80,11 @@ export default function RootLayout({
       <body
         className={`${heading.variable} ${body.variable} bg-[#F5F7FB] font-body text-[#0F1720] antialiased`}
       >
+        {gaId ? (
+          <Suspense fallback={null}>
+            <GoogleAnalytics gaId={gaId} />
+          </Suspense>
+        ) : null}
         <Header />
         {children}
         <FloatingWhatsApp />

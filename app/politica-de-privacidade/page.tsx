@@ -30,6 +30,7 @@ const sections = [
     title: "1. Quais dados podem ser coletados",
     content: [
       "Quando você navega pelo site ou entra em contato com a Zenthra Pharma, podemos receber informações como nome, telefone, mensagens enviadas, preferências de atendimento e dados básicos de navegação.",
+      "Também podemos utilizar tecnologias de medição de acesso e desempenho, como ferramentas de analytics, para entender visitas, páginas acessadas, tempo de navegação e interações gerais com o site.",
       "Essas informações podem ser fornecidas diretamente por você, especialmente ao falar conosco por WhatsApp ou por outros canais institucionais.",
     ],
   },
@@ -37,6 +38,7 @@ const sections = [
     title: "2. Como utilizamos essas informações",
     content: [
       "Os dados são utilizados para responder solicitações, esclarecer dúvidas, conduzir o atendimento, confirmar disponibilidade, organizar pedidos e melhorar a experiência de quem acessa nossos canais.",
+      "As informações de navegação e desempenho também podem ser usadas para medir acessos, entender a performance das páginas e orientar melhorias no conteúdo e na comunicação do site.",
       "Também podemos usar essas informações para manter uma comunicação mais coerente com o interesse demonstrado pelo visitante.",
     ],
   },
@@ -44,6 +46,7 @@ const sections = [
     title: "3. Compartilhamento de dados",
     content: [
       "A Zenthra Pharma não comercializa dados pessoais.",
+      "Quando necessário para a operação do site, dados de navegação podem ser processados por provedores de tecnologia e analytics contratados para mensuração de acesso, segurança e funcionamento da plataforma.",
       "O compartilhamento pode acontecer apenas quando necessário para viabilizar ferramentas de atendimento, operação do site, cumprimento de obrigações legais ou proteção da própria operação.",
     ],
   },
