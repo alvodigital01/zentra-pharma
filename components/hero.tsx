@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="topo"
-      className="relative overflow-hidden border-b border-[#D9E1EC] bg-white pb-20 pt-28 sm:pb-24 sm:pt-36"
+      className="relative overflow-hidden border-b border-[#D9E1EC] bg-white pb-12 pt-28 sm:pb-14 sm:pt-36"
     >
       {/* Dot grid texture */}
       <div

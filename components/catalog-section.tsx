@@ -17,7 +17,7 @@ export function CatalogSection() {
   return (
     <section
       id="catalogo"
-      className="section-divider section-padding relative overflow-hidden bg-[#F5F7FB]"
+      className="section-divider relative overflow-hidden bg-[#F5F7FB] pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28 lg:pt-16"
     >
       <div className="absolute inset-0 light-grid opacity-15" />
       <div className="absolute left-[8%] top-24 h-64 w-64 rounded-full bg-white/80 blur-3xl" />
