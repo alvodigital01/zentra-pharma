@@ -23,11 +23,9 @@ export function createProductWhatsAppMessage(productName: string, details?: stri
 export const whatsappUrl = createWhatsAppUrl();
 
 export const navLinks = [
-  { label: "Produtos", href: "/#produtos" },
   { label: "Catálogo", href: "/#catalogo" },
   { label: "Atendimento", href: "/#como-funciona" },
   { label: "Entrega", href: "/#entrega" },
-  { label: "Depoimentos", href: "/#depoimentos" },
   { label: "FAQ", href: "/#faq" },
 ];
 
