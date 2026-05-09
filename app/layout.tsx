@@ -4,7 +4,6 @@ import { Inter, Montserrat } from "next/font/google";
 
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { GoogleAnalytics } from "@/components/google-analytics";
-import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/content";
 
 import "./globals.css";
@@ -85,7 +84,6 @@ export default function RootLayout({
             <GoogleAnalytics gaId={gaId} />
           </Suspense>
         ) : null}
-        <Header />
         {children}
         <FloatingWhatsApp />
       </body>

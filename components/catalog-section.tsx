@@ -2,121 +2,252 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useMemo, useState } from "react";
 
-import { Container } from "@/components/container";
-import { CtaButton } from "@/components/cta-button";
+import { BasketIcon } from "@/components/icons";
+import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
 import {
   catalogProducts,
   createProductWhatsAppMessage,
   createWhatsAppUrl,
 } from "@/lib/content";
 
-export function CatalogSection() {
+const productTabs = [
+  "Tizerpatida",
+  "Retatrutida",
+  "Glow Blend",
+] as const;
+
+type ProductTab = (typeof productTabs)[number];
+
+function getProductFamily(title: string): ProductTab {
+  const normalizedTitle = title.toLowerCase();
+
+  if (normalizedTitle.includes("tizerpatida") || normalizedTitle.includes("tirzec")) {
+    return "Tizerpatida";
+  }
+
+  if (normalizedTitle.includes("retatrutida")) {
+    return "Retatrutida";
+  }
+
+  if (normalizedTitle.includes("glow")) {
+    return "Glow Blend";
+  }
+
+  return "Tizerpatida";
+}
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  }).format(price);
+}
+
+function normalizeSearch(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function sectionId(tab: ProductTab) {
+  return `catalogo-${tab.toLowerCase().replace(/\s+/g, "-")}`;
+}
+
+function isVisibleProduct(title: string) {
+  return normalizeSearch(title) !== "retatrutida nexus";
+}
+
+function SearchIcon({ className }: { className?: string }) {
   return (
-    <section
-      id="catalogo"
-      className="section-divider relative overflow-hidden bg-[#F5F7FB] pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28 lg:pt-16"
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      className={className}
+      aria-hidden="true"
     >
-      <div className="absolute inset-0 light-grid opacity-15" />
-      <div className="absolute left-[8%] top-24 h-64 w-64 rounded-full bg-white/80 blur-3xl" />
-      <div className="absolute right-[10%] top-16 h-64 w-64 rounded-full bg-[#153B63]/[0.06] blur-3xl" />
+      <path d="m21 21-4.3-4.3" />
+      <circle cx="11" cy="11" r="7" />
+    </svg>
+  );
+}
 
-      <Container className="relative">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Catálogo"
-            title={
-              <>
-                <span className="block">Condições especiais.</span>
-              </>
-            }
-            description=""
-            align="center"
-          />
-        </Reveal>
+export function CatalogSection() {
+  const [query, setQuery] = useState("");
+  const normalizedQuery = normalizeSearch(query.trim());
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {catalogProducts.map((product, index) => {
-            return (
-              <Reveal key={`${product.title}-${product.presentation}`} delay={0.08 + index * 0.03}>
-                <motion.article
-                  whileHover={{ y: -6 }}
-                  transition={{ type: "spring", stiffness: 240, damping: 24 }}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-[#D9E1EC] bg-white shadow-soft"
+  const groupedProducts = useMemo(() => {
+    return productTabs
+      .map((tab) => {
+        const products = catalogProducts.filter((product) => {
+          if (!isVisibleProduct(product.title)) {
+            return false;
+          }
+
+          const belongsToTab = getProductFamily(product.title) === tab;
+          const searchableContent = normalizeSearch(
+            `${product.title} ${product.presentation} ${product.badge ?? ""}`,
+          );
+
+          return belongsToTab && (!normalizedQuery || searchableContent.includes(normalizedQuery));
+        });
+
+        return { tab, products };
+      })
+      .filter((group) => group.products.length > 0);
+  }, [normalizedQuery]);
+
+  function handleTabClick(tab: ProductTab) {
+    document.getElementById(sectionId(tab))?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  return (
+    <section id="catalogo" className="relative bg-[#F8F9FB] pb-16 sm:pb-20 lg:pb-24">
+      <div className="sticky top-0 z-40 border-b border-[#E5E7EB] bg-white/96 shadow-[0_10px_30px_rgba(15,23,32,0.05)] backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-[1820px] flex-col gap-4 px-3 py-3 sm:px-6 sm:py-5 lg:px-8">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-3 lg:grid-cols-[280px_minmax(280px,780px)_280px] lg:gap-4">
+            <div className="flex justify-start">
+              <Logo />
+            </div>
+
+            <label className="relative order-3 col-span-2 block lg:order-none lg:col-span-1">
+              <span className="sr-only">Buscar produtos</span>
+              <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#7A8491] sm:left-5 sm:h-5 sm:w-5" />
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Buscar produtos..."
+                className="h-12 w-full rounded-full border border-[#C9D2DE] bg-white px-10 text-sm text-[#111827] outline-none transition placeholder:text-[#8A94A3] focus:border-[#153B63] focus:ring-4 focus:ring-[#153B63]/10 sm:h-14 sm:px-12 sm:text-base"
+              />
+            </label>
+
+            <div className="flex justify-end gap-2 sm:gap-3 lg:justify-end">
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] sm:h-12 sm:w-12"
+                aria-label="Buscar"
+              >
+                <SearchIcon className="h-5 w-5" />
+              </button>
+              <a
+                href="#catalogo-lista"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] sm:h-12 sm:w-12"
+                aria-label="Ver catalogo"
+              >
+                <BasketIcon className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="-mx-3 overflow-x-auto px-3 pb-1 [scrollbar-color:#8A8D91_transparent] [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="flex min-w-max items-center gap-2 sm:gap-3">
+              {productTabs.map((tab) => (
+                <button
+                  key={tab}
+                  type="button"
+                  onClick={() => handleTabClick(tab)}
+                  className="h-10 rounded-full bg-[#F2F3F5] px-4 text-sm font-medium text-[#4B5563] transition hover:bg-[#0E2A47] hover:text-white sm:h-11 sm:px-6 sm:text-base"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#153B63]/16 to-transparent" />
-                  <div className="pointer-events-none absolute -right-10 top-8 h-24 w-24 rounded-full bg-[#153B63]/[0.05] blur-3xl" />
-
-                  <div className="relative aspect-[16/11] overflow-hidden bg-[#ECF2F8]">
-                    <Image
-                      src={product.image}
-                      alt={`${product.title} ${product.presentation}`}
-                      fill
-                      sizes="(min-width: 1280px) 360px, (min-width: 768px) 46vw, 92vw"
-                      className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F1720]/10 via-transparent to-white/18" />
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-4 sm:p-5">
-                    <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#153B63]">
-                        Atendimento direto
-                      </div>
-                      <div className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-[#D9E1EC] bg-[#FAFBFD] px-3 py-1.5 text-xs font-medium leading-5 text-[#5B6575]">
-                        <span className="relative flex h-2 w-2 items-center justify-center">
-                          <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-[#0E2A47]/30" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0E2A47]" />
-                        </span>
-                        {product.badge ?? product.presentation}
-                      </div>
-                    </div>
-
-                    <h3 className="mt-3 break-words text-[1.45rem] font-semibold leading-[1.04] tracking-[-0.04em] text-[#0F1720] sm:text-[1.65rem]">
-                      {product.title}
-                    </h3>
-
-                    <div className="mt-5 rounded-[20px] border border-[#D9E1EC] bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FBFE_100%)] px-4 py-3 shadow-[0_12px_24px_rgba(15,23,32,0.04)]">
-                      <div className="flex items-center gap-2.5">
-                        <motion.span
-                          animate={{ scale: [1, 1.28, 1], opacity: [0.72, 1, 0.72] }}
-                          transition={{
-                            duration: 2.1,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: index * 0.12,
-                          }}
-                          className="relative flex h-2.5 w-2.5 items-center justify-center"
-                        >
-                          <span className="absolute inline-flex h-2.5 w-2.5 rounded-full bg-[#153B63]/18" />
-                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#153B63]" />
-                        </motion.span>
-                        <p className="text-sm font-medium leading-6 text-[#5B6575]">
-                          preço especial para varejistas
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-4">
-                      <CtaButton
-                        href={createWhatsAppUrl(
-                          createProductWhatsAppMessage(product.title, product.presentation),
-                        )}
-                        icon="basket"
-                        className="w-full justify-center py-3"
-                      >
-                        Consultar disponibilidade
-                      </CtaButton>
-                    </div>
-                  </div>
-                </motion.article>
-              </Reveal>
-            );
-          })}
+                  {tab}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
-      </Container>
+      </div>
+
+      <div id="catalogo-lista" className="mx-auto w-full max-w-[1820px] px-3 pt-6 sm:px-6 sm:pt-8 lg:px-8">
+        {groupedProducts.length ? (
+          <div className="space-y-10">
+            {groupedProducts.map((group) => (
+              <section
+                key={group.tab}
+                id={sectionId(group.tab)}
+                className="scroll-mt-[178px] border-t border-[#E8ECF1] pt-7 first:border-t-0 first:pt-0 sm:scroll-mt-[190px]"
+              >
+                <Reveal>
+                  <div>
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#667085]">
+                        Catalogo
+                      </span>
+                      <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.03em] text-[#1F2937] sm:mt-2 sm:text-3xl">
+                        {group.tab}
+                      </h2>
+                    </div>
+                  </div>
+                </Reveal>
+
+                <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                  {group.products.map((product, index) => {
+                    const details = product.badge ?? product.presentation;
+
+                    return (
+                      <Reveal
+                        key={`${product.title}-${product.presentation}`}
+                        delay={0.05 + index * 0.02}
+                      >
+                        <motion.a
+                          href={createWhatsAppUrl(
+                            createProductWhatsAppMessage(product.title, product.presentation),
+                          )}
+                          whileHover={{ y: -6 }}
+                          transition={{ type: "spring", stiffness: 240, damping: 24 }}
+                          className="group grid h-full min-h-[142px] grid-cols-[minmax(0,1fr)_82px] gap-3 rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4 sm:p-5"
+                        >
+                          <div className="flex min-w-0 flex-col">
+                            <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
+                              {product.title}
+                            </h3>
+                            <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
+                              {details}
+                            </p>
+                            <div className="mt-auto pt-2 text-lg font-bold tracking-[-0.03em] text-black sm:pt-4 sm:text-2xl">
+                              {formatPrice(product.pixPrice)}
+                            </div>
+                          </div>
+
+                          <div className="flex h-[82px] items-center justify-center self-center overflow-hidden rounded-[14px] border border-[#E6E8EC] bg-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] sm:h-[112px] sm:self-start sm:bg-[#FAFAFB]">
+                            <div className="relative h-full w-full">
+                              <Image
+                                src={product.image}
+                                alt={`${product.title} ${product.presentation}`}
+                                fill
+                                sizes="(min-width: 640px) 112px, 82px"
+                                className="object-cover transition duration-500 group-hover:scale-[1.05]"
+                              />
+                            </div>
+                          </div>
+                        </motion.a>
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-[14px] border border-[#E5E7EB] bg-white px-6 py-12 text-center shadow-[0_10px_26px_rgba(15,23,32,0.05)]">
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-[#111827]">
+              Nenhum produto encontrado
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#667085]">
+              Tente buscar por nome, apresentacao ou linha do produto.
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
