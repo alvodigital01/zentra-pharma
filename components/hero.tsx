@@ -6,7 +6,7 @@ import { Container } from "@/components/container";
 
 const productLines = [
   { name: "Retatrutida", tag: "GLP-1 · GIP · Glucagon" },
-  { name: "Tirzepatida", tag: "GLP-1 · GIP" },
+  { name: "Tizerpatida", tag: "GLP-1 · GIP" },
   { name: "Glow Blend",  tag: "BPC-157 · TB-500 · GHK-Cu" },
 ];
 
