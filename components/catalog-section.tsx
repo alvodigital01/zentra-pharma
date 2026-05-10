@@ -216,8 +216,16 @@ export function CatalogSection() {
                             <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
                               {details}
                             </p>
-                            <div className="mt-auto pt-2 text-lg font-bold tracking-[-0.03em] text-black sm:pt-4 sm:text-2xl">
-                              {formatPrice(product.pixPrice)}
+                            <div className="mt-auto pt-2 sm:pt-4">
+                              <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
+                                {formatPrice(product.pixPrice)}
+                              </div>
+                              <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
+                                PIX
+                              </div>
+                              <div className="mt-2 border-t border-[#E6E8EC] pt-2 text-sm font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                                {formatPrice(product.cardPrice)} em ate 5x
+                              </div>
                             </div>
                           </div>
 
