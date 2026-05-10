@@ -223,8 +223,8 @@ export function CatalogSection() {
                               <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
                                 PIX
                               </div>
-                              <div className="mt-2 border-t border-[#E6E8EC] pt-2 text-sm font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                                {formatPrice(product.cardPrice)} em ate 5x
+                              <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                                {formatPrice(product.cardPrice)} em até 5x
                               </div>
                             </div>
                           </div>
