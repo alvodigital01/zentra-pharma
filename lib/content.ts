@@ -160,6 +160,13 @@ export const catalogProducts: ReadonlyArray<{
     image: "/tirzec-15mg-o.5ml.jpg",
   },
   {
+    title: "Tizerpatida Slimex",
+    presentation: "GIP + GLP-1 | 60mg",
+    pixPrice: 1000,
+    cardPrice: 1170,
+    image: "/slimex.png",
+  },
+  {
     title: "Retatrutida Veltrane",
     presentation: "GLP-1 + GIP + Glucagon | 60mg",
     pixPrice: 950,
@@ -175,10 +182,17 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Retatrutida USA Pep",
-    presentation: "GLP-1 + GIP + Glucagon | 60mg",
+    presentation: "GLP-1 + GIP + Glucagon | 40mg",
     pixPrice: 930,
     cardPrice: 980,
     image: "/retratutideusa-40mg-2ml.jpg",
+  },
+  {
+    title: "Retatrutida Synedica",
+    presentation: "GLP-1 + GIP + Glucagon | 40mg",
+    pixPrice: 1200,
+    cardPrice: 1250,
+    image: "/synedica.png",
   },
   {
     title: "Retatrutida Nexus",
