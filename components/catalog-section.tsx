@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
-import { BasketIcon } from "@/components/icons";
+import { WhatsAppIcon } from "@/components/icons";
 import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 import {
   catalogProducts,
   createProductWhatsAppMessage,
   createWhatsAppUrl,
+  whatsappUrl,
 } from "@/lib/content";
 
 const productTabs = [
@@ -141,11 +142,13 @@ export function CatalogSection() {
                 <SearchIcon className="h-5 w-5" />
               </button>
               <a
-                href="#catalogo-lista"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] sm:h-12 sm:w-12"
-                aria-label="Ver catalogo"
+                aria-label="Falar no WhatsApp"
               >
-                <BasketIcon className="h-5 w-5" />
+                <WhatsAppIcon className="h-5 w-5" />
               </a>
             </div>
           </div>
