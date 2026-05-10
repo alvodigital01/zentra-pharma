@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
 import { WhatsAppIcon } from "@/components/icons";
 import { Logo } from "@/components/logo";
@@ -67,74 +70,103 @@ function isVisibleProduct(title: string) {
 type CatalogProduct = (typeof catalogProducts)[number];
 
 function ProductGrid({ products, indexOffset }: { products: readonly CatalogProduct[]; indexOffset: number }) {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+
+  const slides = products.map((p) => ({ src: p.image, alt: `${p.title} ${p.presentation}` }));
+
   return (
-    <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-      {products.map((product, index) => {
-        const details = product.badge ?? product.presentation;
-        const installments = product.cardInstallments ?? 5;
+    <>
+      <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        {products.map((product, index) => {
+          const details = product.badge ?? product.presentation;
+          const installments = product.cardInstallments ?? 5;
 
-        return (
-          <Reveal
-            key={`${product.title}-${product.presentation}`}
-            delay={0.05 + (indexOffset + index) * 0.02}
-          >
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 240, damping: 24 }}
-              className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
+          return (
+            <Reveal
+              key={`${product.title}-${product.presentation}`}
+              delay={0.05 + (indexOffset + index) * 0.02}
             >
-              <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
-                <div className="flex min-w-0 flex-col">
-                  <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
-                    {product.title}
-                  </h3>
-                  <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
-                    {details}
-                  </p>
-                  <div className="mt-auto pt-2 sm:pt-4">
-                    <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
-                      {formatPrice(product.pixPrice)}
-                    </div>
-                    <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
-                      PIX
-                    </div>
-                    <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                      {formatPrice(product.cardPrice)} em até {installments}x
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 240, damping: 24 }}
+                className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
+              >
+                <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
+                  <div className="flex min-w-0 flex-col">
+                    <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
+                      {product.title}
+                    </h3>
+                    <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
+                      {details}
+                    </p>
+                    <div className="mt-auto pt-2 sm:pt-4">
+                      <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
+                        {formatPrice(product.pixPrice)}
+                      </div>
+                      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
+                        PIX
+                      </div>
+                      <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                        {formatPrice(product.cardPrice)} em até {installments}x
+                      </div>
                     </div>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(index)}
+                    aria-label={`Ver imagem de ${product.title}`}
+                    className="group/img relative flex h-[82px] cursor-zoom-in items-center justify-center self-center overflow-hidden rounded-[14px] border border-[#E6E8EC] bg-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] sm:h-[112px] sm:self-start sm:bg-[#FAFAFB]"
+                  >
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={product.image}
+                        alt={`${product.title} ${product.presentation}`}
+                        fill
+                        sizes="(min-width: 640px) 112px, 82px"
+                        className="object-cover transition duration-500 group-hover/img:scale-[1.07]"
+                      />
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center rounded-[14px] bg-black/0 transition duration-200 group-hover/img:bg-black/10">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 opacity-0 drop-shadow-md transition duration-200 group-hover/img:opacity-100" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        <line x1="11" y1="8" x2="11" y2="14" />
+                        <line x1="8" y1="11" x2="14" y2="11" />
+                      </svg>
+                    </div>
+                  </button>
                 </div>
 
-                <div className="flex h-[82px] items-center justify-center self-center overflow-hidden rounded-[14px] border border-[#E6E8EC] bg-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] sm:h-[112px] sm:self-start sm:bg-[#FAFAFB]">
-                  <div className="relative h-full w-full">
-                    <Image
-                      src={product.image}
-                      alt={`${product.title} ${product.presentation}`}
-                      fill
-                      sizes="(min-width: 640px) 112px, 82px"
-                      className="object-cover transition duration-500"
-                    />
-                  </div>
+                <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
+                  <a
+                    href={createWhatsAppUrl(
+                      createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+                    Comprar via WhatsApp
+                  </a>
                 </div>
-              </div>
+              </motion.div>
+            </Reveal>
+          );
+        })}
+      </div>
 
-              <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
-                <a
-                  href={createWhatsAppUrl(
-                    createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
-                  Comprar via WhatsApp
-                </a>
-              </div>
-            </motion.div>
-          </Reveal>
-        );
-      })}
-    </div>
+      <Lightbox
+        open={lightboxIndex >= 0}
+        index={lightboxIndex}
+        close={() => setLightboxIndex(-1)}
+        slides={slides}
+        plugins={[Zoom]}
+        zoom={{ maxZoomPixelRatio: 4, scrollToZoom: true }}
+        styles={{ root: { "--yarl__color_backdrop": "rgba(0,0,0,0.88)" } }}
+      />
+    </>
   );
 }
 
