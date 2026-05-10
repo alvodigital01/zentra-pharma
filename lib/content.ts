@@ -141,7 +141,9 @@ export const catalogProducts: ReadonlyArray<{
   badge?: string;
   pixPrice: number;
   cardPrice: number;
+  cardInstallments?: number;
   image: string;
+  ampola?: boolean;
 }> = [
   {
     title: "Tizerpatida Veltrane",
@@ -233,6 +235,42 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1230,
     cardPrice: 1270,
     image: "/lipoland-15mg-0,5ml.jpg",
+  },
+  {
+    title: "Tizerpatida TG",
+    presentation: "GIP + GLP-1 | 15mg",
+    pixPrice: 370,
+    cardPrice: 385,
+    cardInstallments: 2,
+    image: "/tg15mg-0,5ml.jpg",
+    ampola: true,
+  },
+  {
+    title: "Tizerpatida Lipolass",
+    presentation: "GIP + GLP-1 | 15mg",
+    pixPrice: 340,
+    cardPrice: 355,
+    cardInstallments: 2,
+    image: "/lipoless=15mg-0,5ml.jpg",
+    ampola: true,
+  },
+  {
+    title: "Tizerpatida Tirzec",
+    presentation: "GIP + GLP-1 | 15mg",
+    pixPrice: 350,
+    cardPrice: 365,
+    cardInstallments: 2,
+    image: "/tirzec-15mg-o.5ml.jpg",
+    ampola: true,
+  },
+  {
+    title: "Tizerpatida Slimex",
+    presentation: "GIP + GLP-1 | 15mg",
+    pixPrice: 333,
+    cardPrice: 343,
+    cardInstallments: 2,
+    image: "/slimex.png",
+    ampola: true,
   },
 ];
 

@@ -64,6 +64,80 @@ function isVisibleProduct(title: string) {
   return normalizeSearch(title) !== "retatrutida nexus";
 }
 
+type CatalogProduct = (typeof catalogProducts)[number];
+
+function ProductGrid({ products, indexOffset }: { products: readonly CatalogProduct[]; indexOffset: number }) {
+  return (
+    <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+      {products.map((product, index) => {
+        const details = product.badge ?? product.presentation;
+        const installments = product.cardInstallments ?? 5;
+
+        return (
+          <Reveal
+            key={`${product.title}-${product.presentation}`}
+            delay={0.05 + (indexOffset + index) * 0.02}
+          >
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 240, damping: 24 }}
+              className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
+            >
+              <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
+                <div className="flex min-w-0 flex-col">
+                  <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
+                    {product.title}
+                  </h3>
+                  <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
+                    {details}
+                  </p>
+                  <div className="mt-auto pt-2 sm:pt-4">
+                    <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
+                      {formatPrice(product.pixPrice)}
+                    </div>
+                    <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
+                      PIX
+                    </div>
+                    <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                      {formatPrice(product.cardPrice)} em até {installments}x
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex h-[82px] items-center justify-center self-center overflow-hidden rounded-[14px] border border-[#E6E8EC] bg-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] sm:h-[112px] sm:self-start sm:bg-[#FAFAFB]">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={product.image}
+                      alt={`${product.title} ${product.presentation}`}
+                      fill
+                      sizes="(min-width: 640px) 112px, 82px"
+                      className="object-cover transition duration-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
+                <a
+                  href={createWhatsAppUrl(
+                    createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
+                >
+                  <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+                  Comprar via WhatsApp
+                </a>
+              </div>
+            </motion.div>
+          </Reveal>
+        );
+      })}
+    </div>
+  );
+}
+
 function SearchIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -89,22 +163,21 @@ export function CatalogSection() {
   const groupedProducts = useMemo(() => {
     return productTabs
       .map((tab) => {
-        const products = catalogProducts.filter((product) => {
-          if (!isVisibleProduct(product.title)) {
-            return false;
-          }
-
+        const filtered = catalogProducts.filter((product) => {
+          if (!isVisibleProduct(product.title)) return false;
           const belongsToTab = getProductFamily(product.title) === tab;
           const searchableContent = normalizeSearch(
             `${product.title} ${product.presentation} ${product.badge ?? ""}`,
           );
-
           return belongsToTab && (!normalizedQuery || searchableContent.includes(normalizedQuery));
         });
 
-        return { tab, products };
+        const boxes = filtered.filter((p) => !p.ampola);
+        const ampolas = filtered.filter((p) => p.ampola);
+
+        return { tab, boxes, ampolas };
       })
-      .filter((group) => group.products.length > 0);
+      .filter((group) => group.boxes.length > 0 || group.ampolas.length > 0);
   }, [normalizedQuery]);
 
   function handleTabClick(tab: ProductTab) {
@@ -193,72 +266,20 @@ export function CatalogSection() {
                   </div>
                 </Reveal>
 
-                <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                  {group.products.map((product, index) => {
-                    const details = product.badge ?? product.presentation;
+                <ProductGrid products={group.boxes} indexOffset={0} />
 
-                    return (
-                      <Reveal
-                        key={`${product.title}-${product.presentation}`}
-                        delay={0.05 + index * 0.02}
-                      >
-                        <motion.div
-                          whileHover={{ y: -6 }}
-                          transition={{ type: "spring", stiffness: 240, damping: 24 }}
-                          className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
-                        >
-                          <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
-                            <div className="flex min-w-0 flex-col">
-                              <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
-                                {product.title}
-                              </h3>
-                              <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
-                                {details}
-                              </p>
-                              <div className="mt-auto pt-2 sm:pt-4">
-                                <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
-                                  {formatPrice(product.pixPrice)}
-                                </div>
-                                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
-                                  PIX
-                                </div>
-                                <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                                  {formatPrice(product.cardPrice)} em até 5x
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="flex h-[82px] items-center justify-center self-center overflow-hidden rounded-[14px] border border-[#E6E8EC] bg-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.7)] sm:h-[112px] sm:self-start sm:bg-[#FAFAFB]">
-                              <div className="relative h-full w-full">
-                                <Image
-                                  src={product.image}
-                                  alt={`${product.title} ${product.presentation}`}
-                                  fill
-                                  sizes="(min-width: 640px) 112px, 82px"
-                                  className="object-cover transition duration-500"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
-                            <a
-                              href={createWhatsAppUrl(
-                                createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
-                              )}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
-                            >
-                              <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
-                              Comprar via WhatsApp
-                            </a>
-                          </div>
-                        </motion.div>
-                      </Reveal>
-                    );
-                  })}
-                </div>
+                {group.ampolas.length > 0 && (
+                  <div className="mt-8 sm:mt-10">
+                    <div className="flex items-center gap-3">
+                      <div className="h-px flex-1 bg-[#E8ECF1]" />
+                      <span className="rounded-full border border-[#E0E4EC] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#667085]">
+                        Ampolas Avulsas
+                      </span>
+                      <div className="h-px flex-1 bg-[#E8ECF1]" />
+                    </div>
+                    <ProductGrid products={group.ampolas} indexOffset={group.boxes.length} />
+                  </div>
+                )}
               </section>
             ))}
           </div>
