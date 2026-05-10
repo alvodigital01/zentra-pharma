@@ -223,8 +223,14 @@ export function CatalogSection() {
                               <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
                                 PIX
                               </div>
-                              <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                                {formatPrice(product.cardPrice)} em até 5x
+                              <div className="mt-2 flex flex-wrap items-center gap-2 border-t border-[#E6E8EC] pt-2">
+                                <span className="whitespace-nowrap text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                                  {formatPrice(product.cardPrice)} em até 5x
+                                </span>
+                                <div className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#25D366]/12 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#1a9e4f] transition-colors duration-200 group-hover:bg-[#25D366]/20">
+                                  <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+                                  Comprar via WhatsApp
+                                </div>
                               </div>
                             </div>
                           </div>
