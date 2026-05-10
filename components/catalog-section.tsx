@@ -183,7 +183,7 @@ export function CatalogSection() {
                   <div>
                     <div>
                       <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#667085]">
-                        Catalogo
+                        Catálogo
                       </span>
                       <h2 className="mt-1.5 text-2xl font-semibold tracking-[-0.03em] text-[#1F2937] sm:mt-2 sm:text-3xl">
                         {group.tab}
@@ -254,7 +254,7 @@ export function CatalogSection() {
               Nenhum produto encontrado
             </h2>
             <p className="mt-3 text-sm leading-6 text-[#667085]">
-              Tente buscar por nome, apresentacao ou linha do produto.
+              Tente buscar por nome, apresentação ou linha do produto.
             </p>
           </div>
         )}
