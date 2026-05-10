@@ -14,6 +14,11 @@ export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
+export function extractDosage(presentation: string): string | undefined {
+  const parts = presentation.split("|");
+  return parts.length > 1 ? parts[parts.length - 1].trim() : undefined;
+}
+
 export function createProductWhatsAppMessage(productName: string, details?: string) {
   const productLabel = details ? `${productName} ${details}` : productName;
 

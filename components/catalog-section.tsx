@@ -11,6 +11,7 @@ import {
   catalogProducts,
   createProductWhatsAppMessage,
   createWhatsAppUrl,
+  extractDosage,
   whatsappUrl,
 } from "@/lib/content";
 
@@ -203,7 +204,7 @@ export function CatalogSection() {
                       >
                         <motion.a
                           href={createWhatsAppUrl(
-                            createProductWhatsAppMessage(product.title, product.presentation),
+                            createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
                           )}
                           whileHover={{ y: -6 }}
                           transition={{ type: "spring", stiffness: 240, damping: 24 }}
