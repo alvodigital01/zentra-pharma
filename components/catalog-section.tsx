@@ -202,13 +202,10 @@ export function CatalogSection() {
                         key={`${product.title}-${product.presentation}`}
                         delay={0.05 + index * 0.02}
                       >
-                        <motion.a
-                          href={createWhatsAppUrl(
-                            createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
-                          )}
+                        <motion.div
                           whileHover={{ y: -6 }}
                           transition={{ type: "spring", stiffness: 240, damping: 24 }}
-                          className="group flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
+                          className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
                         >
                           <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
                             <div className="flex min-w-0 flex-col">
@@ -238,19 +235,26 @@ export function CatalogSection() {
                                   alt={`${product.title} ${product.presentation}`}
                                   fill
                                   sizes="(min-width: 640px) 112px, 82px"
-                                  className="object-cover transition duration-500 group-hover:scale-[1.05]"
+                                  className="object-cover transition duration-500"
                                 />
                               </div>
                             </div>
                           </div>
 
-                          <div className="flex mt-3 justify-center border-t border-[#E6E8EC] pt-3">
-                            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 group-hover:bg-[#25D366]/20">
+                          <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
+                            <a
+                              href={createWhatsAppUrl(
+                                createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
+                              )}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
+                            >
                               <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
                               Comprar via WhatsApp
-                            </div>
+                            </a>
                           </div>
-                        </motion.a>
+                        </motion.div>
                       </Reveal>
                     );
                   })}
