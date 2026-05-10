@@ -25,7 +25,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Zenthra Pharma | Sofisticação, confiança e presença",
+    default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description:
