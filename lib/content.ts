@@ -151,7 +151,7 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GIP + GLP-1 | 60mg",
     pixPrice: 980,
     cardPrice: 1170,
-    image: "/tirzepatide-veltrane-10mg-ml.jpg",
+    image: "/tirzepatide-veltrane-10mg-ml.png",
   },
   {
     title: "Tizerpatida USA Pep",
@@ -166,7 +166,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "Ampola única",
     pixPrice: 970,
     cardPrice: 1130,
-    image: "/tirzec-15mg-o.5ml.jpg",
+    image: "/tirzex1.png",
   },
   {
     title: "Tizerpatida Tirzec",
@@ -182,14 +182,14 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1000,
     cardPrice: 1170,
-    image: "/slimex.png",
+    image: "/slimex1.png",
   },
   {
     title: "Retatrutida Veltrane",
     presentation: "GLP-1 + GIP + Glucagon | 60mg",
     pixPrice: 950,
     cardPrice: 1100,
-    image: "/retratutide-veltrane-10mg-ml.jpg",
+    image: "/retatrutida60mg.png",
   },
   {
     title: "Retatrutida Veltrane",
@@ -261,7 +261,7 @@ export const catalogProducts: ReadonlyArray<{
     ampola: true,
   },
   {
-    title: "Tizerpatida Lipolass",
+    title: "Tizerpatida Lipoless",
     presentation: "GIP + GLP-1 | 15mg",
     pixPrice: 340,
     cardPrice: 355,
@@ -404,7 +404,7 @@ export const faqs = [
   {
     question: "Posso comprar uma ampola avulsa antes da caixa completa?",
     answer:
-      "Sim. Temos ampolas avulsas disponíveis das linhas Tirzec, Slimex, TG e Lipolass, uma ótima opção para quem quer conhecer o produto antes de adquirir a caixa com 4 ampolas. Os valores estão disponíveis no catálogo.",
+      "Sim. Temos ampolas avulsas disponíveis das linhas Tirzec, Slimex, TG e Lipoless, uma ótima opção para quem quer conhecer o produto antes de adquirir a caixa com 4 ampolas. Os valores estão disponíveis no catálogo.",
   },
   {
     question: "Os produtos precisam de refrigeração?",
