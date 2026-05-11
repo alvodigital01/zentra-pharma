@@ -164,8 +164,8 @@ export const catalogProducts: ReadonlyArray<{
     title: "Tizerpatida Tirzec",
     presentation: "GIP + GLP-1 | 60mg",
     units: "Ampola única",
-    pixPrice: 1000,
-    cardPrice: 365,
+    pixPrice: 970,
+    cardPrice: 1130,
     image: "/tirzec-15mg-o.5ml.jpg",
   },
   {
@@ -249,7 +249,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 370,
     cardPrice: 385,
     cardInstallments: 2,
-    image: "/tg15mg-0,5ml.jpg",
+    image: "/tgun.png",
     ampola: true,
   },
   {
@@ -258,7 +258,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 340,
     cardPrice: 355,
     cardInstallments: 2,
-    image: "/lipoless=15mg-0,5ml.jpg",
+    image: "/lipolessun.png",
     ampola: true,
   },
   {
@@ -267,7 +267,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 350,
     cardPrice: 365,
     cardInstallments: 2,
-    image: "/tirzec-15mg-o.5ml.jpg",
+    image: "/tirzecun.png",
     ampola: true,
   },
   {
@@ -276,7 +276,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 333,
     cardPrice: 343,
     cardInstallments: 2,
-    image: "/slimex.png",
+    image: "/slimexun.png",
     ampola: true,
   },
 ];
