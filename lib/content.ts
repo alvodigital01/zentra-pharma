@@ -169,6 +169,14 @@ export const catalogProducts: ReadonlyArray<{
     image: "/tirzec-15mg-o.5ml.jpg",
   },
   {
+    title: "Tizerpatida Tirzec",
+    presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
+    pixPrice: 1100,
+    cardPrice: 1170,
+    image: "/tirzec4.png",
+  },
+  {
     title: "Tizerpatida Slimex",
     presentation: "GIP + GLP-1 | 60mg",
     units: "4 ampolas",
