@@ -2,15 +2,13 @@ import { CatalogSection } from "@/components/catalog-section";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
-import { HowItWorks } from "@/components/how-it-works";
-import { UnboxingVideo } from "@/components/unboxing-video";
+import { Journey } from "@/components/journey";
 
 export default function Home() {
   return (
     <main className="overflow-x-clip">
       <CatalogSection />
-      <HowItWorks />
-      <UnboxingVideo />
+      <Journey />
       <Faq />
       <FinalCta />
       <Footer />
