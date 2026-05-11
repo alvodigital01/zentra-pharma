@@ -1,24 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Inter, Montserrat } from "next/font/google";
 
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { siteConfig } from "@/lib/content";
 
 import "./globals.css";
-
-const heading = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["500", "600", "700", "800"],
-});
-
-const body = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
-});
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -77,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body
-        className={`${heading.variable} ${body.variable} bg-[#F5F7FB] font-body text-[#0F1720] antialiased`}
+        className="bg-[#F5F7FB] font-body text-[#0F1720] antialiased"
       >
         {gaId ? (
           <Suspense fallback={null}>
