@@ -139,6 +139,7 @@ export const catalogProducts: ReadonlyArray<{
   title: string;
   presentation: string;
   badge?: string;
+  units?: string;
   pixPrice: number;
   cardPrice: number;
   cardInstallments?: number;
@@ -162,6 +163,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Tirzec",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
     pixPrice: 1000,
     cardPrice: 365,
     image: "/tirzec-15mg-o.5ml.jpg",
@@ -169,6 +171,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Slimex",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
     pixPrice: 1000,
     cardPrice: 1170,
     image: "/slimex.png",
@@ -211,6 +214,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida TG",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
     pixPrice: 1200,
     cardPrice: 1250,
     image: "/tg15mg-0,5ml.jpg",
@@ -225,6 +229,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Lipoless",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
     pixPrice: 1100,
     cardPrice: 1200,
     image: "/lipoless=15mg-0,5ml.jpg",
@@ -232,6 +237,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Lipoland",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "4 ampolas",
     pixPrice: 1230,
     cardPrice: 1270,
     image: "/lipoland-15mg-0,5ml.jpg",

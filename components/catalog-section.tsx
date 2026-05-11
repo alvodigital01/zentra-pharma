@@ -96,6 +96,12 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                     <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
                       {product.title}
                     </h3>
+                    {product.units && (
+                      <span className="mt-1.5 inline-flex w-fit items-center gap-1 rounded-full bg-[#EEF2FF] px-2 py-0.5 text-[11px] font-semibold text-[#4F46E5]">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 shrink-0" aria-hidden="true"><path d="M5 8h14M5 8a2 2 0 1 0 0-4h-.5M5 8l-.5 12h15L19 8M19 8a2 2 0 1 0 0-4h-.5M9 12v4m6-4v4" /></svg>
+                        {product.units}
+                      </span>
+                    )}
                     <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
                       {details}
                     </p>
