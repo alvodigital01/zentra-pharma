@@ -116,7 +116,7 @@ export function Journey() {
           {/* Left: heading */}
           <Reveal>
             <div className="lg:sticky lg:top-32 lg:self-start">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#5B9BD5]">
+              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#153B63]">
                 Como funciona
               </span>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#0F1720] sm:text-4xl">
