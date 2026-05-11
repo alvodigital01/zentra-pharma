@@ -373,23 +373,43 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "Vocês realizam entrega?",
+    question: "Como faço meu pedido?",
     answer:
-      "Sim. Realizamos entregas para todo o Brasil, com praticidade, discrição e atenção ao atendimento.",
+      "Pelo WhatsApp. Você escolhe o produto no catálogo, entra em contato, confirmamos a disponibilidade e as formas de pagamento, e enviamos assim que o pagamento for confirmado. O processo é rápido, direto e sem burocracia.",
   },
   {
-    question: "Como posso tirar dúvidas antes de fazer o pedido?",
+    question: "Quais formas de pagamento são aceitas?",
     answer:
-      "Você pode entrar em contato pelo canal de atendimento para esclarecer dúvidas e receber orientações de forma rápida e objetiva.",
+      "Aceitamos PIX, com o melhor preço, e cartão de crédito em até 5x para caixas completas, ou em até 2x para ampolas avulsas. O pagamento é confirmado antes do envio do pedido.",
   },
   {
-    question: "Os produtos são apresentados com discrição?",
+    question: "Qual o prazo de entrega?",
     answer:
-      "Sim. Priorizamos uma experiência discreta, organizada e alinhada a um atendimento profissional.",
+      "Após a confirmação do pagamento, o pedido é enviado com código de rastreio. O prazo médio é de 2 a 7 dias úteis, variando conforme a região do Brasil.",
   },
   {
-    question: "O atendimento é personalizado?",
+    question: "A embalagem chega de forma discreta?",
     answer:
-      "Sim. Buscamos entender cada necessidade com atenção para conduzir o atendimento com mais clareza e cuidado.",
+      "Sim. As encomendas são enviadas sem qualquer identificação do conteúdo na embalagem externa. Sua privacidade é uma prioridade em cada etapa do processo.",
+  },
+  {
+    question: "Posso comprar uma ampola avulsa antes da caixa completa?",
+    answer:
+      "Sim. Temos ampolas avulsas disponíveis das linhas Tirzec, Slimex, TG e Lipolass, uma ótima opção para quem quer conhecer o produto antes de adquirir a caixa com 4 ampolas. Os valores estão disponíveis no catálogo.",
+  },
+  {
+    question: "Os produtos precisam de refrigeração?",
+    answer:
+      "Sim. Os peptídeos devem ser mantidos entre 2°C e 8°C para preservar a integridade. Orientamos sobre o armazenamento correto no momento do pedido e durante o transporte utilizamos embalagem adequada.",
+  },
+  {
+    question: "Qual a diferença entre Tizerpatida, Retatrutida e Glow Blend?",
+    answer:
+      "A Tizerpatida age nos receptores GIP e GLP-1. A Retatrutida adiciona o receptor de Glucagon, ampliando o mecanismo de ação. O Glow Blend é uma linha diferente, voltada para recuperação e bem-estar, com composição à base de GHK-Cu, BPC-157 e TB-500. Para mais detalhes sobre cada linha, fale com nossa equipe pelo WhatsApp.",
+  },
+  {
+    question: "E se eu tiver algum problema após o recebimento?",
+    answer:
+      "Nosso atendimento continua depois da entrega. Se houver qualquer problema com o produto recebido, seja com a embalagem, prazo de validade ou qualidade, entre em contato pelo WhatsApp e resolveremos de forma rápida e direta.",
   },
 ];
