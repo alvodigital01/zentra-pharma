@@ -69,6 +69,70 @@ function isVisibleProduct(title: string) {
 
 type CatalogProduct = (typeof catalogProducts)[number];
 
+function getUnitsLabel(product: CatalogProduct) {
+  return product.units ?? "Ampola única";
+}
+
+function getUnitsBadgeClassName(units: string) {
+  return units.toLowerCase().includes("4 ampolas")
+    ? "bg-[#EEF2FF] text-[#4F46E5]"
+    : "bg-[#ECFDF3] text-[#16803D]";
+}
+
+function splitProductTitle(title: string) {
+  const match = title.match(/^(Tizerpatida|Retatrutida)\s+(.+)$/i);
+
+  if (!match) {
+    return { family: title };
+  }
+
+  return {
+    family: match[1],
+    name: match[2],
+  };
+}
+
+function AmpouleIcon({ className = "h-3 w-3" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${className} shrink-0`} aria-hidden="true">
+      <path d="M9 2h6" />
+      <path d="M10 2v5l-3 4v8a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3v-8l-3-4V2" />
+      <path d="M8 13h8" />
+    </svg>
+  );
+}
+
+function UnitsIcon({ units }: { units: string }) {
+  const normalizedUnits = units.toLowerCase();
+
+  if (normalizedUnits.includes("caneta")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 shrink-0" aria-hidden="true">
+        <path d="M16 3l5 5L8 21H3v-5L16 3z" />
+        <path d="M14 5l5 5" />
+      </svg>
+    );
+  }
+
+  if (normalizedUnits.includes("ampola unica") || normalizedUnits.includes("ampola única")) {
+    return <AmpouleIcon />;
+  }
+
+  if (normalizedUnits.includes("4 ampolas")) {
+    return (
+      <span className="flex items-center -space-x-1" aria-hidden="true">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <AmpouleIcon key={index} className="h-3 w-3" />
+        ))}
+      </span>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 shrink-0" aria-hidden="true"><path d="M5 8h14M5 8a2 2 0 1 0 0-4h-.5M5 8l-.5 12h15L19 8M19 8a2 2 0 1 0 0-4h-.5M9 12v4m6-4v4" /></svg>
+  );
+}
+
 function ProductGrid({ products, indexOffset }: { products: readonly CatalogProduct[]; indexOffset: number }) {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
@@ -80,6 +144,8 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
         {products.map((product, index) => {
           const details = product.badge ?? product.presentation;
           const installments = product.cardInstallments ?? 5;
+          const units = getUnitsLabel(product);
+          const title = splitProductTitle(product.title);
 
           return (
             <Reveal
@@ -94,12 +160,17 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                 <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
                   <div className="flex min-w-0 flex-col">
                     <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
-                      {product.title}
+                      <span className="block">{title.family}</span>
+                      {title.name ? (
+                        <span className="block text-sm font-medium text-[#4B5563] sm:text-base">
+                          {title.name}
+                        </span>
+                      ) : null}
                     </h3>
-                    {product.units && (
-                      <span className="mt-1.5 inline-flex w-fit items-center gap-1 rounded-full bg-[#EEF2FF] px-2 py-0.5 text-[11px] font-semibold text-[#4F46E5]">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 shrink-0" aria-hidden="true"><path d="M5 8h14M5 8a2 2 0 1 0 0-4h-.5M5 8l-.5 12h15L19 8M19 8a2 2 0 1 0 0-4h-.5M9 12v4m6-4v4" /></svg>
-                        {product.units}
+                    {units && (
+                      <span className={`mt-1.5 inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${getUnitsBadgeClassName(units)}`}>
+                        <UnitsIcon units={units} />
+                        {units}
                       </span>
                     )}
                     <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">

@@ -163,7 +163,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Tirzec",
     presentation: "GIP + GLP-1 | 60mg",
-    units: "4 ampolas",
+    units: "Ampola única",
     pixPrice: 1000,
     cardPrice: 365,
     image: "/tirzec-15mg-o.5ml.jpg",
@@ -222,6 +222,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Caneta GLOW",
     presentation: "GHK-Cu + BPC-157 + TB-500",
+    units: "Caneta",
     pixPrice: 800,
     cardPrice: 900,
     image: "/glowblend.jpg",
