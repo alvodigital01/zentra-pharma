@@ -143,8 +143,10 @@ export const catalogProducts: ReadonlyArray<{
   pixPrice: number;
   cardPrice: number;
   cardInstallments?: number;
+  cardInstallmentPrice?: number;
   image: string;
   ampola?: boolean;
+  section?: string;
 }> = [
   {
     title: "Tizerpatida Veltrane",
@@ -234,6 +236,61 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 800,
     cardPrice: 900,
     image: "/glowblend.jpg",
+  },
+  {
+    title: "GHK-Cu",
+    presentation: "GHK-Cu | 10mg",
+    units: "Ampola única",
+    pixPrice: 475,
+    cardPrice: 504.4,
+    cardInstallments: 5,
+    cardInstallmentPrice: 100.88,
+    image: "/ghk-cu.png",
+    section: "GHK-Cu",
+  },
+  {
+    title: "Semax",
+    presentation: "Semax | 10mg",
+    units: "Ampola única",
+    pixPrice: 520,
+    cardPrice: 570.2,
+    cardInstallments: 5,
+    cardInstallmentPrice: 114.04,
+    image: "/semax.png",
+    section: "Semax",
+  },
+  {
+    title: "Klow",
+    presentation: "GHK + KPV + TB | 80mg",
+    units: "Ampola única",
+    pixPrice: 680,
+    cardPrice: 745.6,
+    cardInstallments: 5,
+    cardInstallmentPrice: 149.12,
+    image: "/klow.png",
+    section: "Klow",
+  },
+  {
+    title: "Tesamorelin",
+    presentation: "Tesamorelin | 10mg",
+    units: "Ampola única",
+    pixPrice: 550,
+    cardPrice: 603.05,
+    cardInstallments: 5,
+    cardInstallmentPrice: 120.61,
+    image: "/tesamorelin.png",
+    section: "Tesamorelin",
+  },
+  {
+    title: "MOSTc",
+    presentation: "MOSTc | 10mg",
+    units: "Ampola única",
+    pixPrice: 570,
+    cardPrice: 635.95,
+    cardInstallments: 5,
+    cardInstallmentPrice: 127.19,
+    image: "/most.png",
+    section: "MOSTc",
   },
   {
     title: "Tizerpatida Lipoless",

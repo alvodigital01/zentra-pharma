@@ -22,6 +22,11 @@ const productTabs = [
   "Tizerpatida",
   "Retatrutida",
   "Glow Blend",
+  "GHK-Cu",
+  "Semax",
+  "Klow",
+  "Tesamorelin",
+  "MOSTc",
 ] as const;
 
 type ProductTab = (typeof productTabs)[number];
@@ -68,6 +73,16 @@ function isVisibleProduct(title: string) {
 }
 
 type CatalogProduct = (typeof catalogProducts)[number];
+
+function isProductTab(value: string): value is ProductTab {
+  return productTabs.some((tab) => tab === value);
+}
+
+function getProductSection(product: CatalogProduct): ProductTab {
+  return product.section && isProductTab(product.section)
+    ? product.section
+    : getProductFamily(product.title);
+}
 
 function getUnitsLabel(product: CatalogProduct) {
   return product.units ?? "Ampola única";
@@ -144,6 +159,9 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
         {products.map((product, index) => {
           const details = product.badge ?? product.presentation;
           const installments = product.cardInstallments ?? 5;
+          const cardPaymentLabel = product.cardInstallmentPrice
+            ? `${installments}x de ${formatPrice(product.cardInstallmentPrice)}`
+            : `${formatPrice(product.cardPrice)} em até ${installments}x`;
           const units = getUnitsLabel(product);
           const title = splitProductTitle(product.title);
 
@@ -184,7 +202,7 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                         PIX
                       </div>
                       <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                        {formatPrice(product.cardPrice)} em até {installments}x
+                        {cardPaymentLabel}
                       </div>
                     </div>
                   </div>
@@ -274,7 +292,7 @@ export function CatalogSection() {
       .map((tab) => {
         const filtered = catalogProducts.filter((product) => {
           if (!isVisibleProduct(product.title)) return false;
-          const belongsToTab = getProductFamily(product.title) === tab;
+          const belongsToTab = getProductSection(product) === tab;
           const searchableContent = normalizeSearch(
             `${product.title} ${product.presentation} ${product.badge ?? ""}`,
           );
