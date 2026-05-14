@@ -139,6 +139,7 @@ export const catalogProducts: ReadonlyArray<{
   title: string;
   presentation: string;
   badge?: string;
+  benefit?: string;
   units?: string;
   pixPrice: number;
   cardPrice: number;

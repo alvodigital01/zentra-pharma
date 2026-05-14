@@ -152,10 +152,17 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   const slides = products.map((p) => ({ src: p.image, alt: `${p.title} ${p.presentation}` }));
+  const hasBenefitText = products.some((product) => product.benefit);
 
   return (
     <>
-      <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+      <div
+        className={`mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-5 ${
+          hasBenefitText
+            ? "lg:grid-cols-2 2xl:grid-cols-3"
+            : "lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+        }`}
+      >
         {products.map((product, index) => {
           const details = product.badge ?? product.presentation;
           const installments = product.cardInstallments ?? 5;
@@ -175,7 +182,7 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                 transition={{ type: "spring", stiffness: 240, damping: 24 }}
                 className="flex h-full flex-col rounded-[14px] border border-[#EEF0F3] bg-white p-3 text-left shadow-[0_10px_26px_rgba(15,23,32,0.06)] transition hover:border-[#DDE2E8] hover:shadow-[0_16px_34px_rgba(15,23,32,0.1)] sm:p-5"
               >
-                <div className="grid min-h-[142px] flex-1 grid-cols-[minmax(0,1fr)_82px] gap-3 sm:min-h-[190px] sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
+                <div className="grid grid-cols-[minmax(0,1fr)_82px] gap-3 sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
                   <div className="flex min-w-0 flex-col">
                     <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
                       <span className="block">{title.family}</span>
@@ -191,20 +198,14 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                         {units}
                       </span>
                     )}
-                    <p className="mt-1 max-w-[17rem] overflow-hidden text-sm leading-5 text-[#4B5563] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:mt-3 sm:text-base sm:leading-6 sm:[-webkit-line-clamp:3]">
+                    <p className="mt-1 max-w-[17rem] text-sm font-semibold leading-5 text-[#334155] sm:mt-3 sm:text-base sm:leading-6 lg:max-w-none">
                       {details}
                     </p>
-                    <div className="mt-auto pt-2 sm:pt-4">
-                      <div className="text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
-                        {formatPrice(product.pixPrice)}
-                      </div>
-                      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#667085] sm:text-sm">
-                        PIX
-                      </div>
-                      <div className="mt-2 whitespace-nowrap border-t border-[#E6E8EC] pt-2 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
-                        {cardPaymentLabel}
-                      </div>
-                    </div>
+                    {product.benefit ? (
+                      <p className="mt-2 max-w-[18rem] text-xs leading-5 text-[#5B6575] sm:text-sm sm:leading-6 lg:max-w-none">
+                        {product.benefit}
+                      </p>
+                    ) : null}
                   </div>
 
                   <button
@@ -231,6 +232,16 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                       </svg>
                     </div>
                   </button>
+                </div>
+
+                <div className="mt-3 w-full pt-1 text-center sm:mt-4">
+                  <div className="inline-flex items-center justify-center gap-2 text-lg font-bold tracking-[-0.03em] text-black sm:text-2xl">
+                    <PixIcon className="h-5 w-5 text-[#4DB6AC] sm:h-6 sm:w-6" />
+                    {formatPrice(product.pixPrice)}
+                  </div>
+                  <div className="mx-auto mt-2 w-fit whitespace-nowrap rounded-full bg-[#F4F7FB] px-3 py-1.5 text-xs font-semibold leading-tight text-[#0E2A47] sm:text-base">
+                    {cardPaymentLabel}
+                  </div>
                 </div>
 
                 <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
@@ -283,6 +294,30 @@ function SearchIcon({ className }: { className?: string }) {
   );
 }
 
+function PixIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M50 4.25c7.15 0 12.55 2.6 17.9 7.95l18.25 18.25H77.7c-8.2 0-14.05 2.45-19.8 8.2l-4.75 4.75c-1.75 1.75-4.55 1.75-6.3 0l-4.75-4.75c-5.75-5.75-11.6-8.2-19.8-8.2h-8.45L32.1 12.2C37.45 6.85 42.85 4.25 50 4.25Z"
+        fill="currentColor"
+      />
+      <path
+        d="M10.5 34.4h11.85c7.1 0 11.55 1.85 16.55 6.85L45.2 47.5c2.65 2.65 6.95 2.65 9.6 0l6.3-6.25c5-5 9.45-6.85 16.55-6.85H89.5l3.2 3.2c9.95 9.95 9.95 24.85 0 34.8l-3.2 3.2H77.65c-7.1 0-11.55-1.85-16.55-6.85l-6.3-6.25c-2.65-2.65-6.95-2.65-9.6 0l-6.3 6.25c-5 5-9.45 6.85-16.55 6.85H10.5l-3.2-3.2c-9.95-9.95-9.95-24.85 0-34.8l3.2-3.2Z"
+        fill="currentColor"
+      />
+      <path
+        d="M13.85 79.55h8.45c8.2 0 14.05-2.45 19.8-8.2l4.75-4.75c1.75-1.75 4.55-1.75 6.3 0l4.75 4.75c5.75 5.75 11.6 8.2 19.8 8.2h8.45L67.9 87.8c-5.35 5.35-10.75 7.95-17.9 7.95s-12.55-2.6-17.9-7.95L13.85 79.55Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export function CatalogSection() {
   const [query, setQuery] = useState("");
   const normalizedQuery = normalizeSearch(query.trim());
@@ -294,7 +329,7 @@ export function CatalogSection() {
           if (!isVisibleProduct(product.title)) return false;
           const belongsToTab = getProductSection(product) === tab;
           const searchableContent = normalizeSearch(
-            `${product.title} ${product.presentation} ${product.badge ?? ""}`,
+            `${product.title} ${product.presentation} ${product.badge ?? ""} ${product.benefit ?? ""}`,
           );
           return belongsToTab && (!normalizedQuery || searchableContent.includes(normalizedQuery));
         });
