@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
@@ -15,6 +15,7 @@ import {
   createProductWhatsAppMessage,
   createWhatsAppUrl,
   extractDosage,
+  navLinks,
   productSectionDetails,
   whatsappUrl,
 } from "@/lib/content";
@@ -506,8 +507,127 @@ function PixIcon({ className }: { className?: string }) {
   );
 }
 
+function ArrowRightIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            onClick={onClose}
+            className="fixed inset-0 z-50 bg-[#0A1E33]/55 backdrop-blur-[3px]"
+          />
+
+          {/* Drawer */}
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 320, damping: 34 }}
+            className="fixed inset-y-0 right-0 z-50 flex w-[min(360px,92vw)] flex-col overflow-hidden bg-white shadow-[-24px_0_72px_rgba(10,30,51,0.18)]"
+          >
+            {/* Topo */}
+            <div className="flex items-center justify-between border-b border-[#E8ECF1] px-5 py-4">
+              <Logo />
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Fechar menu"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F4F6FA] text-[#667085] transition hover:bg-[#E8ECF1] hover:text-[#0E2A47]"
+              >
+                <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
+                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Links */}
+            <nav className="flex flex-1 flex-col gap-1 p-4">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={onClose}
+                  initial={{ opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.06 + index * 0.06, type: "spring", stiffness: 320, damping: 30 }}
+                  className="group flex items-center justify-between rounded-[14px] px-4 py-4 text-[15px] font-medium text-[#0E2A47] transition hover:bg-[#F4F6FA]"
+                >
+                  <span>{link.label}</span>
+                  <span className="flex items-center gap-2 text-[#C5CDD8] transition group-hover:text-[#153B63]">
+                    <span className="font-mono text-[11px] tracking-widest">0{index + 1}</span>
+                    <ArrowRightIcon />
+                  </span>
+                </motion.a>
+              ))}
+            </nav>
+
+            {/* CTA bottom */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.22 }}
+              className="p-4"
+            >
+              <div className="relative overflow-hidden rounded-[22px] bg-gradient-to-br from-[#0A1E33] to-[#153B63] p-5">
+                <div
+                  className="absolute inset-0 opacity-[0.07]"
+                  style={{
+                    backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
+                    backgroundSize: "22px 22px",
+                  }}
+                />
+                <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white/5 blur-2xl" />
+                <div className="relative">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                    Atendimento direto
+                  </p>
+                  <h3 className="mt-1.5 text-lg font-semibold leading-snug tracking-[-0.02em] text-white">
+                    Pronto para fazer seu pedido?
+                  </h3>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 rounded-full bg-white py-3 text-sm font-semibold text-[#0E2A47] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition hover:bg-[#F0F4FA]"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                    Falar no WhatsApp
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function CatalogSection() {
   const [query, setQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const normalizedQuery = normalizeSearch(query.trim());
 
   const groupedProducts = useMemo(() => {
@@ -538,6 +658,8 @@ export function CatalogSection() {
   }
 
   return (
+    <>
+    <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     <section id="catalogo" className="relative bg-[#F8F9FB] pb-16 sm:pb-20 lg:pb-24">
       <div className="sticky top-0 z-40 border-b border-[#E5E7EB] bg-white/96 shadow-[0_10px_30px_rgba(15,23,32,0.05)] backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-[1820px] flex-col gap-4 px-3 py-3 sm:px-6 sm:py-5 lg:px-8">
@@ -558,13 +680,20 @@ export function CatalogSection() {
             </label>
 
             <div className="flex justify-end gap-2 sm:gap-3 lg:justify-end">
+              {/* Hamburger — mobile only */}
               <button
                 type="button"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] sm:h-12 sm:w-12"
-                aria-label="Buscar"
+                onClick={() => setMenuOpen(true)}
+                aria-label="Abrir menu"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] lg:hidden sm:h-12 sm:w-12"
               >
-                <SearchIcon className="h-5 w-5" />
+                <span className="flex flex-col items-end gap-[5px]" aria-hidden="true">
+                  <span className="h-[1.5px] w-5 rounded-full bg-white" />
+                  <span className="h-[1.5px] w-3.5 rounded-full bg-white" />
+                  <span className="h-[1.5px] w-2 rounded-full bg-white" />
+                </span>
               </button>
+              {/* WhatsApp */}
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -646,5 +775,6 @@ export function CatalogSection() {
         )}
       </div>
     </section>
+    </>
   );
 }
