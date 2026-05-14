@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
@@ -638,6 +638,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 export function CatalogSection() {
   const [query, setQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const normalizedQuery = normalizeSearch(query.trim());
 
   const groupedProducts = useMemo(() => {
@@ -682,6 +683,7 @@ export function CatalogSection() {
               <span className="sr-only">Buscar produtos</span>
               <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#7A8491] sm:left-5 sm:h-5 sm:w-5" />
               <input
+                ref={searchInputRef}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Buscar produtos..."
@@ -690,6 +692,14 @@ export function CatalogSection() {
             </label>
 
             <div className="flex justify-end gap-2 sm:gap-3 lg:justify-end">
+              <button
+                type="button"
+                onClick={() => searchInputRef.current?.focus()}
+                className="hidden h-11 w-11 items-center justify-center rounded-full bg-[#0E2A47] text-white shadow-[0_12px_24px_rgba(14,42,71,0.18)] transition hover:-translate-y-0.5 hover:bg-[#153B63] sm:h-12 sm:w-12 lg:inline-flex"
+                aria-label="Buscar"
+              >
+                <SearchIcon className="h-5 w-5" />
+              </button>
               {/* Hamburger — mobile only */}
               <button
                 type="button"
