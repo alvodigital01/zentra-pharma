@@ -347,6 +347,28 @@ export const catalogProducts: ReadonlyArray<{
   },
 ];
 
+export const productSectionDetails: Partial<Record<string, {
+  title: string;
+  description: string;
+  benefits: string[];
+  closing?: string;
+}>> = {
+  Tesamorelin: {
+    title: "O que é Tesamorelin?",
+    description:
+      "O peptídeo Tesamorelin é um análogo sintético do hormônio liberador do crescimento (GHRH), desenvolvido para estimular a produção natural do hormônio do crescimento (GH) pelo organismo. Sua ação está relacionada principalmente à melhora da composição corporal, redução de gordura visceral e suporte metabólico.",
+    benefits: [
+      "Auxílio na redução de gordura abdominal visceral",
+      "Estímulo fisiológico da liberação de GH e IGF-1",
+      "Suporte ao metabolismo lipídico e energético",
+      "Potencial melhora da definição corporal e composição física",
+      "Preservação da massa magra durante protocolos de emagrecimento",
+      "Contribuição para recuperação muscular e desempenho físico",
+      "Potencial ação anti-aging e suporte à vitalidade",
+    ],
+  },
+};
+
 export const howItWorksSteps = [
   {
     number: 1,
