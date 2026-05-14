@@ -113,7 +113,7 @@ export const products = [
       "/tirzepatide-veltrane-10mg-ml.webp",
       "/lipoless=15mg-0,5ml.webp",
       "/tirzec4-15mg-0,5ml.webp",
-      "/lipoland-15mg-0,5ml.webp",
+      "/lipo.webp",
       "/tirzec2-15mg-o.5ml.webp",
     ],
   },
@@ -313,7 +313,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1230,
     cardPrice: 1270,
-    image: "/lipoland-15mg-0,5ml.webp",
+    image: "/lipo.webp",
   },
   {
     title: "Tizerpatida TG",
