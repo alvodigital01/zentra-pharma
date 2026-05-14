@@ -162,7 +162,7 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GIP + GLP-1 | 60mg",
     pixPrice: 860,
     cardPrice: 960,
-    image: "/tizerpatide-60mg-3ml.jpg",
+    image: "/usapep.png",
   },
   {
     title: "Tizerpatida Tirzec",
@@ -207,14 +207,14 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
     pixPrice: 930,
     cardPrice: 980,
-    image: "/retratutideusa-40mg-2ml.jpg",
+    image: "/usapep.png",
   },
   {
     title: "Retatrutida Synedica",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
     pixPrice: 1200,
     cardPrice: 1250,
-    image: "/synedica.png",
+    image: "/synedica1.png",
   },
   {
     title: "Retatrutida Nexus",
@@ -237,7 +237,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "Caneta",
     pixPrice: 800,
     cardPrice: 900,
-    image: "/glowblend.jpg",
+    image: "/blend.png",
   },
   {
     title: "GHK-Cu",
