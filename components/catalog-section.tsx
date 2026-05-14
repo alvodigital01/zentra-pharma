@@ -326,6 +326,14 @@ function ProductSectionDetail({ tab }: { tab: ProductTab }) {
   );
 }
 
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
+      <path d="M3 8.5l3 3L13 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function ProductSectionDetailV2({ tab }: { tab: ProductTab }) {
   const details = productSectionDetails[tab];
 
@@ -333,93 +341,124 @@ function ProductSectionDetailV2({ tab }: { tab: ProductTab }) {
     return null;
   }
 
+  const hasPreamble = !!(details.description || details.paragraphs?.length);
+  const hasSections = !!(details.sections?.length);
+
   return (
     <Reveal>
-      <div className="mt-6 rounded-[14px] border border-[#E6E8EC] bg-white p-5 shadow-[0_10px_26px_rgba(15,23,32,0.05)] sm:mt-8 sm:p-7 lg:p-8">
-        <div className="max-w-5xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#667085]">
-            Detalhes do peptídeo
-          </span>
-          <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[#111827] sm:text-2xl">
-            {details.title}
-          </h3>
-          {details.description ? (
-            <p className="mt-4 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
-              {details.description}
+      <div className="mt-6 overflow-hidden rounded-[20px] border border-[#D8E2EF] bg-white shadow-[0_20px_48px_rgba(15,23,32,0.08)] sm:mt-8">
+
+        {/* Header gradient */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#0A1E33] via-[#0E2A47] to-[#153B63] px-6 py-6 sm:px-8 sm:py-7">
+          <div
+            className="absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+          <div className="absolute right-0 top-0 h-40 w-40 -translate-y-8 translate-x-8 rounded-full bg-white/5 blur-2xl" />
+          <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/60">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#4DB6AC]" aria-hidden="true" />
+                Peptídeo
+              </span>
+              <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white sm:text-2xl lg:text-[1.65rem]">
+                {details.title}
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-5 sm:p-7 lg:p-8">
+
+          {/* Description paragraphs */}
+          {hasPreamble && (
+            <div className="max-w-5xl space-y-4 border-b border-[#EBF0F7] pb-6">
+              {details.description && (
+                <p className="text-[15px] leading-7 text-[#374151] sm:text-base sm:leading-8">
+                  {details.description}
+                </p>
+              )}
+              {details.paragraphs?.map((paragraph) => (
+                <p key={paragraph} className="text-[15px] leading-7 text-[#374151] sm:text-base sm:leading-8">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Sections */}
+          {hasSections && (
+            <div className={`grid gap-4 lg:grid-cols-2 ${hasPreamble ? "mt-6" : ""}`}>
+              {details.sections!.map((section) => (
+                <div
+                  key={section.title}
+                  className="rounded-[14px] border border-[#E4EAF4] bg-[#F6F8FC] p-4 sm:p-5"
+                >
+                  <h4 className="flex items-center gap-2.5 text-sm font-semibold text-[#0E2A47] sm:text-base">
+                    <span className="h-[18px] w-[3px] rounded-full bg-[#153B63]" aria-hidden="true" />
+                    {section.title}
+                  </h4>
+                  {section.description ? (
+                    <p className="mt-3 text-sm leading-6 text-[#5B6575] sm:leading-7">
+                      {section.description}
+                    </p>
+                  ) : null}
+                  {section.items?.length ? (
+                    <ul className="mt-3 space-y-2.5">
+                      {section.items.map((item) => (
+                        <li
+                          key={`${item.title ?? "item"}-${item.description}`}
+                          className="flex gap-2.5 text-sm leading-6 text-[#4B5563]"
+                        >
+                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#153B63]" />
+                          <span>
+                            {item.title ? (
+                              <strong className="font-semibold text-[#111827]">
+                                {item.title}:{" "}
+                              </strong>
+                            ) : null}
+                            {item.description}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Benefits */}
+          <div className={hasPreamble || hasSections ? "mt-6 border-t border-[#EBF0F7] pt-6" : ""}>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#667085]">
+              {details.benefitsTitle ?? "Principais benefícios associados"}
+            </p>
+            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              {details.benefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex items-start gap-3 rounded-[10px] border border-[#E4EAF4] bg-[#F6F8FC] px-4 py-3 text-sm leading-6 text-[#374151]"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#153B63]/10">
+                    <CheckIcon className="h-3 w-3 text-[#153B63]" />
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {details.closing ? (
+            <p className="mt-6 border-t border-[#EBF0F7] pt-5 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
+              {details.closing}
             </p>
           ) : null}
-          {details.paragraphs?.map((paragraph) => (
-            <p
-              key={paragraph}
-              className="mt-4 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8"
-            >
-              {paragraph}
-            </p>
-          ))}
         </div>
-
-        {details.sections?.length ? (
-          <div className="mt-6 grid gap-4 border-t border-[#E8ECF1] pt-5 lg:grid-cols-2">
-            {details.sections.map((section) => (
-              <div
-                key={section.title}
-                className="rounded-[14px] border border-[#E8ECF1] bg-[#FBFCFE] p-4 sm:p-5"
-              >
-                <h4 className="text-sm font-semibold text-[#0E2A47] sm:text-base">
-                  {section.title}
-                </h4>
-                {section.description ? (
-                  <p className="mt-3 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
-                    {section.description}
-                  </p>
-                ) : null}
-                {section.items?.length ? (
-                  <ul className="mt-4 space-y-3">
-                    {section.items.map((item) => (
-                      <li
-                        key={`${item.title ?? "item"}-${item.description}`}
-                        className="flex gap-3 text-sm leading-6 text-[#4B5563] sm:text-base"
-                      >
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#153B63]" />
-                        <span>
-                          {item.title ? (
-                            <strong className="font-semibold text-[#111827]">
-                              {item.title}:{" "}
-                            </strong>
-                          ) : null}
-                          {item.description}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        <div className="mt-6 border-t border-[#E8ECF1] pt-5">
-          <div className="text-sm font-semibold text-[#0E2A47] sm:text-base">
-            {details.benefitsTitle ?? "Principais benefícios associados:"}
-          </div>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:gap-4">
-            {details.benefits.map((benefit) => (
-              <li
-                key={benefit}
-                className="flex gap-3 rounded-[12px] bg-[#F8F9FB] px-4 py-3 text-sm leading-6 text-[#4B5563] sm:text-base"
-              >
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#153B63]" />
-                <span>{benefit}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {details.closing ? (
-          <p className="mt-5 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
-            {details.closing}
-          </p>
-        ) : null}
       </div>
     </Reveal>
   );
