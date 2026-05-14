@@ -326,6 +326,105 @@ function ProductSectionDetail({ tab }: { tab: ProductTab }) {
   );
 }
 
+function ProductSectionDetailV2({ tab }: { tab: ProductTab }) {
+  const details = productSectionDetails[tab];
+
+  if (!details) {
+    return null;
+  }
+
+  return (
+    <Reveal>
+      <div className="mt-6 rounded-[14px] border border-[#E6E8EC] bg-white p-5 shadow-[0_10px_26px_rgba(15,23,32,0.05)] sm:mt-8 sm:p-7 lg:p-8">
+        <div className="max-w-5xl">
+          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#667085]">
+            Detalhes do peptídeo
+          </span>
+          <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[#111827] sm:text-2xl">
+            {details.title}
+          </h3>
+          {details.description ? (
+            <p className="mt-4 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
+              {details.description}
+            </p>
+          ) : null}
+          {details.paragraphs?.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mt-4 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {details.sections?.length ? (
+          <div className="mt-6 grid gap-4 border-t border-[#E8ECF1] pt-5 lg:grid-cols-2">
+            {details.sections.map((section) => (
+              <div
+                key={section.title}
+                className="rounded-[14px] border border-[#E8ECF1] bg-[#FBFCFE] p-4 sm:p-5"
+              >
+                <h4 className="text-sm font-semibold text-[#0E2A47] sm:text-base">
+                  {section.title}
+                </h4>
+                {section.description ? (
+                  <p className="mt-3 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
+                    {section.description}
+                  </p>
+                ) : null}
+                {section.items?.length ? (
+                  <ul className="mt-4 space-y-3">
+                    {section.items.map((item) => (
+                      <li
+                        key={`${item.title ?? "item"}-${item.description}`}
+                        className="flex gap-3 text-sm leading-6 text-[#4B5563] sm:text-base"
+                      >
+                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#153B63]" />
+                        <span>
+                          {item.title ? (
+                            <strong className="font-semibold text-[#111827]">
+                              {item.title}:{" "}
+                            </strong>
+                          ) : null}
+                          {item.description}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        <div className="mt-6 border-t border-[#E8ECF1] pt-5">
+          <div className="text-sm font-semibold text-[#0E2A47] sm:text-base">
+            {details.benefitsTitle ?? "Principais benefícios associados:"}
+          </div>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:gap-4">
+            {details.benefits.map((benefit) => (
+              <li
+                key={benefit}
+                className="flex gap-3 rounded-[12px] bg-[#F8F9FB] px-4 py-3 text-sm leading-6 text-[#4B5563] sm:text-base"
+              >
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#153B63]" />
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {details.closing ? (
+          <p className="mt-5 text-sm leading-7 text-[#5B6575] sm:text-base sm:leading-8">
+            {details.closing}
+          </p>
+        ) : null}
+      </div>
+    </Reveal>
+  );
+}
+
 function SearchIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -479,7 +578,7 @@ export function CatalogSection() {
                 </Reveal>
 
                 <ProductGrid products={group.boxes} indexOffset={0} />
-                <ProductSectionDetail tab={group.tab} />
+                <ProductSectionDetailV2 tab={group.tab} />
 
                 {group.ampolas.length > 0 && (
                   <div className="mt-8 sm:mt-10">

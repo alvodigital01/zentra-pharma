@@ -347,7 +347,7 @@ export const catalogProducts: ReadonlyArray<{
   },
 ];
 
-export const productSectionDetails: Partial<Record<string, {
+const legacyProductSectionDetails: Partial<Record<string, {
   title: string;
   description: string;
   benefits: string[];
@@ -365,6 +365,200 @@ export const productSectionDetails: Partial<Record<string, {
       "Preservação da massa magra durante protocolos de emagrecimento",
       "Contribuição para recuperação muscular e desempenho físico",
       "Potencial ação anti-aging e suporte à vitalidade",
+    ],
+  },
+};
+
+export const productSectionDetails: Partial<Record<string, {
+  title: string;
+  description?: string;
+  paragraphs?: string[];
+  benefitsTitle?: string;
+  benefits: string[];
+  sections?: {
+    title: string;
+    description?: string;
+    items?: {
+      title?: string;
+      description: string;
+    }[];
+  }[];
+  closing?: string;
+}>> = {
+  "Glow Blend": {
+    title: "Caneta Glow",
+    paragraphs: [
+      "A Caneta Glow foi desenvolvida com uma combinação estratégica de peptídeos bioativos voltados para regeneração celular, rejuvenescimento da pele e recuperação tecidual avançada. Sua fórmula reúne ativos de alta performance que atuam de dentro para fora, promovendo melhora estética e funcional do organismo.",
+    ],
+    benefitsTitle: "Para que serve?",
+    benefits: [
+      "Estímulo intenso de colágeno e elastina",
+      "Melhora da firmeza, textura e luminosidade da pele",
+      "Auxílio na redução de linhas finas e sinais de envelhecimento",
+      "Ação reparadora e regenerativa tecidual",
+      "Suporte à cicatrização e recuperação celular",
+      "Auxílio na saúde capilar e fortalecimento dos fios",
+      "Potente ação antioxidante e anti-inflamatória",
+      "Contribuição para recuperação muscular e bem-estar geral",
+    ],
+    sections: [
+      {
+        title: "Composição",
+        items: [
+          { description: "GHK-Cu 50 mg" },
+          { description: "BPC-157 10 mg" },
+          { description: "TB-500 10 mg" },
+        ],
+      },
+      {
+        title: "Diferenciais da fórmula",
+        items: [
+          {
+            title: "GHK-Cu",
+            description:
+              "Peptídeo associado ao rejuvenescimento celular, estímulo de colágeno, melhora da qualidade da pele e ação antioxidante.",
+          },
+          {
+            title: "BPC-157",
+            description:
+              "Conhecido pelo potencial regenerativo, auxiliando na recuperação de tecidos, processos inflamatórios e cicatrização.",
+          },
+          {
+            title: "TB-500",
+            description:
+              "Peptídeo amplamente utilizado para suporte regenerativo e recuperação muscular, promovendo reparação celular e melhora da recuperação do organismo.",
+          },
+        ],
+      },
+      {
+        title: "Resultado esperado",
+        description:
+          "Uma pele com aparência mais saudável, firme, viçosa e revitalizada, associada ao suporte regenerativo sistêmico promovido pela combinação exclusiva dos peptídeos.",
+      },
+    ],
+  },
+  "GHK-Cu": {
+    title: "O que é GHK-Cu?",
+    paragraphs: [
+      "O peptídeo GHK-Cu é um peptídeo naturalmente presente no organismo, reconhecido por sua potente ação regeneradora, antioxidante e reparadora. Associado ao cobre em sua estrutura molecular, o GHK-Cu atua estimulando processos de renovação celular, produção de colágeno e recuperação tecidual, sendo amplamente utilizado em protocolos de estética avançada, rejuvenescimento e longevidade.",
+      "Sua ação multifuncional auxilia na saúde da pele, cabelos e tecidos conjuntivos, promovendo melhora da qualidade cutânea, elasticidade e regeneração celular.",
+    ],
+    benefitsTitle: "Principais benefícios do GHK-Cu",
+    benefits: [
+      "Estímulo da produção de colágeno e elastina",
+      "Auxílio na regeneração e cicatrização tecidual",
+      "Potente ação antioxidante e anti-aging",
+      "Melhora da firmeza, textura e elasticidade da pele",
+      "Suporte ao fortalecimento capilar e crescimento dos fios",
+      "Auxílio na recuperação de tecidos, tendões e articulações",
+      "Contribuição para renovação celular e saúde cutânea",
+      "Potencial proteção contra estresse oxidativo e envelhecimento precoce",
+    ],
+  },
+  Semax: {
+    title: "O que é Semax?",
+    paragraphs: [
+      "O peptídeo Semax é um peptídeo sintético derivado do ACTH, desenvolvido para atuar diretamente no sistema nervoso central. Reconhecido por sua ação neuroprotetora e neuromoduladora, o Semax vem sendo utilizado em protocolos voltados para suporte cognitivo, desempenho mental, foco, memória e equilíbrio neurológico.",
+      "Sua atuação ocorre principalmente em regiões cerebrais relacionadas à memória, aprendizado, concentração e resposta ao estresse, auxiliando na comunicação entre neurotransmissores e promovendo suporte à saúde cerebral.",
+    ],
+    benefitsTitle: "Principais benefícios do Semax",
+    benefits: [
+      "Auxílio no foco, concentração e clareza mental",
+      "Suporte à memória e capacidade de aprendizado",
+      "Potencial melhora do desempenho cognitivo e produtividade",
+      "Ação neuroprotetora contra estresse oxidativo cerebral",
+      "Auxílio no equilíbrio emocional e redução da fadiga mental",
+      "Suporte à recuperação neurológica e função cerebral",
+      "Potencial melhora da disposição mental e motivação",
+      "Contribuição para saúde cerebral e desempenho intelectual",
+    ],
+    sections: [
+      {
+        title: "Como o Semax atua no organismo",
+        description:
+          "O Semax age modulando importantes neurotransmissores cerebrais, como dopamina e serotonina, além de estimular fatores neurotróficos relacionados à proteção e regeneração neuronal. Sua ação contribui para melhora da atividade cerebral, adaptação ao estresse mental e suporte da função cognitiva.",
+      },
+      {
+        title: "Áreas de atuação do Semax",
+        description:
+          "O Semax atua principalmente no sistema nervoso central, especialmente em áreas cerebrais relacionadas à cognição, memória, aprendizado, atenção e controle emocional. Sua ação neurobiológica promove suporte ao funcionamento cerebral saudável e à proteção neuronal.",
+      },
+    ],
+  },
+  Klow: {
+    title: "O que é KLOW?",
+    paragraphs: [
+      "O peptídeo KLOW é um blend avançado composto por quatro peptídeos bioativos: BPC-157, TB-500, GHK-Cu e KPV. Sua formulação foi desenvolvida para atuar de forma integrada em regeneração tecidual, recuperação muscular, modulação inflamatória e rejuvenescimento celular.",
+      "A combinação desses ativos promove suporte amplo aos processos de reparação do organismo, sendo utilizada em protocolos voltados para performance, recuperação física, estética avançada e longevidade.",
+    ],
+    benefitsTitle: "Principais benefícios associados ao KLOW",
+    benefits: [
+      "Auxílio na recuperação muscular e articular",
+      "Suporte à regeneração de tecidos e cicatrização",
+      "Potencial ação anti-inflamatória avançada",
+      "Estímulo da produção de colágeno e renovação celular",
+      "Auxílio na recuperação pós-treino e pós-procedimentos",
+      "Contribuição para saúde da pele, cabelos e tecidos conjuntivos",
+      "Potencial melhora da mobilidade e conforto articular",
+      "Suporte à longevidade e recuperação celular",
+    ],
+    sections: [
+      {
+        title: "Composição do Blend KLOW e ação de cada peptídeo",
+        items: [
+          {
+            title: "BPC-157",
+            description:
+              "Peptídeo reconhecido pelo suporte à regeneração tecidual e recuperação muscular. Atua auxiliando processos de cicatrização, integridade intestinal, recuperação de tendões, ligamentos e tecidos lesionados.",
+          },
+          {
+            title: "TB-500",
+            description:
+              "Peptídeo relacionado à recuperação muscular e mobilidade. Possui ação voltada para regeneração celular, auxílio na recuperação pós-lesão e melhora da flexibilidade e reparação tecidual.",
+          },
+          {
+            title: "GHK-Cu",
+            description:
+              "Peptídeo associado ao rejuvenescimento celular e estímulo de colágeno. Auxilia na qualidade da pele, elasticidade cutânea, regeneração tecidual e saúde capilar, além de apresentar ação antioxidante.",
+          },
+          {
+            title: "KPV",
+            description:
+              "Peptídeo com potencial ação anti-inflamatória e imunomoduladora. Atua auxiliando o equilíbrio inflamatório do organismo e promovendo suporte à recuperação celular e bem-estar sistêmico.",
+          },
+        ],
+      },
+    ],
+  },
+  Tesamorelin: {
+    title: "O que é Tesamorelin?",
+    description:
+      "O peptídeo Tesamorelin é um análogo sintético do hormônio liberador do crescimento (GHRH), desenvolvido para estimular a produção natural do hormônio do crescimento (GH) pelo organismo. Sua ação está relacionada principalmente à melhora da composição corporal, redução de gordura visceral e suporte metabólico.",
+    benefitsTitle: "Principais benefícios associados:",
+    benefits: [
+      "Auxílio na redução de gordura abdominal visceral",
+      "Estímulo fisiológico da liberação de GH e IGF-1",
+      "Suporte ao metabolismo lipídico e energético",
+      "Potencial melhora da definição corporal e composição física",
+      "Preservação da massa magra durante protocolos de emagrecimento",
+      "Contribuição para recuperação muscular e desempenho físico",
+      "Potencial ação anti-aging e suporte à vitalidade",
+    ],
+  },
+  MOSTc: {
+    title: "O que é MOTS-c?",
+    description:
+      "O peptídeo MOTS-c é um peptídeo derivado das mitocôndrias, reconhecido por sua atuação no metabolismo energético celular e no suporte à saúde metabólica. Sua ação está relacionada à otimização da função mitocondrial, promovendo melhor utilização de energia pelo organismo e contribuindo para performance física, composição corporal e longevidade saudável.",
+    benefitsTitle: "Principais benefícios associados ao MOTS-c",
+    benefits: [
+      "Auxílio na otimização do metabolismo energético",
+      "Suporte à queima de gordura e melhora da composição corporal",
+      "Potencial melhora da sensibilidade à insulina",
+      "Estímulo da função mitocondrial e produção de energia celular",
+      "Contribuição para aumento da resistência física e recuperação muscular",
+      "Suporte à saúde metabólica e controle energético",
+      "Potencial ação anti-aging relacionada à longevidade celular",
+      "Auxílio na redução do estresse oxidativo e inflamação celular",
     ],
   },
 };
