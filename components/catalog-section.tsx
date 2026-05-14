@@ -97,7 +97,7 @@ function getUnitsBadgeClassName(units: string) {
 }
 
 function splitProductTitle(title: string) {
-  const match = title.match(/^(Tizerpatida|Retatrutida)\s+(.+)$/i);
+  const match = title.match(/^([A-Za-zÀ-ÿ]+)\s+(.+)$/);
 
   if (!match) {
     return { family: title };
@@ -172,7 +172,9 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
             ? `${installments}x de ${formatPrice(product.cardInstallmentPrice)}`
             : `${formatPrice(product.cardPrice)} em até ${installments}x`;
           const units = getUnitsLabel(product);
-          const title = splitProductTitle(product.title);
+          const titleSplit = splitProductTitle(product.title);
+          const familyLabel = titleSplit.name ? titleSplit.family : product.family;
+          const brandName = titleSplit.name ?? titleSplit.family;
 
           return (
             <Reveal
@@ -186,13 +188,21 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
               >
                 <div className="grid grid-cols-[minmax(0,1fr)_82px] gap-3 sm:grid-cols-[minmax(0,1fr)_112px] sm:gap-4">
                   <div className="flex min-w-0 flex-col">
-                    <h3 className="text-base font-semibold leading-snug tracking-[-0.02em] text-[#111827] sm:text-xl">
-                      <span className="block">{title.family}</span>
-                      {title.name ? (
-                        <span className="block text-sm font-medium text-[#4B5563] sm:text-base">
-                          {title.name}
+                    <h3 className="leading-snug">
+                      {familyLabel ? (
+                        <>
+                          <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9BA8B5]">
+                            {familyLabel}
+                          </span>
+                          <span className="block text-lg font-bold tracking-[-0.03em] text-[#111827] sm:text-[22px]">
+                            {brandName}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="block text-lg font-bold tracking-[-0.03em] text-[#111827] sm:text-[22px]">
+                          {brandName}
                         </span>
-                      ) : null}
+                      )}
                     </h3>
                     {units && (
                       <span className={`mt-1.5 inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${getUnitsBadgeClassName(units)}`}>

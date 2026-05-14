@@ -137,6 +137,7 @@ export const products = [
 
 export const catalogProducts: ReadonlyArray<{
   title: string;
+  family?: string;
   presentation: string;
   badge?: string;
   benefit?: string;
@@ -240,6 +241,7 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "GHK-Cu",
+    family: "Peptídeo",
     presentation: "GHK-Cu | 10mg",
     units: "Ampola única",
     pixPrice: 475,
@@ -251,6 +253,7 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Semax",
+    family: "Peptídeo",
     presentation: "Semax | 10mg",
     units: "Ampola única",
     pixPrice: 520,
@@ -262,6 +265,7 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Klow",
+    family: "Blend",
     presentation: "GHK + KPV + TB | 80mg",
     units: "Ampola única",
     pixPrice: 680,
@@ -273,6 +277,7 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Tesamorelin",
+    family: "Peptídeo",
     presentation: "Tesamorelin | 10mg",
     units: "Ampola única",
     pixPrice: 550,
@@ -284,6 +289,7 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "MOSTc",
+    family: "Peptídeo",
     presentation: "MOSTc | 10mg",
     units: "Ampola única",
     pixPrice: 570,
