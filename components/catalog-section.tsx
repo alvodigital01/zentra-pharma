@@ -835,7 +835,7 @@ export function CatalogSection() {
                 onChange={(event) => setSelectedUnits(event.target.value)}
                 className="h-11 w-full appearance-none rounded-full border border-[#D6DDE7] bg-white px-4 pr-9 text-sm font-medium text-[#334155] outline-none transition focus:border-[#153B63] focus:ring-4 focus:ring-[#153B63]/10"
               >
-                <option value="">Todas as apresentações</option>
+                <option value="">Selecione a apresentação</option>
                 {filterOptions.units.map((units) => (
                   <option key={units} value={units}>
                     {units}
