@@ -109,16 +109,6 @@ function splitProductTitle(title: string) {
   };
 }
 
-function getProductBrand(product: CatalogProduct) {
-  const titleSplit = splitProductTitle(product.title);
-
-  return titleSplit.name ?? titleSplit.family ?? product.family ?? product.title;
-}
-
-function getProductDose(product: CatalogProduct) {
-  return extractDosage(product.presentation) ?? product.presentation;
-}
-
 function AmpouleIcon({ className = "h-3 w-3" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${className} shrink-0`} aria-hidden="true">
@@ -647,42 +637,9 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 
 export function CatalogSection() {
   const [query, setQuery] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedDose, setSelectedDose] = useState("");
-  const [selectedUnits, setSelectedUnits] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const normalizedQuery = normalizeSearch(query.trim());
-
-  const filterOptions = useMemo(() => {
-    const visibleProducts = catalogProducts.filter((product) => isVisibleProduct(product.title));
-    const brands = new Set<string>();
-    const doses = new Set<string>();
-    const units = new Set<string>();
-
-    visibleProducts.forEach((product) => {
-      brands.add(getProductBrand(product));
-      doses.add(getProductDose(product));
-      units.add(getUnitsLabel(product));
-    });
-
-    const sortLabels = (values: Set<string>) =>
-      Array.from(values).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true }));
-
-    return {
-      brands: sortLabels(brands),
-      doses: sortLabels(doses),
-      units: sortLabels(units),
-    };
-  }, []);
-
-  const hasActiveFilters = Boolean(selectedBrand || selectedDose || selectedUnits);
-
-  function clearFilters() {
-    setSelectedBrand("");
-    setSelectedDose("");
-    setSelectedUnits("");
-  }
 
   const groupedProducts = useMemo(() => {
     return productTabs
@@ -693,12 +650,7 @@ export function CatalogSection() {
           const searchableContent = normalizeSearch(
             `${product.title} ${product.presentation} ${getUnitsLabel(product)} ${product.badge ?? ""} ${product.benefit ?? ""}`,
           );
-          const matchesSearch = !normalizedQuery || searchableContent.includes(normalizedQuery);
-          const matchesBrand = !selectedBrand || getProductBrand(product) === selectedBrand;
-          const matchesDose = !selectedDose || getProductDose(product) === selectedDose;
-          const matchesUnits = !selectedUnits || getUnitsLabel(product) === selectedUnits;
-
-          return belongsToTab && matchesSearch && matchesBrand && matchesDose && matchesUnits;
+          return belongsToTab && (!normalizedQuery || searchableContent.includes(normalizedQuery));
         });
 
         const boxes = filtered.filter((p) => !p.ampola);
@@ -707,7 +659,7 @@ export function CatalogSection() {
         return { tab, boxes, ampolas };
       })
       .filter((group) => group.boxes.length > 0 || group.ampolas.length > 0);
-  }, [normalizedQuery, selectedBrand, selectedDose, selectedUnits]);
+  }, [normalizedQuery]);
 
   function handleTabClick(tab: ProductTab) {
     document.getElementById(sectionId(tab))?.scrollIntoView({
@@ -787,75 +739,6 @@ export function CatalogSection() {
                 </button>
               ))}
             </div>
-          </div>
-
-          <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-[minmax(150px,1fr)_minmax(150px,1fr)_minmax(170px,1fr)_auto]">
-            <label className="relative">
-              <span className="sr-only">Filtrar por marca</span>
-              <select
-                value={selectedBrand}
-                onChange={(event) => setSelectedBrand(event.target.value)}
-                className="h-11 w-full appearance-none rounded-full border border-[#D6DDE7] bg-white px-4 pr-9 text-sm font-medium text-[#334155] outline-none transition focus:border-[#153B63] focus:ring-4 focus:ring-[#153B63]/10"
-              >
-                <option value="">Todas as marcas</option>
-                {filterOptions.brands.map((brand) => (
-                  <option key={brand} value={brand}>
-                    {brand}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#7A8491]">
-                v
-              </span>
-            </label>
-
-            <label className="relative">
-              <span className="sr-only">Filtrar por dosagem</span>
-              <select
-                value={selectedDose}
-                onChange={(event) => setSelectedDose(event.target.value)}
-                className="h-11 w-full appearance-none rounded-full border border-[#D6DDE7] bg-white px-4 pr-9 text-sm font-medium text-[#334155] outline-none transition focus:border-[#153B63] focus:ring-4 focus:ring-[#153B63]/10"
-              >
-                <option value="">Todas as dosagens</option>
-                {filterOptions.doses.map((dose) => (
-                  <option key={dose} value={dose}>
-                    {dose}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#7A8491]">
-                v
-              </span>
-            </label>
-
-            <label className="relative sm:col-span-2 lg:col-span-1">
-              <span className="sr-only">Filtrar por apresentação</span>
-              <select
-                value={selectedUnits}
-                onChange={(event) => setSelectedUnits(event.target.value)}
-                className="h-11 w-full appearance-none rounded-full border border-[#D6DDE7] bg-white px-4 pr-9 text-sm font-medium text-[#334155] outline-none transition focus:border-[#153B63] focus:ring-4 focus:ring-[#153B63]/10"
-              >
-                <option value="">Selecione a apresentação</option>
-                {filterOptions.units.map((units) => (
-                  <option key={units} value={units}>
-                    {units}
-                  </option>
-                ))}
-              </select>
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#7A8491]">
-                v
-              </span>
-            </label>
-
-            {hasActiveFilters ? (
-              <button
-                type="button"
-                onClick={clearFilters}
-                className="h-11 rounded-full border border-[#D6DDE7] bg-[#F7F9FC] px-4 text-sm font-semibold text-[#0E2A47] transition hover:border-[#153B63] hover:bg-white sm:col-span-1"
-              >
-                Limpar filtros
-              </button>
-            ) : null}
           </div>
         </div>
       </div>
