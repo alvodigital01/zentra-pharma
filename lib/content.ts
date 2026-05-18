@@ -190,7 +190,8 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Tizerpatida Synedica",
-    presentation: "GIP + GLP-1 | 240mg",
+    presentation: "GIP + GLP-1 | 230mg",
+    units: "4 ampolas + água bacteriostática",
     pixPrice: 3200,
     cardPrice: 3300,
     cardInstallments: 6,
@@ -199,6 +200,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Synedica",
     presentation: "GIP + GLP-1 | 60mg",
+    units: "Ampola única + água bacteriostática",
     pixPrice: 970,
     cardPrice: 1130,
     cardInstallments: 5,
@@ -221,6 +223,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Retatrutida USA Pep",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
+    units: "Ampola única + água bacteriostática",
     pixPrice: 930,
     cardPrice: 980,
     image: "/usapep.webp",
