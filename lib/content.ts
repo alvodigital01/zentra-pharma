@@ -189,6 +189,14 @@ export const catalogProducts: ReadonlyArray<{
     image: "/slimex1.webp",
   },
   {
+    title: "Tizerpatida Synedica",
+    presentation: "GIP + GLP-1 | 240mg",
+    pixPrice: 970,
+    cardPrice: 1130,
+    cardInstallments: 5,
+    image: "/labs.png",
+  },
+  {
     title: "Retatrutida Veltrane",
     presentation: "GLP-1 + GIP + Glucagon | 60mg",
     pixPrice: 950,
