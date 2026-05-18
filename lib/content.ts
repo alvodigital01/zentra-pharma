@@ -191,10 +191,18 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Tizerpatida Synedica",
     presentation: "GIP + GLP-1 | 240mg",
+    pixPrice: 3200,
+    cardPrice: 3300,
+    cardInstallments: 6,
+    image: "/labs.png",
+  },
+  {
+    title: "Tizerpatida Synedica",
+    presentation: "GIP + GLP-1 | 60mg",
     pixPrice: 970,
     cardPrice: 1130,
     cardInstallments: 5,
-    image: "/labs.png",
+    image: "/labs1.png",
   },
   {
     title: "Retatrutida Veltrane",
