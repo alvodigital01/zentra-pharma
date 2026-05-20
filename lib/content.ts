@@ -261,7 +261,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "GHK-Cu",
     family: "Peptídeo",
-    presentation: "GHK-Cu | 10mg",
+    presentation: "GHK-Cu | 100mg",
     units: "Ampola única",
     pixPrice: 475,
     cardPrice: 504.4,
