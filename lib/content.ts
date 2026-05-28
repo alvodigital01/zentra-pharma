@@ -123,7 +123,7 @@ export const products = [
     description:
       "O Glow Blend é uma formulação peptídica com BPC-157, TB-500 e GHK-Cu, desenvolvida com foco em suporte a processos de reparo tecidual e regeneração cutânea. Seus componentes são associados à cicatrização, remodelação da matriz extracelular, manutenção da qualidade da pele e apoio ao cuidado integrativo.",
     accentClassName: "bg-[#F1F4F9]",
-    images: ["/glowblend.webp"],
+    images: ["/glowghk-cu.png"],
   },
   {
     category: "Rotina e bem-estar",
@@ -231,9 +231,19 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Retatrutida Synedica",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
-    pixPrice: 1200,
-    cardPrice: 1250,
+    pixPrice: 1100,
+    cardPrice: 1170,
+    cardInstallments: 5,
     image: "/synedica1.webp",
+  },
+  {
+    title: "Retatrutida Alluvi",
+    presentation: "GLP-1 + GIP + Glucagon | 40mg",
+    units: "Caneta",
+    pixPrice: 979,
+    cardPrice: 1140,
+    cardInstallments: 5,
+    image: "/retatrutidaalluvi.png",
   },
   {
     title: "Retatrutida Nexus",
@@ -252,11 +262,21 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Caneta GLOW",
-    presentation: "GHK-Cu + BPC-157 + TB-500",
-    units: "Caneta",
-    pixPrice: 800,
-    cardPrice: 900,
-    image: "/blend.webp",
+    presentation: "GHK-Cu 50mg + BPC-157 10mg + TB-500 10mg | 70mg cada",
+    units: "Caixa com 2 canetas",
+    pixPrice: 1399,
+    cardPrice: 1500,
+    cardInstallments: 5,
+    image: "/glowghk-cu.png",
+  },
+  {
+    title: "Caneta GLOW Individual",
+    presentation: "GHK-Cu 50mg + BPC-157 10mg + TB-500 10mg | 70mg",
+    units: "Caneta individual - tratamento 30 dias",
+    pixPrice: 690,
+    cardPrice: 750,
+    cardInstallments: 5,
+    image: "/glowghk-cu.png",
   },
   {
     title: "GHK-Cu",
