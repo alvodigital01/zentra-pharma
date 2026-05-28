@@ -240,7 +240,7 @@ export const catalogProducts: ReadonlyArray<{
     title: "Retatrutida Alluvi",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
     units: "Caneta",
-    pixPrice: 979,
+    pixPrice: 997,
     cardPrice: 1140,
     cardInstallments: 5,
     image: "/retatrutidaalluvi.png",
@@ -276,7 +276,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 690,
     cardPrice: 750,
     cardInstallments: 5,
-    image: "/glowghk-cu.png",
+    image: "/glow1.png",
   },
   {
     title: "GHK-Cu",
