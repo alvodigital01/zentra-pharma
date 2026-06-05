@@ -70,11 +70,16 @@ function sectionId(tab: ProductTab) {
   return `catalogo-${tab.toLowerCase().replace(/\s+/g, "-")}`;
 }
 
-function isVisibleProduct(title: string) {
-  return normalizeSearch(title) !== "retatrutida nexus";
-}
-
 type CatalogProduct = (typeof catalogProducts)[number];
+
+function isVisibleProduct(product: CatalogProduct) {
+  const title = normalizeSearch(product.title);
+  const presentation = normalizeSearch(product.presentation);
+
+  if (title === "retatrutida nexus") return false;
+
+  return !(title === "retatrutida veltrane" && presentation.includes("60mg"));
+}
 
 function isProductTab(value: string): value is ProductTab {
   return productTabs.some((tab) => tab === value);
@@ -175,6 +180,7 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
           const titleSplit = splitProductTitle(product.title);
           const familyLabel = titleSplit.name ? titleSplit.family : product.family;
           const brandName = titleSplit.name ?? titleSplit.family;
+          const isUnavailable = product.unavailable;
 
           return (
             <Reveal
@@ -205,10 +211,17 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                       )}
                     </h3>
                     {units && (
-                      <span className={`mt-1.5 inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${getUnitsBadgeClassName(units)}`}>
-                        <UnitsIcon units={units} />
-                        {units}
-                      </span>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                        <span className={`inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${getUnitsBadgeClassName(units)}`}>
+                          <UnitsIcon units={units} />
+                          {units}
+                        </span>
+                        {isUnavailable ? (
+                          <span className="inline-flex w-fit items-center rounded-full bg-[#FFF3E8] px-2 py-0.5 text-[11px] font-bold uppercase text-[#B45309]">
+                            Indisponível no momento
+                          </span>
+                        ) : null}
+                      </div>
                     )}
                     <p className="mt-1 max-w-[17rem] text-sm font-semibold leading-5 text-[#334155] sm:mt-3 sm:text-base sm:leading-6 lg:max-w-none">
                       {details}
@@ -257,17 +270,23 @@ function ProductGrid({ products, indexOffset }: { products: readonly CatalogProd
                 </div>
 
                 <div className="mt-3 flex justify-center border-t border-[#E6E8EC] pt-3">
-                  <a
-                    href={createWhatsAppUrl(
-                      createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
-                  >
-                    <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
-                    Comprar via WhatsApp
-                  </a>
+                  {isUnavailable ? (
+                    <span className="inline-flex items-center rounded-full bg-[#FFF3E8] px-3 py-1.5 text-xs font-semibold text-[#B45309]">
+                      Indisponível no momento
+                    </span>
+                  ) : (
+                    <a
+                      href={createWhatsAppUrl(
+                        createProductWhatsAppMessage(product.title, extractDosage(product.presentation)),
+                      )}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-3 py-1.5 text-xs font-semibold text-[#1a9e4f] transition-colors duration-200 hover:bg-[#25D366]/25"
+                    >
+                      <WhatsAppIcon className="h-3.5 w-3.5 shrink-0" />
+                      Comprar via WhatsApp
+                    </a>
+                  )}
                 </div>
               </motion.div>
             </Reveal>
@@ -645,7 +664,7 @@ export function CatalogSection() {
     return productTabs
       .map((tab) => {
         const filtered = catalogProducts.filter((product) => {
-          if (!isVisibleProduct(product.title)) return false;
+          if (!isVisibleProduct(product)) return false;
           const belongsToTab = getProductSection(product) === tab;
           const searchableContent = normalizeSearch(
             `${product.title} ${product.presentation} ${getUnitsLabel(product)} ${product.badge ?? ""} ${product.benefit ?? ""}`,

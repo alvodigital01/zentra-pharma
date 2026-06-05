@@ -149,6 +149,7 @@ export const catalogProducts: ReadonlyArray<{
   image: string;
   ampola?: boolean;
   section?: string;
+  unavailable?: boolean;
 }> = [
   {
     title: "Tizerpatida Veltrane",
@@ -184,8 +185,8 @@ export const catalogProducts: ReadonlyArray<{
     title: "Tizerpatida Slimex",
     presentation: "GIP + GLP-1 | 60mg",
     units: "4 ampolas",
-    pixPrice: 1000,
-    cardPrice: 1170,
+    pixPrice: 899.9,
+    cardPrice: 1070,
     image: "/slimex1.webp",
   },
   {
@@ -212,6 +213,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 950,
     cardPrice: 1100,
     image: "/retatrutida60mg.webp",
+    unavailable: true,
   },
   {
     title: "Retatrutida Veltrane",
@@ -219,6 +221,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1000,
     cardPrice: 1130,
     image: "/vetrane90mg.webp",
+    unavailable: true,
   },
   {
     title: "Retatrutida USA Pep",
