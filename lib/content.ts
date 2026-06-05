@@ -16,7 +16,9 @@ export function createWhatsAppUrl(message = siteConfig.defaultWhatsAppMessage) {
 
 export function extractDosage(presentation: string): string | undefined {
   const parts = presentation.split("|");
-  return parts.length > 1 ? parts[parts.length - 1].trim() : undefined;
+  if (parts.length > 1) return parts[parts.length - 1].trim();
+
+  return /\d+\s*mg/i.test(presentation) ? presentation.trim() : undefined;
 }
 
 export function createProductWhatsAppMessage(productName: string, details?: string) {
@@ -404,6 +406,24 @@ export const catalogProducts: ReadonlyArray<{
     cardInstallments: 2,
     image: "/slimexun.webp",
     ampola: true,
+  },
+  {
+    title: "Peptídeo Slupp 332",
+    presentation: "10mg",
+    pixPrice: 565,
+    cardPrice: 598,
+    cardInstallments: 5,
+    image: "/slupp332.png",
+    section: "Slupp 3332",
+  },
+  {
+    title: "Dyaport",
+    presentation: "Toxina botulínica",
+    pixPrice: 780,
+    cardPrice: 810,
+    cardInstallments: 3,
+    image: "/toxina.png",
+    section: "Toxina botulínica",
   },
 ];
 

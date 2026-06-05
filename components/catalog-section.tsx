@@ -29,6 +29,8 @@ const productTabs = [
   "Klow",
   "Tesamorelin",
   "MOSTc",
+  "Slupp 3332",
+  "Toxina botulínica",
 ] as const;
 
 type ProductTab = (typeof productTabs)[number];
