@@ -408,16 +408,16 @@ export const catalogProducts: ReadonlyArray<{
     ampola: true,
   },
   {
-    title: "Peptídeo Slupp 332",
+    title: "Peptídeo SLU-PP-322",
     presentation: "10mg",
     pixPrice: 565,
     cardPrice: 598,
     cardInstallments: 5,
     image: "/slupp332.png",
-    section: "Slupp 3332",
+    section: "SLU-PP-322",
   },
   {
-    title: "Dyaport",
+    title: "Dysport",
     presentation: "Toxina botulínica",
     pixPrice: 780,
     cardPrice: 810,
@@ -640,6 +640,53 @@ export const productSectionDetails: Partial<Record<string, {
       "Potencial ação anti-aging relacionada à longevidade celular",
       "Auxílio na redução do estresse oxidativo e inflamação celular",
     ],
+  },
+  "SLU-PP-322": {
+    title: "O que é SLU-PP-322?",
+    description:
+      "O SLU-PP-322 é uma molécula sintética desenvolvida para atuar em vias relacionadas ao metabolismo energético e à função mitocondrial. Seu mecanismo de ação envolve a ativação de receptores associados à produção e utilização de energia pelas células, promovendo maior eficiência metabólica e favorecendo a oxidação de gorduras como fonte energética.",
+    benefitsTitle: "Principais características",
+    benefits: [
+      "Atua sobre receptores relacionados ao metabolismo celular e função mitocondrial",
+      "Auxilia na regulação do gasto energético",
+      "Favorece a utilização de ácidos graxos como fonte de energia",
+      "Associado ao suporte da performance metabólica e resistência física",
+      "Objeto de estudos relacionados à composição corporal e saúde metabólica",
+    ],
+    sections: [
+      {
+        title: "Forma de ação",
+        description:
+          "O SLU-PP-322 estimula vias metabólicas envolvidas na produção de energia celular, aumentando a atividade mitocondrial e a capacidade do organismo de utilizar gordura como combustível. Seu mecanismo tem sido estudado por apresentar efeitos semelhantes aos processos fisiológicos ativados durante exercícios aeróbicos.",
+      },
+    ],
+  },
+  "Toxina botulínica": {
+    title: "Dysport® (Toxina Botulínica Tipo A)",
+    paragraphs: [
+      "A Dysport® é uma toxina botulínica tipo A amplamente utilizada na medicina estética para suavizar linhas de expressão e rugas dinâmicas causadas pela contração repetitiva dos músculos faciais. Seu mecanismo de ação consiste em bloquear temporariamente a liberação de acetilcolina nas terminações nervosas, promovendo o relaxamento muscular controlado.",
+      "Além da aplicação estética, a Dysport® também pode ser utilizada por profissionais habilitados em tratamentos funcionais específicos, conforme indicação clínica.",
+    ],
+    benefitsTitle: "Principais benefícios",
+    benefits: [
+      "Suavização de rugas da testa, glabela (entre as sobrancelhas) e região dos olhos (pés de galinha)",
+      "Prevenção do aprofundamento das linhas de expressão",
+      "Aspecto facial mais leve, descansado e rejuvenescido",
+      "Resultados naturais quando aplicada por profissional qualificado",
+    ],
+    sections: [
+      {
+        title: "Início de ação",
+        description: "Geralmente entre 2 e 5 dias após a aplicação.",
+      },
+      {
+        title: "Duração média dos resultados",
+        description:
+          "Entre 3 e 6 meses, podendo variar conforme características individuais de cada paciente.",
+      },
+    ],
+    closing:
+      "Importante: A aplicação da toxina botulínica deve ser realizada exclusivamente por profissionais devidamente capacitados e habilitados, seguindo todas as normas de segurança e boas práticas clínicas.",
   },
 };
 

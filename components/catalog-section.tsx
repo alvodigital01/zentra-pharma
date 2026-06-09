@@ -29,7 +29,7 @@ const productTabs = [
   "Klow",
   "Tesamorelin",
   "MOSTc",
-  "Slupp 3332",
+  "SLU-PP-322",
   "Toxina botulínica",
 ] as const;
 
@@ -321,7 +321,7 @@ function ProductSectionDetail({ tab }: { tab: ProductTab }) {
       <div className="mt-6 rounded-[14px] border border-[#E6E8EC] bg-white p-5 shadow-[0_10px_26px_rgba(15,23,32,0.05)] sm:mt-8 sm:p-7 lg:p-8">
         <div className="max-w-5xl">
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#667085]">
-            Detalhes do peptídeo
+            Detalhes do produto
           </span>
           <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[#111827] sm:text-2xl">
             {details.title}
@@ -395,7 +395,7 @@ function ProductSectionDetailV2({ tab }: { tab: ProductTab }) {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-white/60">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#4DB6AC]" aria-hidden="true" />
-                Peptídeo
+                Detalhes
               </span>
               <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white sm:text-2xl lg:text-[1.65rem]">
                 {details.title}
