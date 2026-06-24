@@ -242,6 +242,15 @@ export const catalogProducts: ReadonlyArray<{
     image: "/synedica1.webp",
   },
   {
+    title: "Retatrutida RetaGen",
+    presentation: "GLP-1 + GIP + Glucagon | 120mg",
+    units: "Ampola única",
+    pixPrice: 1350,
+    cardPrice: 1400,
+    cardInstallments: 5,
+    image: "/retagen.png",
+  },
+  {
     title: "Retatrutida Alluvi",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
     units: "Caneta",
