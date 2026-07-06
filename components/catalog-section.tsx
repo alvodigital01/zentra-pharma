@@ -75,6 +75,8 @@ function sectionId(tab: ProductTab) {
 type CatalogProduct = (typeof catalogProducts)[number];
 
 function isVisibleProduct(product: CatalogProduct) {
+  if (product.hidden) return false;
+
   const title = normalizeSearch(product.title);
   const presentation = normalizeSearch(product.presentation);
 

@@ -152,6 +152,7 @@ export const catalogProducts: ReadonlyArray<{
   ampola?: boolean;
   section?: string;
   unavailable?: boolean;
+  hidden?: boolean;
 }> = [
   {
     title: "Tizerpatida Veltrane",
@@ -159,6 +160,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 980,
     cardPrice: 1170,
     image: "/tirzepatide-veltrane-10mg-ml.webp",
+    hidden: true,
   },
   {
     title: "Tizerpatida USA Pep",
@@ -216,6 +218,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 1100,
     image: "/retatrutida60mg.webp",
     unavailable: true,
+    hidden: true,
   },
   {
     title: "Retatrutida Veltrane",
@@ -224,6 +227,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 1130,
     image: "/vetrane90mg.webp",
     unavailable: true,
+    hidden: true,
   },
   {
     title: "Retatrutida USA Pep",
