@@ -369,6 +369,18 @@ export const catalogProducts: ReadonlyArray<{
     section: "MOSTc",
   },
   {
+    title: "NAD+",
+    family: "Peptídeo",
+    presentation: "NAD+ | Nicotinamida Adenina Dinucleotídeo",
+    units: "Ampola única",
+    pixPrice: 424.5,
+    cardPrice: 475.5,
+    cardInstallments: 5,
+    cardInstallmentPrice: 95.1,
+    image: "/nad.png",
+    section: "NAD+",
+  },
+  {
     title: "Tizerpatida Lipoless",
     presentation: "GIP + GLP-1 | 60mg",
     units: "4 ampolas",
@@ -652,6 +664,52 @@ export const productSectionDetails: Partial<Record<string, {
       "Suporte à saúde metabólica e controle energético",
       "Potencial ação anti-aging relacionada à longevidade celular",
       "Auxílio na redução do estresse oxidativo e inflamação celular",
+    ],
+  },
+  "NAD+": {
+    title: "O que é NAD+?",
+    paragraphs: [
+      "O NAD+ (Nicotinamida Adenina Dinucleotídeo) é uma coenzima naturalmente presente em todas as células do organismo. Ela participa diretamente da produção de energia celular, do funcionamento das mitocôndrias e de diversos processos relacionados ao reparo celular e ao envelhecimento.",
+      "Atualmente, o NAD+ tem sido estudado principalmente nas áreas de metabolismo, longevidade e neurociência. Com o avanço da idade, os níveis naturais de NAD+ tendem a diminuir, motivo pelo qual há crescente interesse científico em estratégias para aumentar sua disponibilidade no organismo.",
+    ],
+    benefitsTitle: "Principais benefícios associados ao NAD+",
+    benefits: [
+      "Suporte à produção de energia celular (ATP) por meio da função mitocondrial",
+      "Auxílio na função cognitiva, memória e concentração",
+      "Contribuição para o reparo do DNA e manutenção da integridade celular",
+      "Potencial ação anti-aging relacionada à ativação das sirtuínas, proteínas envolvidas na longevidade celular",
+      "Redução do estresse oxidativo, ajudando a proteger as células contra danos",
+      "Suporte ao metabolismo energético e à utilização eficiente de nutrientes",
+      "Auxílio na recuperação física e mental, especialmente em situações de fadiga",
+      "Contribuição para a saúde neurológica, sendo alvo de pesquisas em doenças neurodegenerativas",
+      "Potencial melhora da sensibilidade metabólica e da saúde mitocondrial",
+    ],
+    sections: [
+      {
+        title: "Como o NAD+ age no organismo",
+        description:
+          "O NAD+ participa de centenas de reações bioquímicas no organismo, atuando no transporte de elétrons para produção de energia nas mitocôndrias e na regulação do metabolismo e da resposta ao estresse celular.",
+      },
+      {
+        title: "Atuação celular",
+        items: [
+          {
+            title: "Sirtuínas",
+            description:
+              "Auxilia na ativação de proteínas como SIRT1 e SIRT3, relacionadas ao envelhecimento saudável e à longevidade celular.",
+          },
+          {
+            title: "PARPs",
+            description:
+              "Participa da ativação de enzimas envolvidas no reparo do DNA e na manutenção da integridade celular.",
+          },
+          {
+            title: "Mitocôndrias",
+            description:
+              "Contribui para o funcionamento mitocondrial e para a produção eficiente de energia celular.",
+          },
+        ],
+      },
     ],
   },
   "SLU-PP-322": {
