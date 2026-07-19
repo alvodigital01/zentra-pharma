@@ -240,6 +240,7 @@ export const catalogProducts: ReadonlyArray<{
   {
     title: "Retatrutida Synedica",
     presentation: "GLP-1 + GIP + Glucagon | 40mg",
+    units: "Caneta",
     pixPrice: 1100,
     cardPrice: 1170,
     cardInstallments: 5,
