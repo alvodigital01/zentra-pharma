@@ -246,6 +246,15 @@ export const catalogProducts: ReadonlyArray<{
     image: "/synedica1.webp",
   },
   {
+    title: "Retatrutida Synedica",
+    presentation: "GLP-1 + GIP + Glucagon | 120mg/7mL",
+    units: "Ampola única",
+    pixPrice: 1370,
+    cardPrice: 1400,
+    cardInstallments: 5,
+    image: "/retratutidasynedica 120mg.jpeg",
+  },
+  {
     title: "Retatrutida RetaGen",
     presentation: "GLP-1 + GIP + Glucagon | 120mg",
     units: "Ampola única",
@@ -379,6 +388,39 @@ export const catalogProducts: ReadonlyArray<{
     cardInstallmentPrice: 95.1,
     image: "/nad.png",
     section: "NAD+",
+  },
+  {
+    title: "HGH-FRAG 176-191",
+    family: "Peptídeo",
+    presentation: "HGH-FRAG 176-191 | 10mg",
+    units: "Ampola única",
+    pixPrice: 579,
+    cardPrice: 609,
+    cardInstallments: 3,
+    image: "/hgh-frag176-191-10mg.jpeg",
+    section: "HGH-FRAG 176-191",
+  },
+  {
+    title: "CJC-1295 + Ipamorelin",
+    family: "Blend",
+    presentation: "CJC-1295 + Ipamorelin | 10mg",
+    units: "Ampola única",
+    pixPrice: 569,
+    cardPrice: 599,
+    cardInstallments: 3,
+    image: "/CJC-1295+Ipamoreli-0.5MG + 0.5MG.jpeg",
+    section: "CJC-1295 + Ipamorelin",
+  },
+  {
+    title: "Wolverine Blend",
+    family: "Blend",
+    presentation: "BPC-157 10mg + TB-500 10mg | 20mg",
+    units: "Ampola única",
+    pixPrice: 550,
+    cardPrice: 600,
+    cardInstallments: 3,
+    image: "/wolverineblend-20mg-bpc157-10mgcomtb-500-10mg.jpeg",
+    section: "Wolverine Blend",
   },
   {
     title: "Tizerpatida Lipoless",
@@ -711,6 +753,47 @@ export const productSectionDetails: Partial<Record<string, {
         ],
       },
     ],
+  },
+  "Wolverine Blend": {
+    title: "Blend Wolverine (BPC-157 + TB-500)",
+    description:
+      "O Blend Wolverine é a combinação dos peptídeos BPC-157 e TB-500, desenvolvida para auxiliar nos processos naturais de recuperação e reparo dos tecidos do organismo.",
+    benefits: [
+      "Auxilia na recuperação muscular e de lesões",
+      "Favorece a regeneração de tendões, ligamentos e articulações",
+      "Contribui para a cicatrização dos tecidos",
+      "Pode ajudar na redução de processos inflamatórios",
+      "Oferece suporte à recuperação após treinos intensos ou procedimentos",
+      "Pode acelerar o retorno às atividades físicas",
+    ],
+    closing:
+      "Indicado para atletas, praticantes de atividade física e pessoas que buscam suporte para recuperação de tecidos e melhora da regeneração corporal.",
+  },
+  "CJC-1295 + Ipamorelin": {
+    title: "CJC-1295 + Ipamorelin",
+    description:
+      "O CJC-1295 + Ipamorelin é um blend de peptídeos que estimula a liberação natural do hormônio do crescimento (GH) pelo organismo, atuando em vias diferentes para potencializar esse efeito. É estudado principalmente por seu potencial de auxiliar na composição corporal e na recuperação, embora seu uso para esses fins ainda tenha evidências clínicas limitadas e não seja aprovado como medicamento para essas indicações em diversos países.",
+    benefits: [
+      "Auxilia no ganho e preservação de massa magra",
+      "Favorece a queima de gordura corporal",
+      "Contribui para uma recuperação muscular mais rápida",
+      "Pode melhorar a qualidade do sono e da recuperação física",
+      "Auxilia na regeneração dos tecidos e na síntese de colágeno",
+    ],
+  },
+  "HGH-FRAG 176-191": {
+    title: "HGH Frag 176-191",
+    description:
+      "O HGH Frag 176-191 é um peptídeo derivado de um fragmento específico do hormônio do crescimento (GH), estudado principalmente por seu potencial de atuar no metabolismo das gorduras. Diferentemente do GH completo, ele não promove os mesmos efeitos relacionados ao crescimento corporal. As evidências em humanos para perda de gordura ainda são limitadas.",
+    benefits: [
+      "Auxilia na mobilização e utilização da gordura corporal como fonte de energia",
+      "Pode favorecer a redução da gordura localizada quando associado a dieta e exercícios",
+      "Contribui para a preservação da massa magra durante o processo de emagrecimento",
+      "Não apresenta os mesmos efeitos anabólicos do hormônio do crescimento completo",
+      "Pode ser utilizado como suporte em estratégias de definição corporal",
+    ],
+    closing:
+      "Indicado para pessoas que buscam auxiliar na redução de gordura corporal e melhorar a composição corporal, sempre com acompanhamento de um profissional habilitado.",
   },
   "SLU-PP-322": {
     title: "O que é SLU-PP-322?",

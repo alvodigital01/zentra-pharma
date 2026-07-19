@@ -30,6 +30,9 @@ const productTabs = [
   "Tesamorelin",
   "MOSTc",
   "NAD+",
+  "HGH-FRAG 176-191",
+  "CJC-1295 + Ipamorelin",
+  "Wolverine Blend",
   "SLU-PP-322",
   "Toxina botulínica",
 ] as const;
