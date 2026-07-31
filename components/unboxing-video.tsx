@@ -9,7 +9,7 @@ import { PackageIcon, PlayIcon, TruckIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
-const videoPublicPath = "/videos/entrega-zenthra.mp4";
+const videoPublicPath = "/videos/institucional/entrega-zenthra.mp4";
 
 const highlights = [
   {

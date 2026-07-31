@@ -7,7 +7,7 @@ import { Container } from "@/components/container";
 import { PlayIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 
-const videoPublicPath = "/videos/entrega-zenthra.mp4";
+const videoPublicPath = "/videos/institucional/entrega-zenthra.mp4";
 
 const steps = [
   {

@@ -8,22 +8,22 @@ const testimonialSlots = [
   {
     title: "Cliente 01",
     headline: "Compra e atendimento",
-    file: "/depoimento01.png",
-    image: "/depoimento01.png",
+    file: "/images/testimonials/depoimento01.webp",
+    image: "/images/testimonials/depoimento01.webp",
     caption: "Experiência real compartilhada após o pedido.",
   },
   {
     title: "Cliente 02",
     headline: "Relato via WhatsApp",
-    file: "/depoimento2.png",
-    image: "/depoimento2.png",
+    file: "/images/testimonials/depoimento2.webp",
+    image: "/images/testimonials/depoimento2.webp",
     caption: "Retorno autêntico enviado direto no atendimento.",
   },
   {
     title: "Cliente 03",
     headline: "Feedback de cliente",
-    file: "/depoimento3.png",
-    image: "/depoimento3.png",
+    file: "/images/testimonials/depoimento3.webp",
+    image: "/images/testimonials/depoimento3.webp",
     caption: "Percepção de quem já comprou com a marca.",
   },
 ];

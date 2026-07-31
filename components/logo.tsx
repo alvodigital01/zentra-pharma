@@ -27,7 +27,7 @@ function BrandMark({
         )}
       />
       <Image
-        src="/logozenthra.webp"
+        src="/images/branding/logozenthra.webp"
         alt="Logo Zenthra Pharma"
         fill
         sizes={fill ? "64px" : "48px"}

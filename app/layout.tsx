@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   ],
   applicationName: siteConfig.name,
   icons: {
-    icon: "/logozenthra.webp",
-    shortcut: "/logozenthra.webp",
-    apple: "/logozenthra.webp",
+    icon: "/images/branding/logozenthra.webp",
+    shortcut: "/images/branding/logozenthra.webp",
+    apple: "/images/branding/logozenthra.webp",
   },
   openGraph: {
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "Uma marca orientada por excelência, confiança e sofisticação.",
     images: [
       {
-        url: "/og-zhentra.svg",
+        url: "/images/branding/og-zhentra.svg",
         width: 1200,
         height: 630,
         alt: "Zenthra Pharma",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zenthra Pharma",
     description: "Sofisticação, confiança e presença para uma marca de alto padrão.",
-    images: ["/og-zhentra.svg"],
+    images: ["/images/branding/og-zhentra.svg"],
   },
 };
 

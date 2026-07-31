@@ -98,9 +98,9 @@ export const products = [
       "A retatrutida é uma molécula de ação tripla sobre os receptores de GLP-1, GIP e glucagon, desenvolvida para atuar no controle metabólico. Em estudos clínicos, tem demonstrado potencial para promover redução de peso, melhora do controle glicêmico e benefícios em marcadores cardiometabólico.",
     accentClassName: "bg-[#E9EEF5]",
     images: [
-      "/retratutide-veltrane-10mg-ml.webp",
-      "/retratutidenexxus-40mg.webp",
-      "/retratutideusa-40mg-2ml.webp",
+      "/images/products/retratutide-veltrane-10mg-ml.webp",
+      "/images/products/retratutidenexxus-40mg.webp",
+      "/images/products/retratutideusa-40mg-2ml.webp",
     ],
   },
   {
@@ -110,13 +110,13 @@ export const products = [
       "A tirzepatida é um fármaco de ação dual sobre os receptores de GIP e GLP-1, desenvolvido para atuar no controle metabólico. Em contexto clínico, destaca-se por seu potencial na melhora do controle glicêmico, no manejo do peso corporal e no apoio a uma abordagem terapêutica mais completa.",
     accentClassName: "bg-[#EDF2F8]",
     images: [
-      "/tirzec-15mg-o.5ml.webp",
-      "/tg15mg-0,5ml.webp",
-      "/tirzepatide-veltrane-10mg-ml.webp",
-      "/lipoless=15mg-0,5ml.webp",
-      "/tirzec4-15mg-0,5ml.webp",
-      "/lipo.webp",
-      "/tirzec2-15mg-o.5ml.webp",
+      "/images/products/tirzec-15mg-o.5ml.webp",
+      "/images/products/tg15mg-0,5ml.webp",
+      "/images/products/tirzepatide-veltrane-10mg-ml.webp",
+      "/images/products/lipoless=15mg-0,5ml.webp",
+      "/images/products/tirzec4-15mg-0,5ml.webp",
+      "/images/products/lipo.webp",
+      "/images/products/tirzec2-15mg-o.5ml.webp",
     ],
   },
   {
@@ -125,7 +125,7 @@ export const products = [
     description:
       "O Glow Blend é uma formulação peptídica com BPC-157, TB-500 e GHK-Cu, desenvolvida com foco em suporte a processos de reparo tecidual e regeneração cutânea. Seus componentes são associados à cicatrização, remodelação da matriz extracelular, manutenção da qualidade da pele e apoio ao cuidado integrativo.",
     accentClassName: "bg-[#F1F4F9]",
-    images: ["/glowghk-cu.png"],
+    images: ["/images/products/glowghk-cu.png"],
   },
   {
     category: "Rotina e bem-estar",
@@ -133,7 +133,10 @@ export const products = [
     description:
       "Uma linha voltada ao equilíbrio, ao bem-estar e a uma rotina mais leve.",
     accentClassName: "bg-[#F4F6FA]",
-    images: ["/products/zenthra-balance/foto1.webp", "/products/zenthra-balance/foto2.webp"],
+    images: [
+      "/images/products/zenthra-balance/foto1.webp",
+      "/images/products/zenthra-balance/foto2.webp",
+    ],
   },
 ];
 
@@ -159,7 +162,7 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GIP + GLP-1 | 60mg",
     pixPrice: 980,
     cardPrice: 1170,
-    image: "/tirzepatide-veltrane-10mg-ml.webp",
+    image: "/images/products/tirzepatide-veltrane-10mg-ml.webp",
     hidden: true,
   },
   {
@@ -167,7 +170,7 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GIP + GLP-1 | 60mg",
     pixPrice: 860,
     cardPrice: 960,
-    image: "/usapep.webp",
+    image: "/images/products/usapep.webp",
   },
   {
     title: "Tizerpatida Tirzec",
@@ -175,7 +178,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "Ampola única",
     pixPrice: 970,
     cardPrice: 1130,
-    image: "/tirzex1.webp",
+    image: "/images/products/tirzex1.webp",
   },
   {
     title: "Tizerpatida Tirzec",
@@ -183,7 +186,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1100,
     cardPrice: 1170,
-    image: "/tirzec4.webp",
+    image: "/images/products/tirzec4.webp",
   },
   {
     title: "Tizerpatida Slimex",
@@ -191,7 +194,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 899.9,
     cardPrice: 1070,
-    image: "/slimex1.webp",
+    image: "/images/products/slimex1.webp",
   },
   {
     title: "Tizerpatida Synedica",
@@ -200,7 +203,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 3200,
     cardPrice: 3300,
     cardInstallments: 6,
-    image: "/labs.png",
+    image: "/images/products/labs.png",
   },
   {
     title: "Tizerpatida Synedica",
@@ -209,14 +212,14 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 970,
     cardPrice: 1130,
     cardInstallments: 5,
-    image: "/labs1.png",
+    image: "/images/products/labs1.png",
   },
   {
     title: "Retatrutida Veltrane",
     presentation: "GLP-1 + GIP + Glucagon | 60mg",
     pixPrice: 950,
     cardPrice: 1100,
-    image: "/retatrutida60mg.webp",
+    image: "/images/products/retatrutida60mg.webp",
     unavailable: true,
     hidden: true,
   },
@@ -225,7 +228,7 @@ export const catalogProducts: ReadonlyArray<{
     presentation: "GLP-1 + GIP + Glucagon | 90mg",
     pixPrice: 1000,
     cardPrice: 1130,
-    image: "/vetrane90mg.webp",
+    image: "/images/products/vetrane90mg.webp",
     unavailable: true,
     hidden: true,
   },
@@ -235,7 +238,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "Ampola única + água bacteriostática",
     pixPrice: 930,
     cardPrice: 980,
-    image: "/usapep.webp",
+    image: "/images/products/usapep.webp",
   },
   {
     title: "Retatrutida Synedica",
@@ -244,7 +247,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1100,
     cardPrice: 1170,
     cardInstallments: 5,
-    image: "/synedica1.webp",
+    image: "/images/products/synedica1.webp",
   },
   {
     title: "Retatrutida Synedica",
@@ -253,7 +256,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1370,
     cardPrice: 1400,
     cardInstallments: 5,
-    image: "/retratutidasynedica 120mg.jpeg",
+    image: "/images/products/retratutidasynedica 120mg.jpeg",
   },
   {
     title: "Retatrutida RetaGen",
@@ -262,7 +265,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1070,
     cardPrice: 1170,
     cardInstallments: 5,
-    image: "/retagen80mg.png",
+    image: "/images/products/retagen80mg.png",
   },
   {
     title: "Retatrutida RetaGen",
@@ -271,7 +274,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1350,
     cardPrice: 1400,
     cardInstallments: 5,
-    image: "/retagen.png",
+    image: "/images/products/retagen.png",
   },
   {
     title: "Retatrutida Alluvi",
@@ -280,14 +283,14 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 997,
     cardPrice: 1140,
     cardInstallments: 5,
-    image: "/retatrutidaalluvi.png",
+    image: "/images/products/retatrutidaalluvi.png",
   },
   {
     title: "Retatrutida Nexus",
     presentation: "GLP-1 + GIP + Glucagon",
     pixPrice: 1200,
     cardPrice: 1250,
-    image: "/retratutidenexxus-40mg.webp",
+    image: "/images/products/retratutidenexxus-40mg.webp",
   },
   {
     title: "Tizerpatida TG",
@@ -295,7 +298,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1200,
     cardPrice: 1250,
-    image: "/tg15mg-0,5ml.webp",
+    image: "/images/products/tg15mg-0,5ml.webp",
   },
   {
     title: "Caneta GLOW",
@@ -304,7 +307,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 1399,
     cardPrice: 1500,
     cardInstallments: 5,
-    image: "/glowghk-cu.png",
+    image: "/images/products/glowghk-cu.png",
   },
   {
     title: "Caneta GLOW Individual",
@@ -313,7 +316,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 690,
     cardPrice: 750,
     cardInstallments: 5,
-    image: "/glow1.png",
+    image: "/images/products/glow1.png",
   },
   {
     title: "GHK-Cu",
@@ -324,7 +327,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 504.4,
     cardInstallments: 5,
     cardInstallmentPrice: 100.88,
-    image: "/ghk-cu.webp",
+    image: "/images/products/ghk-cu.webp",
     section: "GHK-Cu",
   },
   {
@@ -336,7 +339,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 570.2,
     cardInstallments: 5,
     cardInstallmentPrice: 114.04,
-    image: "/semax.webp",
+    image: "/images/products/semax.webp",
     section: "Semax",
   },
   {
@@ -348,7 +351,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 745.6,
     cardInstallments: 5,
     cardInstallmentPrice: 149.12,
-    image: "/klow.webp",
+    image: "/images/products/klow.webp",
     section: "Klow",
   },
   {
@@ -360,7 +363,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 950,
     cardInstallments: 5,
     cardInstallmentPrice: 190,
-    image: "/klow10.png",
+    image: "/images/products/klow10.png",
     section: "Klow",
   },
   {
@@ -372,7 +375,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 603.05,
     cardInstallments: 5,
     cardInstallmentPrice: 120.61,
-    image: "/tesamorelin.webp",
+    image: "/images/products/tesamorelin.webp",
     section: "Tesamorelin",
   },
   {
@@ -384,7 +387,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 635.95,
     cardInstallments: 5,
     cardInstallmentPrice: 127.19,
-    image: "/most.webp",
+    image: "/images/products/most.webp",
     section: "MOSTc",
   },
   {
@@ -396,7 +399,7 @@ export const catalogProducts: ReadonlyArray<{
     cardPrice: 475.5,
     cardInstallments: 5,
     cardInstallmentPrice: 95.1,
-    image: "/nad.png",
+    image: "/images/products/nad.png",
     section: "NAD+",
   },
   {
@@ -407,7 +410,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 579,
     cardPrice: 609,
     cardInstallments: 3,
-    image: "/hgh-frag176-191-10mg.jpeg",
+    image: "/images/products/hgh-frag176-191-10mg.jpeg",
     section: "HGH-FRAG 176-191",
   },
   {
@@ -418,7 +421,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 569,
     cardPrice: 599,
     cardInstallments: 3,
-    image: "/CJC-1295+Ipamoreli-0.5MG + 0.5MG.jpeg",
+    image: "/images/products/CJC-1295+Ipamoreli-0.5MG + 0.5MG.jpeg",
     section: "CJC-1295 + Ipamorelin",
   },
   {
@@ -429,7 +432,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 550,
     cardPrice: 600,
     cardInstallments: 3,
-    image: "/wolverineblend-20mg-bpc157-10mgcomtb-500-10mg.jpeg",
+    image: "/images/products/wolverineblend-20mg-bpc157-10mgcomtb-500-10mg.jpeg",
     section: "Wolverine Blend",
   },
   {
@@ -438,7 +441,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1100,
     cardPrice: 1200,
-    image: "/lipoless=15mg-0,5ml.webp",
+    image: "/images/products/lipoless=15mg-0,5ml.webp",
   },
   {
     title: "Tizerpatida Lipoland",
@@ -446,7 +449,7 @@ export const catalogProducts: ReadonlyArray<{
     units: "4 ampolas",
     pixPrice: 1230,
     cardPrice: 1270,
-    image: "/lipo.webp",
+    image: "/images/products/lipo.webp",
   },
   {
     title: "Tizerpatida TG",
@@ -454,7 +457,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 370,
     cardPrice: 385,
     cardInstallments: 2,
-    image: "/tgun.webp",
+    image: "/images/products/tgun.webp",
     ampola: true,
   },
   {
@@ -463,7 +466,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 340,
     cardPrice: 355,
     cardInstallments: 2,
-    image: "/lipolessun.webp",
+    image: "/images/products/lipolessun.webp",
     ampola: true,
   },
   {
@@ -472,7 +475,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 350,
     cardPrice: 365,
     cardInstallments: 2,
-    image: "/tirzecun.webp",
+    image: "/images/products/tirzecun.webp",
     ampola: true,
   },
   {
@@ -481,7 +484,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 333,
     cardPrice: 343,
     cardInstallments: 2,
-    image: "/slimexun.webp",
+    image: "/images/products/slimexun.webp",
     ampola: true,
   },
   {
@@ -490,7 +493,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 565,
     cardPrice: 598,
     cardInstallments: 5,
-    image: "/slupp332.png",
+    image: "/images/products/slupp332.png",
     section: "SLU-PP-322",
   },
   {
@@ -499,7 +502,7 @@ export const catalogProducts: ReadonlyArray<{
     pixPrice: 780,
     cardPrice: 810,
     cardInstallments: 3,
-    image: "/toxina.png",
+    image: "/images/products/toxina.png",
     section: "Toxina botulínica",
   },
 ];
