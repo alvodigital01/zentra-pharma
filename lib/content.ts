@@ -257,6 +257,15 @@ export const catalogProducts: ReadonlyArray<{
   },
   {
     title: "Retatrutida RetaGen",
+    presentation: "GLP-1 + GIP + Glucagon | 80mg",
+    units: "Ampola única",
+    pixPrice: 1070,
+    cardPrice: 1170,
+    cardInstallments: 5,
+    image: "/retagen80mg.png",
+  },
+  {
+    title: "Retatrutida RetaGen",
     presentation: "GLP-1 + GIP + Glucagon | 120mg",
     units: "Ampola única",
     pixPrice: 1350,
