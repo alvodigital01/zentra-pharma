@@ -286,6 +286,15 @@ export const catalogProducts: ReadonlyArray<{
     image: "/images/products/retatrutidaalluvi.png",
   },
   {
+    title: "Retatrutida Retratutide",
+    presentation: "GLP-1 + GIP + Glucagon | 60mg",
+    units: "Ampola única",
+    pixPrice: 999,
+    cardPrice: 1029,
+    cardInstallments: 5,
+    image: "/images/products/retratutidaretratutide.png",
+  },
+  {
     title: "Retatrutida Nexus",
     presentation: "GLP-1 + GIP + Glucagon",
     pixPrice: 1200,
