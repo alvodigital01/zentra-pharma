@@ -445,6 +445,15 @@ export const catalogProducts: ReadonlyArray<{
     section: "Wolverine Blend",
   },
   {
+    title: "Tizerpatida Lipoless MD",
+    presentation: "GIP + GLP-1 | 60mg",
+    units: "Ampola única",
+    pixPrice: 949,
+    cardPrice: 999,
+    cardInstallments: 5,
+    image: "/images/products/lipolessmd15.jpeg",
+  },
+  {
     title: "Tizerpatida Lipoless",
     presentation: "GIP + GLP-1 | 60mg",
     units: "4 ampolas",
