@@ -31,6 +31,7 @@ const productTabs = [
   "MOSTc",
   "NAD+",
   "HGH-FRAG 176-191",
+  "AOD-9604",
   "CJC-1295 + Ipamorelin",
   "Wolverine Blend",
   "SLU-PP-322",
