@@ -23,6 +23,7 @@ import {
 const productTabs = [
   "Tizerpatida",
   "Retatrutida",
+  "Cagrilintide",
   "Glow Blend",
   "GHK-Cu",
   "Semax",

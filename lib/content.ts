@@ -301,6 +301,20 @@ export const catalogProducts: ReadonlyArray<{
     image: "/images/products/retratutidenexxus-40mg.webp",
   },
   {
+    title: "Cagrilintide",
+    family: "Peptídeo",
+    presentation: "Análogo de amilina | 5mg",
+    benefit:
+      "Auxilia na saciedade e no controle da ingestão alimentar por uma via diferente de GLP-1/GIP.",
+    units: "Ampola única",
+    pixPrice: 499,
+    cardPrice: 547.15,
+    cardInstallments: 5,
+    cardInstallmentPrice: 109.43,
+    image: "/images/products/cagrilintide.png",
+    section: "Cagrilintide",
+  },
+  {
     title: "Tizerpatida TG",
     presentation: "GIP + GLP-1 | 60mg",
     units: "4 ampolas",
@@ -579,6 +593,21 @@ export const productSectionDetails: Partial<Record<string, {
   }[];
   closing?: string;
 }>> = {
+  Cagrilintide: {
+    title: "O que é Cagrilintida?",
+    paragraphs: [
+      "A Cagrilintida é um análogo de ação prolongada da amilina, um hormônio naturalmente envolvido na regulação da saciedade.",
+      "Sua principal função é aumentar a sensação de saciedade e auxiliar no controle da ingestão alimentar, atuando por uma via diferente dos medicamentos que trabalham sobre GLP-1/GIP.",
+      "Por isso, a Cagrilintida vem despertando grande interesse, especialmente por sua possibilidade de complementar estratégias voltadas ao controle do apetite.",
+    ],
+    benefitsTitle: "Principais características",
+    benefits: [
+      "Aumento da sensação de saciedade",
+      "Auxílio no controle da ingestão alimentar",
+      "Atuação por uma via diferente de GLP-1/GIP",
+      "Potencial para complementar estratégias de controle do apetite",
+    ],
+  },
   "Glow Blend": {
     title: "Caneta Glow",
     paragraphs: [
