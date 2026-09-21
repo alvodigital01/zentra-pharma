@@ -194,6 +194,7 @@ export const catalogProducts: ReadonlyArray<{
     cardInstallments: 5,
     cardInstallmentPrice: 701.54,
     image: "/images/products/labs.png",
+    hidden: true,
   },
   {
     title: "Tizerpatida Synedica",
@@ -204,6 +205,7 @@ export const catalogProducts: ReadonlyArray<{
     cardInstallments: 5,
     cardInstallmentPrice: 205.92,
     image: "/images/products/labs1.png",
+    hidden: true,
   },
   {
     title: "Retatrutida Veltrane",
